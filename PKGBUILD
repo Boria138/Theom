@@ -1,5 +1,5 @@
 pkgname="theom"
-pkgver="0.1"
+pkgver="0.2"
 pkgrel="1"
 pkgdesc="Theom desktop environement"
 arch=("x86_64")
@@ -24,6 +24,9 @@ depends=(
   'pipewire-alsa'
   'pipewire-pulse'
   'alsa-utils'
+  'gtk3'
+  'python-gobject'
+  'lxappearance'
 )
 
 url="https://github.com/Byson94/theom"

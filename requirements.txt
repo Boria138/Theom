@@ -15,3 +15,6 @@ pipewire-alsa
 pipewire-pulse
 ttf-firacode-nerd
 alsa-utils
+gtk3
+python-gobject
+lxappearance
