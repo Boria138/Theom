@@ -1,11 +1,11 @@
 format = 2
 pkgname = theom
 pkgbase = theom
-pkgver = 0.1-1
+pkgver = 0.2-1
 pkgarch = x86_64
-pkgbuild_sha256sum = 7cff0d089a4869d0368fcd7b2dd6df670e572ea9b1cb3cd933bee740bc21df74
+pkgbuild_sha256sum = 70b82213bd6891645754d6110bb2c16482d133b2370d5521069f4bb38ebec479
 packager = Unknown Packager
-builddate = 1746789398
+builddate = 1746813336
 builddir = /home/byson94/Documents/Programming/Theom
 startdir = /home/byson94/Documents/Programming/Theom
 buildtool = makepkg
