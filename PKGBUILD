@@ -23,6 +23,8 @@ depends=(
   'libpipewire'
   'pipewire-alsa'
   'pipewire-pulse'
+  'alsa-utils'
+  'ttf-hack-nerd'
 )
 
 url="https://github.com/Byson94/theom"
