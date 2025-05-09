@@ -7,28 +7,9 @@ ln -s /usr/share/theom/config/dunst/dunstrc ~/.config/dunst/dunstrc
 ln -s /usr/share/theom/config/i3/config ~/.config/i3/config
 ln -s /usr/share/theom/config/picom/picom.conf ~/.config/picom/picom.conf
 
-# Picom
-ln -s /usr/share/theom/config/polybar/scripts/rofi/colors.rasi ~/.config/polybar/scripts/rofi/colors.rasi
-ln -s /usr/share/theom/config/polybar/scripts/rofi/confirm.rasi ~/.config/polybar/scripts/rofi/confirm.rasi
-ln -s /usr/share/theom/config/polybar/scripts/rofi/launcher.rasi ~/.config/polybar/scripts/rofi/launcher.rasi
-ln -s /usr/share/theom/config/polybar/scripts/rofi/message.rasi ~/.config/polybar/scripts/rofi/message.rasi
-ln -s /usr/share/theom/config/polybar/scripts/rofi/networkmenu.rasi ~/.config/polybar/scripts/rofi/networkmenu.rasi
-ln -s /usr/share/theom/config/polybar/scripts/rofi/powermenu.rasi ~/.config/polybar/scripts/rofi/powermenu.rasi
-ln -s /usr/share/theom/config/polybar/scripts/rofi/styles.rasi ~/.config/polybar/scripts/rofi/styles.rasi
-ln -s /usr/share/theom/config/polybar/scripts/checkupdates ~/.config/polybar/scripts/checkupdates
-ln -s /usr/share/theom/config/polybar/scripts/launcher.sh ~/.config/polybar/scripts/launcher.sh
-ln -s /usr/share/theom/config/polybar/scripts/powermenu.sh ~/.config/polybar/scripts/powermenu.sh
-ln -s /usr/share/theom/config/polybar/scripts/style-switch.sh ~/.config/polybar/scripts/style-switch.sh
-ln -s /usr/share/theom/config/polybar/scripts/styles.sh ~/.config/polybar/scripts/styles.sh
-ln -s /usr/share/theom/config/polybar/scripts/updates.sh ~/.config/polybar/scripts/updates.sh
-ln -s /usr/share/theom/config/polybar/bars.ini ~/.config/polybar/bars.ini
-ln -s /usr/share/theom/config/polybar/colors.ini ~/.config/polybar/colors.ini
+# Polybar
 ln -s /usr/share/theom/config/polybar/config.ini ~/.config/polybar/config.ini
-ln -s /usr/share/theom/config/polybar/launch.ini ~/.config/polybar/launch.ini
-ln -s /usr/share/theom/config/polybar/modules.ini ~/.config/polybar/modules.ini
-ln -s /usr/share/theom/config/polybar/preview.ini ~/.config/polybar/preview.ini
-ln -s /usr/share/theom/config/polybar/preview.sh ~/.config/polybar/preview.sh
-ln -s /usr/share/theom/config/polybar/user_modules.ini ~/.config/polybar/user_modules.ini
+ln -s /usr/share/theom/config/polybar/launch.sh ~/.config/polybar/launch.sh
 
 # Rofi
 ln -s /usr/share/theom/config/rofi/config.rasi ~/.config/rofi/config.rasi

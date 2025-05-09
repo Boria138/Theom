@@ -17,6 +17,7 @@ depends=(
   'network-manager-applet'
   'dunst'
   'rofi'
+  'feh'
 )
 
 url="https://github.com/Byson94/theom"

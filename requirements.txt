@@ -1,5 +1,6 @@
 i3
 i3-gaps
+feh
 polybar
 alacritty
 picom

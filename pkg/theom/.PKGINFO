@@ -6,9 +6,9 @@ xdata = pkgtype=pkg
 pkgver = 0.1-1
 pkgdesc = Theom desktop environement
 url = https://github.com/Byson94/theom
-builddate = 1746769116
+builddate = 1746780125
 packager = Unknown Packager
-size = 145438
+size = 51981
 arch = x86_64
 license = GPL
 depend = xorg-server
@@ -24,4 +24,5 @@ depend = parcellite
 depend = network-manager-applet
 depend = dunst
 depend = rofi
+depend = feh
 optdepend = ttf-fira-code-nerd: Recommended font for theming
