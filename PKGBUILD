@@ -24,7 +24,6 @@ depends=(
   'pipewire-alsa'
   'pipewire-pulse'
   'alsa-utils'
-  'ttf-icomoon-feather-git'
 )
 
 url="https://github.com/Byson94/theom"
@@ -39,4 +38,7 @@ package() {
     cp -r "$srcdir/share" "$pkgdir/usr/"
 
     install -Dm644 "$srcdir/share/xsessions/theom.desktop" "$pkgdir/usr/share/xsessions/theom.desktop"
+
+    install -Dm644 "$srcdir/share/theom/themes/fonts/feather.ttf" \
+    "$pkgdir/usr/share/fonts/feather.ttf"
 }

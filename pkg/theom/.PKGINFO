@@ -6,9 +6,9 @@ xdata = pkgtype=pkg
 pkgver = 0.1-1
 pkgdesc = Theom desktop environement
 url = https://github.com/Byson94/theom
-builddate = 1746787739
+builddate = 1746789398
 packager = Unknown Packager
-size = 51687
+size = 214711
 arch = x86_64
 license = GPL
 depend = xorg-server
@@ -31,5 +31,4 @@ depend = libpipewire
 depend = pipewire-alsa
 depend = pipewire-pulse
 depend = alsa-utils
-depend = ttf-icomoon-feather-git
 optdepend = mpd: MPD music player
