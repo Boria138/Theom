@@ -24,7 +24,7 @@ depends=(
   'pipewire-alsa'
   'pipewire-pulse'
   'alsa-utils'
-  'ttf-iosevka-nerd'
+  'ttf-icomoon-feather-git'
 )
 
 url="https://github.com/Byson94/theom"

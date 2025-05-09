@@ -15,4 +15,3 @@ pipewire-alsa
 pipewire-pulse
 ttf-firacode-nerd
 alsa-utils
-ttf-iosevka-nerd
