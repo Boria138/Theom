@@ -24,7 +24,7 @@ depends=(
   'pipewire-alsa'
   'pipewire-pulse'
   'alsa-utils'
-  'ttf-hack-nerd'
+  'ttf-iosevka-nerd'
 )
 
 url="https://github.com/Byson94/theom"
