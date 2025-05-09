@@ -1,0 +1,11 @@
+i3
+i3-gaps
+polybar
+alacritty
+picom
+flameshot
+parcellite
+nm-applet
+dunst
+rofi
+FiraCode Nerd Font
