@@ -9,4 +9,8 @@ parcellite
 nm-applet
 dunst
 rofi
-FiraCode Nerd Font
+pipewire
+libpipewire
+pipewire-alsa
+pipewire-pulse
+ttf-firacode-nerd

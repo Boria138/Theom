@@ -19,12 +19,16 @@ depends=(
   'rofi'
   'feh'
   'ttf-firacode-nerd'
+  'pipewire'
+  'libpipewire'
+  'pipewire-alsa'
+  'pipewire-pulse'
 )
 
 url="https://github.com/Byson94/theom"
 license=('GPL')
 
-optdepends=('ttf-fira-code-nerd: Recommended font for theming')
+optdepends=('mpd: MPD music player')
 
 package() {
     mkdir -p "${pkgdir}/usr/"
