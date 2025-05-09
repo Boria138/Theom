@@ -1,6 +1,6 @@
 #!/bin/sh
 
-mkdir -p ~/.config/alacritty ~/.config/dunst ~/.config/i3 ~/.config/picom ~/.config/polybar/scripts/rofi ~/.config/rofi
+mkdir -p ~/.config/alacritty ~/.config/dunst ~/.config/i3 ~/.config/picom ~/.config/polybar ~/.config/rofi
 
 ln -s /usr/share/theom/config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
 ln -s /usr/share/theom/config/dunst/dunstrc ~/.config/dunst/dunstrc
