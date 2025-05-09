@@ -18,6 +18,7 @@ depends=(
   'dunst'
   'rofi'
   'feh'
+  'ttf-firacode-nerd'
 )
 
 url="https://github.com/Byson94/theom"
