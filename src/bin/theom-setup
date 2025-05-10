@@ -16,21 +16,21 @@ ln -s /usr/share/theom/config/rofi/config.rasi ~/.config/rofi/config.rasi
 ln -s /usr/share/theom/config/rofi/colors.rasi ~/.config/rofi/colors.rasi
 
 # Grant read/write permissions
-chmod u+rw ~/.config/alacritty/alacritty.toml
-chmod u+rw ~/.config/dunst/dunstrc
-chmod u+rw ~/.config/i3/config
-chmod u+rw ~/.config/picom/picom.conf
-chmod u+rw ~/.config/polybar/config.ini
-chmod u+rw ~/.config/polybar/launch.sh
-chmod u+rw ~/.config/rofi/config.rasi
-chmod u+rw ~/.config/rofi/colors.rasi
+sudo chmod u+rw /usr/share/theom/config/alacritty/alacritty.toml
+sudo chmod u+rw /usr/share/theom/config/dunst/dunstrc
+sudo chmod u+rw /usr/share/theom/config/i3/config
+sudo chmod u+rw /usr/share/theom/config/picom/picom.conf
+sudo chmod u+rw /usr/share/theom/config/polybar/config.ini
+sudo chmod u+rw /usr/share/theom/config/polybar/launch.sh
+sudo chmod u+rw /usr/share/theom/config/rofi/config.rasi
+sudo chmod u+rw /usr/share/theom/config/rofi/colors.rasi
 
-# Ensure user ownership
-chown $USER:$USER ~/.config/alacritty/alacritty.toml
-chown $USER:$USER ~/.config/dunst/dunstrc
-chown $USER:$USER ~/.config/i3/config
-chown $USER:$USER ~/.config/picom/picom.conf
-chown $USER:$USER ~/.config/polybar/config.ini
-chown $USER:$USER ~/.config/polybar/launch.sh
-chown $USER:$USER ~/.config/rofi/config.rasi
-chown $USER:$USER ~/.config/rofi/colors.rasi
+
+sudo chown $USER:$USER /usr/share/theom/config/alacritty/alacritty.toml
+sudo chown $USER:$USER /usr/share/theom/config/dunst/dunstrc
+sudo chown $USER:$USER /usr/share/theom/config/i3/config
+sudo chown $USER:$USER /usr/share/theom/config/picom/picom.conf
+sudo chown $USER:$USER /usr/share/theom/config/polybar/config.ini
+sudo chown $USER:$USER /usr/share/theom/config/polybar/launch.sh
+sudo chown $USER:$USER /usr/share/theom/config/rofi/config.rasi
+sudo chown $USER:$USER /usr/share/theom/config/rofi/colors.rasi
