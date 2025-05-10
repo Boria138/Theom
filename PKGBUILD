@@ -24,7 +24,7 @@ depends=(
   'pipewire-alsa'
   'pipewire-pulse'
   'alsa-utils'
-  'gtk3'
+  'python-pyqt6'
   'python-gobject'
   'lxappearance'
 )

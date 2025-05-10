@@ -15,6 +15,6 @@ pipewire-alsa
 pipewire-pulse
 ttf-firacode-nerd
 alsa-utils
-gtk3
+python-pyqt6
 python-gobject
 lxappearance

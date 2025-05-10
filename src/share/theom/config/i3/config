@@ -32,7 +32,7 @@ bindsym $mod+minus move scratchpad
 bindsym $mod+Shift+minus scratchpad show
 
 # Background & Polybar startup
-exec_always --no-startup-id feh --bg-scale /usr/share/theom/wallpapers/Minimal-Nord.png
+exec_always --no-startup-id feh --bg-scale /usr/share/backgrounds/theom/Minimal-Nord.png
 exec_always --no-startup-id  ~/.config/polybar/launch.sh
 
 # Notification daemon

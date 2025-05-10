@@ -26,7 +26,7 @@ class SettingsApp(QWidget):
     def __init__(self):
         super().__init__()
 
-        self.setWindowTitle("KDE Plasma Settings")
+        self.setWindowTitle("Theom Settings")
         self.resize(800, 500)
         self.selected_wallpaper_label = None
         self.selected_wallpaper_path = None
