@@ -2,35 +2,12 @@
 
 mkdir -p ~/.config/alacritty ~/.config/dunst ~/.config/i3 ~/.config/picom ~/.config/polybar ~/.config/rofi
 
-ln -s /usr/share/theom/config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
-ln -s /usr/share/theom/config/dunst/dunstrc ~/.config/dunst/dunstrc
-ln -s /usr/share/theom/config/i3/config ~/.config/i3/config
-ln -s /usr/share/theom/config/picom/picom.conf ~/.config/picom/picom.conf
-
-# Polybar
-ln -s /usr/share/theom/config/polybar/config.ini ~/.config/polybar/config.ini
-ln -s /usr/share/theom/config/polybar/launch.sh ~/.config/polybar/launch.sh
-
-# Rofi
-ln -s /usr/share/theom/config/rofi/config.rasi ~/.config/rofi/config.rasi
-ln -s /usr/share/theom/config/rofi/colors.rasi ~/.config/rofi/colors.rasi
-
-# Grant read/write permissions
-sudo chmod u+rw /usr/share/theom/config/alacritty/alacritty.toml
-sudo chmod u+rw /usr/share/theom/config/dunst/dunstrc
-sudo chmod u+rw /usr/share/theom/config/i3/config
-sudo chmod u+rw /usr/share/theom/config/picom/picom.conf
-sudo chmod u+rw /usr/share/theom/config/polybar/config.ini
-sudo chmod u+rw /usr/share/theom/config/polybar/launch.sh
-sudo chmod u+rw /usr/share/theom/config/rofi/config.rasi
-sudo chmod u+rw /usr/share/theom/config/rofi/colors.rasi
-
-
-sudo chown $USER:$USER /usr/share/theom/config/alacritty/alacritty.toml
-sudo chown $USER:$USER /usr/share/theom/config/dunst/dunstrc
-sudo chown $USER:$USER /usr/share/theom/config/i3/config
-sudo chown $USER:$USER /usr/share/theom/config/picom/picom.conf
-sudo chown $USER:$USER /usr/share/theom/config/polybar/config.ini
-sudo chown $USER:$USER /usr/share/theom/config/polybar/launch.sh
-sudo chown $USER:$USER /usr/share/theom/config/rofi/config.rasi
-sudo chown $USER:$USER /usr/share/theom/config/rofi/colors.rasi
+# Copy files from /usr/share to user's config dir
+cp /usr/share/theom/config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
+cp /usr/share/theom/config/dunst/dunstrc ~/.config/dunst/dunstrc
+cp /usr/share/theom/config/i3/config ~/.config/i3/config
+cp /usr/share/theom/config/picom/picom.conf ~/.config/picom/picom.conf
+cp /usr/share/theom/config/polybar/config.ini ~/.config/polybar/config.ini
+cp /usr/share/theom/config/polybar/launch.sh ~/.config/polybar/launch.sh
+cp /usr/share/theom/config/rofi/config.rasi ~/.config/rofi/config.rasi
+cp /usr/share/theom/config/rofi/colors.rasi ~/.config/rofi/colors.rasi
