@@ -34,5 +34,8 @@
 - pipewire-alsa
 - pipewire-pulse
 - alsa-utils
-- gtk3
 - python-gobject
+- qt6-base
+- python
+- python-pyqt6
+- python-pyqt6-sip

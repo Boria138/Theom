@@ -25,8 +25,11 @@ depends=(
   'pipewire-pulse'
   'alsa-utils'
   'python-pyqt6'
+  'qt6-base'
   'python-gobject'
   'lxappearance'
+  'python-pyqt6-sip'
+  'python'
 )
 
 url="https://github.com/Byson94/theom"
