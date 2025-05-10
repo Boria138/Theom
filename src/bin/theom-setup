@@ -2,12 +2,22 @@
 
 mkdir -p ~/.config/alacritty ~/.config/dunst ~/.config/i3 ~/.config/picom ~/.config/polybar ~/.config/rofi
 
-# Copy files from /usr/share to user's config dir
-cp /usr/share/theom/config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
-cp /usr/share/theom/config/dunst/dunstrc ~/.config/dunst/dunstrc
-cp /usr/share/theom/config/i3/config ~/.config/i3/config
-cp /usr/share/theom/config/picom/picom.conf ~/.config/picom/picom.conf
-cp /usr/share/theom/config/polybar/config.ini ~/.config/polybar/config.ini
-cp /usr/share/theom/config/polybar/launch.sh ~/.config/polybar/launch.sh
-cp /usr/share/theom/config/rofi/config.rasi ~/.config/rofi/config.rasi
-cp /usr/share/theom/config/rofi/colors.rasi ~/.config/rofi/colors.rasi
+# Alacritty
+[ ! -f ~/.config/alacritty/alacritty.toml ] && cp /usr/share/theom/config/alacritty/alacritty.toml ~/.config/alacritty/
+
+# Dunst
+[ ! -f ~/.config/dunst/dunstrc ] && cp /usr/share/theom/config/dunst/dunstrc ~/.config/dunst/
+
+# i3
+[ ! -f ~/.config/i3/config ] && cp /usr/share/theom/config/i3/config ~/.config/i3/
+
+# Picom
+[ ! -f ~/.config/picom/picom.conf ] && cp /usr/share/theom/config/picom/picom.conf ~/.config/picom/
+
+# Polybar
+[ ! -f ~/.config/polybar/config.ini ] && cp /usr/share/theom/config/polybar/config.ini ~/.config/polybar/
+[ ! -f ~/.config/polybar/launch.sh ] && cp /usr/share/theom/config/polybar/launch.sh ~/.config/polybar/
+
+# Rofi
+[ ! -f ~/.config/rofi/config.rasi ] && cp /usr/share/theom/config/rofi/config.rasi ~/.config/rofi/
+[ ! -f ~/.config/rofi/colors.rasi ] && cp /usr/share/theom/config/rofi/colors.rasi ~/.config/rofi/
