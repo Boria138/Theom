@@ -21,3 +21,5 @@ lxappearance
 qt6-base
 python
 python-pyqt6-sip
+pcmanfm
+materia-gtk-theme

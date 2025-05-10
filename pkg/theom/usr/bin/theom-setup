@@ -1,6 +1,6 @@
 #!/bin/sh
 
-mkdir -p ~/.config/alacritty ~/.config/dunst ~/.config/i3 ~/.config/picom ~/.config/polybar ~/.config/rofi
+mkdir -p ~/.config/alacritty ~/.config/dunst ~/.config/i3 ~/.config/picom ~/.config/polybar ~/.config/rofi ~/.config/.theom
 
 # Alacritty
 [ ! -f ~/.config/alacritty/alacritty.toml ] && cp /usr/share/theom/config/alacritty/alacritty.toml ~/.config/alacritty/
@@ -21,3 +21,6 @@ mkdir -p ~/.config/alacritty ~/.config/dunst ~/.config/i3 ~/.config/picom ~/.con
 # Rofi
 [ ! -f ~/.config/rofi/config.rasi ] && cp /usr/share/theom/config/rofi/config.rasi ~/.config/rofi/
 [ ! -f ~/.config/rofi/colors.rasi ] && cp /usr/share/theom/config/rofi/colors.rasi ~/.config/rofi/
+
+# Theom
+[ ! -f ~/.config/.theom/config.json ] && cp /usr/share/theom/config/.theom/config.json ~/.config/.theom/
