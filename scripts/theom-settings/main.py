@@ -1,150 +1,269 @@
 #!/usr/bin/env python3
 
-import gi
+import sys
+import os
+import re
 import subprocess
+from PyQt6.QtCore import Qt
+from PyQt6.QtGui import QPixmap, QMouseEvent
+from PyQt6.QtWidgets import (
+    QApplication, QWidget, QVBoxLayout, QHBoxLayout,
+    QPushButton, QStackedWidget, QSpacerItem, QSizePolicy,
+    QListWidget, QLineEdit, QLabel, QGridLayout, QFrame, QScrollArea
+)
 
-gi.require_version('Gtk', '3.0')
-from gi.repository import Gtk, Gdk, GLib
+class ClickableLabel(QLabel):
+    def __init__(self, parent=None, app_ref=None):
+        super().__init__(parent)
+        self.path = None
+        self.app_ref = app_ref
 
-class SettingsHub(Gtk.Window):
+    def mousePressEvent(self, event: QMouseEvent):
+        if self.app_ref:
+            self.app_ref.on_wallpaper_selected(self)
+
+class SettingsApp(QWidget):
     def __init__(self):
-        super().__init__(title="Theom Settings")
-        self.connect("button-press-event", self.on_window_click)
-        self.set_default_size(600, 400)
-        self.set_resizable(False)
-        self.connect("destroy", Gtk.main_quit)
-        self.get_style_context().add_class("main-window")
+        super().__init__()
 
-        vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
-        vbox.set_homogeneous(False)
-        vbox.set_hexpand(False)
-        self.add(vbox)
+        self.setWindowTitle("KDE Plasma Settings")
+        self.resize(800, 500)
+        self.selected_wallpaper_label = None
+        self.selected_wallpaper_path = None
+
+        main_layout = QHBoxLayout(self)
+        main_layout.setContentsMargins(0, 0, 0, 0)
+        main_layout.setSpacing(0)
+
+        sidebar_layout = QVBoxLayout()
+        sidebar_layout.setContentsMargins(10, 10, 10, 10)
+        sidebar_layout.setSpacing(10)
+
+        self.sidebar = QListWidget()
+        self.sidebar.setSpacing(10)
+        self.sidebar.addItems(["Appearance", "Wallpapers"])
+        self.sidebar.currentItemChanged.connect(self.on_sidebar_item_selected)
+        sidebar_layout.addWidget(self.sidebar, stretch=1)
+
+        sidebar_layout.addSpacerItem(QSpacerItem(
+            0, 0, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding))
+
+        sidebar_widget = QWidget()
+        sidebar_widget.setLayout(sidebar_layout)
+        sidebar_widget.setMinimumWidth(160)
+
+        self.content_area = QStackedWidget()
+        self.content_area.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+
+        self.appearance_page = QWidget()
+        appearance_layout = QVBoxLayout(self.appearance_page)
+        appearance_layout.setContentsMargins(20, 20, 20, 20)
+        appearance_layout.setSpacing(15)
+        appearance_label = QLabel("Appearance Settings")
+        appearance_button = QPushButton("Open LXAppearance")
+        appearance_button.clicked.connect(self.launch_lxappearance)
+        appearance_layout.addWidget(appearance_label)
+        appearance_layout.addWidget(appearance_button)
+        appearance_layout.addStretch()
+
+        self.wallpapers_page = QWidget()
+        wallpaper_layout = QVBoxLayout(self.wallpapers_page)
+        wallpaper_layout.setContentsMargins(20, 20, 20, 20)
+        wallpaper_layout.setSpacing(15)
+        wallpaper_label = QLabel("Wallpapers")
+        wallpaper_layout.addWidget(wallpaper_label)
+
+        # Create a QGridLayout for the wallpapers
+        wallpaper_grid = QGridLayout()
+        wallpaper_dir = '~/usr/share/backgrounds/theom/'
+        wallpaper_dir = os.path.expanduser(wallpaper_dir)
+        if os.path.exists(wallpaper_dir):
+            wallpaper_files = [f for f in os.listdir(wallpaper_dir)
+                               if f.lower().endswith(('.jpg', '.png', '.jpeg', '.bmp'))]
+            row, col = 0, 0
+            for wallpaper in wallpaper_files:
+                wallpaper_path = os.path.join(wallpaper_dir, wallpaper)
+                pixmap = QPixmap(wallpaper_path).scaled(150, 150, Qt.AspectRatioMode.KeepAspectRatio)
+
+                label_frame = QFrame()
+                label_frame.setFrameShape(QFrame.Shape.StyledPanel)
+                label_frame.setStyleSheet("QFrame { border: 2px solid transparent; border-radius: 4px; }")
+
+                label = ClickableLabel(label_frame, app_ref=self)
+
+                label.setPixmap(pixmap)
+                label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+                label.path = wallpaper_path
+
+                label_layout = QVBoxLayout(label_frame)
+                label_layout.setContentsMargins(0, 0, 0, 0)
+                label_layout.addWidget(label)
+
+                wallpaper_grid.addWidget(label_frame, row, col)
+                col += 1
+                if col > 3:
+                    col = 0
+                    row += 1
+
+        # Create a QScrollArea for the wallpaper grid
+        scroll_area = QScrollArea()
+        scroll_area.setWidgetResizable(True)  # Ensures the content expands
+        wallpaper_widget = QWidget()
+        wallpaper_widget.setLayout(wallpaper_grid)
+        scroll_area.setWidget(wallpaper_widget)
+
+        # Add the scroll area to the wallpaper layout
+        wallpaper_layout.addWidget(scroll_area)
+
+        self.set_wallpaper_button = QPushButton("Set Wallpaper")
+        self.set_wallpaper_button.setEnabled(False)
+        self.set_wallpaper_button.setFixedHeight(50)
+        self.set_wallpaper_button.clicked.connect(self.set_selected_wallpaper)
+        wallpaper_layout.addWidget(self.set_wallpaper_button)
+
+        self.content_area.addWidget(self.appearance_page)
+        self.content_area.addWidget(self.wallpapers_page)
+
+        main_layout.addWidget(sidebar_widget)
+        main_layout.addWidget(self.content_area, 1)
+
+        self.setLayout(main_layout)
+        self.sidebar.setCurrentRow(0)
+
+    def on_wallpaper_selected(self, clicked_label):
+        if self.selected_wallpaper_label:
+            self.selected_wallpaper_label.parent().setStyleSheet(
+                "QFrame { border: 2px solid transparent; border-radius: 4px; }")
+
+        self.selected_wallpaper_label = clicked_label
+        self.selected_wallpaper_path = clicked_label.path
+        clicked_label.parent().setStyleSheet(
+            "QFrame { border: 2px solid #888; border-radius: 4px; }")
+
+        self.set_wallpaper_button.setEnabled(True)
 
 
-        header = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
-        header.set_halign(Gtk.Align.END)
-        header.set_margin_top(10)
-        header.set_margin_right(10)
-        header.set_margin_bottom(10)
-        vbox.pack_start(header, False, False, 0)
+    def mousePressEvent(self, event):
+        if self.selected_wallpaper_label:
+            self.selected_wallpaper_label.parent().setStyleSheet(
+                "QFrame { border: 2px solid transparent; border-radius: 4px; }")
+            self.selected_wallpaper_label = None
+            self.selected_wallpaper_path = None
+            self.set_wallpaper_button.setEnabled(False)
 
-        self.search_entry = Gtk.Entry()
-        self.search_entry.set_placeholder_text("Search settings...")
-        self.search_entry.set_width_chars(25)
-        self.search_entry.connect("changed", self.on_search_changed)
-        self.search_entry.get_style_context().add_class("search-entry")
-        header.pack_end(self.search_entry, False, False, 0)
 
-        self.hidden_entry = Gtk.Entry()
-        self.hidden_entry.set_visible(False)
-        self.hidden_entry.set_no_show_all(True)
-        vbox.pack_start(self.hidden_entry, False, False, 0)
-
-        self.icon_grid = Gtk.FlowBox()
-        self.icon_grid.set_max_children_per_line(4)
-        self.icon_grid.set_selection_mode(Gtk.SelectionMode.NONE)
-        self.icon_grid.set_column_spacing(20)
-        self.icon_grid.set_row_spacing(20)
-        self.icon_grid.set_margin_top(20)
-        self.icon_grid.set_margin_left(20)
-        self.icon_grid.set_margin_right(20)
-        self.icon_grid.set_halign(Gtk.Align.START)
-        vbox.pack_start(self.icon_grid, False, False, 0)
-
-        self.settings_buttons = []
-        self.add_icon_button("Appearance", "preferences-desktop-theme", self.launch_lxappearance)
-
-        self.apply_theme()
-
-    def on_window_click(self, widget, event):
-        allocation = self.search_entry.get_allocation()
-
-        if not (allocation.x <= event.x <= allocation.x + allocation.width and
-                allocation.y <= event.y <= allocation.y + allocation.height):
-            self.hidden_entry.grab_focus()
-
-    def add_icon_button(self, label_text, icon_name, callback):
-        box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=4)
-        box.set_halign(Gtk.Align.CENTER)
-        box.set_valign(Gtk.Align.CENTER)
-        box.set_margin_top(10)
-        box.set_margin_bottom(10)
-        box.set_margin_start(10)
-        box.set_margin_end(10)
-
-        icon = Gtk.Image.new_from_icon_name(icon_name, Gtk.IconSize.BUTTON)
-        label = Gtk.Label(label=label_text)
-        label.set_justify(Gtk.Justification.CENTER)
-
-        event_box = Gtk.EventBox()
-        event_box.add(box)
-        event_box.connect("button-press-event", lambda w, e: callback())
-        event_box.get_style_context().add_class("icon-button")
-
-        box.pack_start(icon, False, False, 0)
-        box.pack_start(label, False, False, 0)
-
-        self.icon_grid.add(event_box)
-        self.settings_buttons.append((label_text.lower(), event_box))
-
-    def on_search_changed(self, entry):
-        text = entry.get_text().lower()
-        for label, widget in self.settings_buttons:
-            widget.set_visible(text in label)
+    def on_sidebar_item_selected(self, current, previous):
+        if not current:
+            return
+        match current.text():
+            case "Appearance":
+                self.content_area.setCurrentWidget(self.appearance_page)
+            case "Wallpapers":
+                self.content_area.setCurrentWidget(self.wallpapers_page)
 
     def launch_lxappearance(self):
-        subprocess.Popen(["lxappearance"])
-
-    def apply_theme(self):
-        provider = Gtk.CssProvider()
-        css = """
-        .main-window {
-            background-color: #1e1e1e;
-        }
-
-        .search-entry {
-            padding: 6px;
-            border-radius: 8px;
-            background-color: #2c2c2c;
-            color: #ffffff;
-            margin-top: 10px;
-            margin-right: 10px;
-            margin-bottom: 10px;
-            margin-left: 10px;
-        }
-
-        .icon-button {
-            border-radius: 10px;
-            background-color: #2e2e2e;
-            padding: 6px;
-            margin-top: 20px;
-            margin-left: 20px;
-            margin-right: 20px;
-            margin-bottom: 20px;
-        }
-
-        .icon-button:hover {
-            background-color: #3d3d3d;
-        }
-
-        .icon-button GtkLabel {
-            color: #ffffff;
-            font-size: 14px;
-        }
-        """
-
         try:
-            provider.load_from_data(css.encode("utf-8"))
-        except GLib.Error as e:
-            print(f"CSS load error: {e.message}")
+            subprocess.Popen(["lxappearance"])
+        except FileNotFoundError:
+            print("lxappearance is not installed or not in PATH.")
 
-        Gtk.StyleContext.add_provider_for_screen(
-            Gdk.Screen.get_default(),
-            provider,
-            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
-        )
+    def set_selected_wallpaper(self):
+        if self.selected_wallpaper_path:
+            self.set_wallpaper(self.selected_wallpaper_path)
+
+            # Clear selection after setting wallpaper
+            if self.selected_wallpaper_label:
+                self.selected_wallpaper_label.parent().setStyleSheet(
+                    "QFrame { border: 2px solid transparent; border-radius: 4px; }")
+
+            self.selected_wallpaper_label = None
+            self.selected_wallpaper_path = None
+            self.set_wallpaper_button.setEnabled(False)
+
+
+    def set_wallpaper(self, wallpaper):
+        print(f"Setting wallpaper: {wallpaper}")
+        config_path = os.path.expanduser('~/.config/i3/config')
+
+        pattern = re.compile(r'^(exec_always\s+--no-startup-id\s+feh\s+--bg-scale\s+)(\S+)', re.IGNORECASE)
+
+        with open(config_path, 'r') as file:
+            lines = file.readlines()
+
+        updated_lines = []
+        for line in lines:
+            match = pattern.match(line.strip())
+            if match:
+                new_line = match.group(1) + wallpaper + '\n'
+                updated_lines.append(new_line)
+            else:
+                updated_lines.append(line)
+
+        with open(config_path, 'w') as file:
+            file.writelines(updated_lines)
+
+        os.system("feh --bg-scale " + wallpaper)
 
 if __name__ == "__main__":
-    app = SettingsHub()
-    app.show_all()
-    Gtk.main()
+    app = QApplication(sys.argv)
+    app.setStyle("Fusion")
+    app.setStyleSheet("""
+        QWidget {
+            background-color: #2e2e2e;
+            color: #ffffff;
+        }
+        QListWidget {
+            background-color: #3b3b3b;
+            border: none;
+        }
+        QListWidget::item {
+            padding: 10px;
+            margin: 2px 0;
+        }
+        QListWidget::item:selected {
+            background-color: #005c8a;
+        }
+        QLineEdit {
+            background-color: #4c4c4c;
+            border: 1px solid #666;
+            border-radius: 4px;
+            padding: 8px;
+        }
+        QPushButton {
+            background-color: #0078d7;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        QPushButton:disabled {
+            background-color: #555;
+            color: #999;
+        }
+        QPushButton:hover {
+            background-color: #0066bb;
+        }
+        QLabel {
+            font-size: 18px;
+        }
+        QScrollArea {
+            border: none;
+        }
+        QScrollBar:vertical {
+            border: none;
+            background: #444;
+            width: 10px;
+            margin: 0px;
+            border-radius: 5px;
+        }
+        QScrollBar::handle:vertical {
+            background: #666;
+            min-height: 30px;
+            border-radius: 5px;
+        }
+        QScrollBar::handle:vertical:hover {
+            background: #888;
+        }
+    """)
+
+    window = SettingsApp()
+    window.show()
+    sys.exit(app.exec())
