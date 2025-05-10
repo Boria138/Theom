@@ -75,7 +75,7 @@ class SettingsApp(QWidget):
 
         # Create a QGridLayout for the wallpapers
         wallpaper_grid = QGridLayout()
-        wallpaper_dir = '~/usr/share/backgrounds/theom/'
+        wallpaper_dir = '/usr/share/backgrounds/theom/'
         wallpaper_dir = os.path.expanduser(wallpaper_dir)
         if os.path.exists(wallpaper_dir):
             wallpaper_files = [f for f in os.listdir(wallpaper_dir)
