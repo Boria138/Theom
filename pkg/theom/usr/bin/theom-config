@@ -9,8 +9,8 @@ def isConfigTrue(value):
         theom_config_string = theom_config_path.read()
         theom_config = json.loads(theom_config_string)
     
-    if theom_config.get(str(value)) == True:
-        return "True"
+    if theom_config.get(str(value)):
+        return theom_config.get(str(value))
     else:
         return "False"
 
@@ -24,5 +24,7 @@ else:
             print(isConfigTrue("compositioning"))
         case "welcomer":
             print(isConfigTrue("welcomer"))
+        case "wallpaper":
+            print(isConfigTrue("wallpaper"))
         case _:
             print("ERROR: invalid command")
