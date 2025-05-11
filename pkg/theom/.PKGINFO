@@ -6,9 +6,9 @@ xdata = pkgtype=pkg
 pkgver = 0.2-1
 pkgdesc = Theom desktop environement
 url = https://github.com/Byson94/theom
-builddate = 1746870634
+builddate = 1746942590
 packager = Unknown Packager
-size = 11043852
+size = 11043772
 arch = x86_64
 license = GPL
 depend = xorg-server
