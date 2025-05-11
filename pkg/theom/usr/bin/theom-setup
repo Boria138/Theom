@@ -9,10 +9,10 @@ mkdir -p ~/.config/alacritty ~/.config/dunst ~/.config/i3 ~/.config/picom ~/.con
 [ ! -f ~/.config/dunst/dunstrc ] && cp /usr/share/theom/config/dunst/dunstrc ~/.config/dunst/
 
 # i3
-[ ! -f ~/.config/i3/config ] && cp /usr/share/theom/config/i3/config ~/.config/i3/
+#[ ! -f ~/.config/i3/config ] && cp /usr/share/theom/config/i3/config ~/.config/i3/
 
 # Picom
-[ ! -f ~/.config/picom/picom.conf ] && cp /usr/share/theom/config/picom/picom.conf ~/.config/picom/
+#[ ! -f ~/.config/picom/picom.conf ] && cp /usr/share/theom/config/picom/picom.conf ~/.config/picom/
 
 # Polybar
 [ ! -f ~/.config/polybar/config.ini ] && cp /usr/share/theom/config/polybar/config.ini ~/.config/polybar/

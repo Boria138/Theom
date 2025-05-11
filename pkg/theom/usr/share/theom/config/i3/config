@@ -32,7 +32,8 @@ bindsym $mod+minus move scratchpad
 bindsym $mod+Shift+minus scratchpad show
 
 # Background & Polybar startup
-exec_always --no-startup-id feh --bg-scale /usr/share/backgrounds/theom/Minimal-Nord.png
+#exec_always --no-startup-id feh --bg-scale /usr/share/backgrounds/theom/Minimal-Nord.png
+exec_always --no-startup-id bash -c 'if [ "$(theom-config wallpaper | tr -d "[:space:]")" != "False" ]; then feh --bg-scale $(theom-config wallpaper); fi'
 exec_always --no-startup-id  ~/.config/polybar/launch.sh
 
 # Notification daemon
@@ -40,8 +41,8 @@ exec_always --no-startup-id dunst
 
 # Picom renderer
 # exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
-# Check if compositioning is enabled in the config only then run this. Uncomment the above line comment the line below so that the compositor is always active. You can keep the "compositioning" value in ~/.config/.theom/config.json true aswell so that picom will run always.
-exec_always --no-startup-id bash -c 'if [ "$(theom-config compositor | tr -d "[:space:]")" = "True" ]; then picom --config ~/.config/picom/picom.conf; fi'
+# Check if compositioning is enabled in the config only then run this.
+exec_always --no-startup-id bash -c 'if [ "$(theom-config compositor | tr -d "[:space:]")" = "True" ]; then picom --config /usr/share/theom/config/picom/picom.conf; fi'
 
 # rofi search
 bindsym $mod+d exec rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/rofi/config.rasi
