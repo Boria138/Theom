@@ -83,14 +83,19 @@ class WelcomeApp(QWidget):
 
         layout.addSpacerItem(QSpacerItem(20, 10, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed))
 
-        explore_label = self.create_label("Explore Features:", Qt.AlignmentFlag.AlignLeft)
+        explore_label = self.create_label("Set up your desktop:", Qt.AlignmentFlag.AlignLeft)
         explore_label.setStyleSheet("color: #333333; font-size: 16px; font-weight: bold;")
         layout.addWidget(explore_label)
 
+
+        layout.addLayout(self.create_compositioning_checkbox())
+
         layout.addWidget(self.create_feature_list())
         layout.addSpacerItem(QSpacerItem(20, 10, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding))
+
         layout.addLayout(self.create_checkbox_row())
         layout.addSpacerItem(QSpacerItem(20, 10, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed))
+        
         layout.addWidget(self.create_exit_button(), alignment=Qt.AlignmentFlag.AlignCenter)
 
         return container
@@ -152,21 +157,33 @@ class WelcomeApp(QWidget):
         if os.path.exists(CONFIG_PATH):
             try:
                 with open(CONFIG_PATH, 'r') as f:
-                    return json.load(f)
+                    config = json.load(f)
+                    
+                    if 'welcomer' not in config:
+                        config['welcomer'] = True
+                    if 'compositioning' not in config:
+                        config['compositioning'] = False 
+
+                    return config
             except json.JSONDecodeError:
                 print("Failed to parse config.json")
-        return {"welcomer": True}
+        
+        return {"welcomer": True, "compositioning": False}
 
-    def update_config(self, welcomer_value: bool):
+    def update_config(self, key, value):
         os.makedirs(os.path.dirname(CONFIG_PATH), exist_ok=True)
         config = self.config
-        config['welcomer'] = welcomer_value
+        config[key] = value
         with open(CONFIG_PATH, 'w') as f:
             json.dump(config, f, indent=4)
 
     def on_checkbox_changed(self, state):
         show_again = state != Qt.CheckState.Checked.value
-        self.update_config(welcomer_value=show_again)
+        self.update_config("welcomer", show_again)
+
+    def on_compositioning_checkbox_changed(self, state):
+        enable_compositing = state == Qt.CheckState.Checked.value
+        self.update_config("compositioning", enable_compositing)
 
     def create_checkbox_row(self):
         layout = QHBoxLayout()
@@ -175,6 +192,15 @@ class WelcomeApp(QWidget):
         self.dont_show_checkbox.setChecked(not self.config.get("welcomer", True))
         self.dont_show_checkbox.stateChanged.connect(self.on_checkbox_changed)
         layout.addWidget(self.dont_show_checkbox)
+        return layout
+
+    def create_compositioning_checkbox(self):
+        layout = QHBoxLayout()
+        self.compositioning_checkbox = QCheckBox("Enable compositing")
+        self.compositioning_checkbox.setChecked(self.config.get("compositioning", False))
+        self.compositioning_checkbox.stateChanged.connect(self.on_compositioning_checkbox_changed)
+        self.compositioning_checkbox.setStyleSheet("padding-left: 10px;")
+        layout.addWidget(self.compositioning_checkbox)
         return layout
 
     def create_exit_button(self):

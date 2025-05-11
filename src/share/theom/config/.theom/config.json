@@ -1,3 +1,4 @@
 {
-  "welcomer": false
+  "welcomer": true,
+  "compositioning": false
 }
