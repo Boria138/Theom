@@ -2,6 +2,7 @@
 
 import sys
 import os
+import json
 import re
 import subprocess
 from PyQt6.QtCore import Qt
@@ -183,26 +184,24 @@ class SettingsApp(QWidget):
 
     def set_wallpaper(self, wallpaper):
         print(f"Setting wallpaper: {wallpaper}")
-        config_path = os.path.expanduser('~/.config/i3/config')
+        config_json_path = os.path.expanduser('~/.config/.theom/config.json')
 
-        pattern = re.compile(r'^(exec_always\s+--no-startup-id\s+feh\s+--bg-scale\s+)(\S+)', re.IGNORECASE)
+        if os.path.exists(config_json_path):
+            with open(config_json_path, 'r') as file:
+                try:
+                    config_data = json.load(file)
+                except json.JSONDecodeError:
+                    print("Error: config.json is not valid JSON.")
+                    return
+        else:
+            config_data = {}
 
-        with open(config_path, 'r') as file:
-            lines = file.readlines()
+        config_data['wallpaper'] = wallpaper
 
-        updated_lines = []
-        for line in lines:
-            match = pattern.match(line.strip())
-            if match:
-                new_line = match.group(1) + wallpaper + '\n'
-                updated_lines.append(new_line)
-            else:
-                updated_lines.append(line)
+        with open(config_json_path, 'w') as file:
+            json.dump(config_data, file, indent=4)
 
-        with open(config_path, 'w') as file:
-            file.writelines(updated_lines)
-
-        os.system("feh --bg-scale " + wallpaper)
+        os.system(f"feh --bg-scale '{wallpaper}'")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
