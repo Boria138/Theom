@@ -191,6 +191,7 @@ class WelcomeApp(QWidget):
         self.dont_show_checkbox = QCheckBox("Don't show this again")
         self.dont_show_checkbox.setChecked(not self.config.get("welcomer", True))
         self.dont_show_checkbox.stateChanged.connect(self.on_checkbox_changed)
+        self.dont_show_checkbox.setToolTip("Don't show this window again while launching theom.")
         layout.addWidget(self.dont_show_checkbox)
         return layout
 
@@ -200,6 +201,7 @@ class WelcomeApp(QWidget):
         self.compositioning_checkbox.setChecked(self.config.get("compositioning", False))
         self.compositioning_checkbox.stateChanged.connect(self.on_compositioning_checkbox_changed)
         self.compositioning_checkbox.setStyleSheet("padding-left: 10px;")
+        self.compositioning_checkbox.setToolTip("Enabling compositing is recommended for better performance and visual effects.")
         layout.addWidget(self.compositioning_checkbox)
         return layout
 
@@ -242,6 +244,12 @@ def main():
             print("Invalid JSON config. Proceeding anyway.")
 
     app = QApplication(sys.argv)
+    app.setStyleSheet("""
+        QToolTip {
+            padding: 6px;
+        }
+    """)
+
     app.setFont(QFont("Arial", 11))
     window = WelcomeApp()
     window.show()

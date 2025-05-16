@@ -37,7 +37,10 @@ depends=(
 url="https://github.com/Byson94/theom"
 license=('GPL')
 
-optdepends=('mpd: MPD music player')
+optdepends=(
+  'mpd: MPD music player'
+  'plattenalbum: A GUI music player for mpd'
+)
 
 package() {
     mkdir -p "${pkgdir}/usr/"
