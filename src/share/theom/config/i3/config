@@ -42,7 +42,7 @@ exec_always --no-startup-id bash -c 'theme=$(theom-config theme | tr -d "[:space
 # Picom renderer
 # exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 # Check if compositioning is enabled in the config only then run this.
-exec_always --no-startup-id bash -c 'if [ "$(theom-config compositor | tr -d "[:space:]")" = "True" ]; then picom --config /usr/share/theom/config/picom/picom.conf; fi'
+exec_always --no-startup-id /usr/share/theom/config/i3/start-picom.sh
 
 # rofi search
 bindsym $mod+d exec /usr/share/theom/config/i3/start-rofi.sh
