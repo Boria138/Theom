@@ -22,7 +22,7 @@ if len(provided_args) < 2:
 else:
     match provided_args[1]:
         case "compositor":
-            print(getConfig("compositioning"))
+            print(getConfig("compositing"))
         case "welcomer":
             print(getConfig("welcomer"))
         case "wallpaper":
