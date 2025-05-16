@@ -23,3 +23,4 @@ python
 python-pyqt6-sip
 pcmanfm
 materia-gtk-theme
+starship

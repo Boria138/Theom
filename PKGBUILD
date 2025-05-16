@@ -31,6 +31,7 @@ depends=(
   'python'
   'materia-gtk-theme'
   'pcmanfm' # fle manager
+  'starship'
 )
 
 url="https://github.com/Byson94/theom"
