@@ -9,9 +9,9 @@
 
 ## Screenshots
 
+![image](https://raw.githubusercontent.com/AxOS-project/Theom/main/screenshots/screenshot4.png)
 ![image](https://raw.githubusercontent.com/AxOS-project/Theom/main/screenshots/screenshot1.png)
 ![image](https://raw.githubusercontent.com/AxOS-project/Theom/main/screenshots/screenshot3.png)
-![image](https://raw.githubusercontent.com/AxOS-project/Theom/main/screenshots/screenshot4.png)
 
 ## Dependencies
 
