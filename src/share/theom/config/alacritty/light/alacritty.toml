@@ -1,0 +1,22 @@
+[window]
+#padding.x = 10
+#padding.y = 10
+decorations = "Buttonless"
+
+[colors.primary]
+background = "#EFE1CA"
+foreground = "#251a12"
+
+[font]
+normal.family = "FiraCode Nerd Font"
+# normal.family = "Hack Nerd Font"
+normal.style = "Bold"
+size = 10.0
+
+[cursor]
+unfocused_hollow = false
+blink_interval = 500
+
+[cursor.style]
+blinking = "Always"
+shape = "Block"

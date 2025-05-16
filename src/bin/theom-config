@@ -4,13 +4,14 @@ import sys
 import os
 import json
 
-def isConfigTrue(value):
+def getConfig(value):
     with open(os.path.expanduser("~/.config/.theom/config.json"), "r") as theom_config_path:
         theom_config_string = theom_config_path.read()
         theom_config = json.loads(theom_config_string)
     
-    if theom_config.get(str(value)):
-        return theom_config.get(str(value))
+    config = theom_config.get(str(value))
+    if config:
+        return config
     else:
         return "False"
 
@@ -21,10 +22,12 @@ if len(provided_args) < 2:
 else:
     match provided_args[1]:
         case "compositor":
-            print(isConfigTrue("compositioning"))
+            print(getConfig("compositioning"))
         case "welcomer":
-            print(isConfigTrue("welcomer"))
+            print(getConfig("welcomer"))
         case "wallpaper":
-            print(isConfigTrue("wallpaper"))
+            print(getConfig("wallpaper"))
+        case "theme":
+            print(getConfig("theme"))
         case _:
             print("ERROR: invalid command")

@@ -1,16 +1,6 @@
 #!/usr/bin/env bash
 
-# Add this script to your wm startup file.
-
 DIR="$HOME/.config/polybar"
-
-# Wait for PipeWire to be fully ready
-for _ in {1..10}; do
-    if pgrep -x pipewire > /dev/null; then
-        break
-    fi
-    sleep 0.5
-done
 
 # Terminate already running bar instances
 killall -q polybar
@@ -19,4 +9,11 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch the bar
-polybar -q main -c "$DIR"/config.ini &
+theme=$(theom-config theme | tr -d "[:space:]")
+if [ "$theme" = "dark" ]; then
+    polybar -q main -c "$DIR"/dark/config.ini &
+elif [ "$theme" = "light" ]; then
+    polybar -q main -c "$DIR"/light/config.ini &
+else
+    polybar -q main -c "$DIR"/dark/config.ini &
+fi

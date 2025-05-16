@@ -1,5 +1,6 @@
 {
   "welcomer": true,
-  "compositioning": false,
-  "wallpaper": "/usr/share/backgrounds/mountains.jpg"
+  "compositioning": true,
+  "wallpaper": "/usr/share/backgrounds/mountains.jpg",
+  "theme": "dark"
 }

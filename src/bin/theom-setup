@@ -1,12 +1,14 @@
 #!/bin/sh
 
-mkdir -p ~/.config/alacritty ~/.config/dunst ~/.config/i3 ~/.config/picom ~/.config/polybar ~/.config/rofi ~/.config/.theom
+mkdir -p ~/.config/alacritty/dark ~/.config/alacritty/light ~/.config/dunst/dark ~/.config/dunst/light ~/.config/i3 ~/.config/picom ~/.config/polybar/dark ~/.config/polybar/light ~/.config/rofi/dark ~/.config/rofi/light ~/.config/.theom
 
 # Alacritty
-[ ! -f ~/.config/alacritty/alacritty.toml ] && cp /usr/share/theom/config/alacritty/alacritty.toml ~/.config/alacritty/
+[ ! -f ~/.config/alacritty/dark/alacritty.toml ] && cp /usr/share/theom/config/alacritty/dark/alacritty.toml ~/.config/alacritty/dark
+[ ! -f ~/.config/alacritty/light/alacritty.toml ] && cp /usr/share/theom/config/alacritty/light/alacritty.toml ~/.config/alacritty/light
 
 # Dunst
-[ ! -f ~/.config/dunst/dunstrc ] && cp /usr/share/theom/config/dunst/dunstrc ~/.config/dunst/
+[ ! -f ~/.config/dunst/dark/dunstrc ] && cp /usr/share/theom/config/dunst/dark/dunstrc ~/.config/dunst/dark/
+[ ! -f ~/.config/dunst/light/dunstrc ] && cp /usr/share/theom/config/dunst/light/dunstrc ~/.config/dunst/light/
 
 # i3
 #[ ! -f ~/.config/i3/config ] && cp /usr/share/theom/config/i3/config ~/.config/i3/
@@ -15,12 +17,15 @@ mkdir -p ~/.config/alacritty ~/.config/dunst ~/.config/i3 ~/.config/picom ~/.con
 #[ ! -f ~/.config/picom/picom.conf ] && cp /usr/share/theom/config/picom/picom.conf ~/.config/picom/
 
 # Polybar
-[ ! -f ~/.config/polybar/config.ini ] && cp /usr/share/theom/config/polybar/config.ini ~/.config/polybar/
+[ ! -f ~/.config/polybar/dark/config.ini ] && cp /usr/share/theom/config/polybar/dark/config.ini ~/.config/polybar/dark/
+[ ! -f ~/.config/polybar/light/config.ini ] && cp /usr/share/theom/config/polybar/light/config.ini ~/.config/polybar/light/
 [ ! -f ~/.config/polybar/launch.sh ] && cp /usr/share/theom/config/polybar/launch.sh ~/.config/polybar/
 
 # Rofi
-[ ! -f ~/.config/rofi/config.rasi ] && cp /usr/share/theom/config/rofi/config.rasi ~/.config/rofi/
-[ ! -f ~/.config/rofi/colors.rasi ] && cp /usr/share/theom/config/rofi/colors.rasi /.config/rofi/
+[ ! -f ~/.config/rofi/dark/config.rasi ] && cp /usr/share/theom/config/rofi/dark/config.rasi ~/.config/rofi/dark/
+[ ! -f ~/.config/rofi/dark/colors.rasi ] && cp /usr/share/theom/config/rofi/dark/colors.rasi ~/.config/rofi/dark/
+[ ! -f ~/.config/rofi/light/config.rasi ] && cp /usr/share/theom/config/rofi/light/config.rasi ~/.config/rofi/light/
+[ ! -f ~/.config/rofi/light/colors.rasi ] && cp /usr/share/theom/config/rofi/light/colors.rasi ~/.config/rofi/light/
 
 # Starship
 [ ! -f ~/.config/starship.toml ] && cp /usr/share/theom/config/starship.toml ~/.config/starship.toml
