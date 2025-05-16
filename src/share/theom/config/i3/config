@@ -45,7 +45,7 @@ exec_always --no-startup-id bash -c 'theme=$(theom-config theme | tr -d "[:space
 exec_always --no-startup-id bash -c 'if [ "$(theom-config compositor | tr -d "[:space:]")" = "True" ]; then picom --config /usr/share/theom/config/picom/picom.conf; fi'
 
 # rofi search
-bindsym $mod+d exec bash -c 'theme=$(theom-config theme | tr -d "[:space:]"); if [ "$theme" = "dark" ]; then rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/rofi/dark/config.rasi; elif [ "$theme" = "light" ]; then rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/rofi/light/config.rasi; else rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/rofi/config.rasi; fi'
+bindsym $mod+d exec /usr/share/theom/config/i3/start-rofi.sh
 
 # terminal
 set $term alacritty
@@ -81,7 +81,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec bash -c 'theme=$(theom-config theme | tr -d "[:space:]"); if [ "$theme" = "dark" ]; then alacritty --config-file ~/.config/alacritty/dark/alacritty.toml; elif [ "$theme" = "light" ]; then alacritty --config-file ~/.config/alacritty/light/alacritty.toml; else alacritty; fi' # looks scary but this basically checks if the theme is dark and if so, it runs the alacritty dark theme one and if its light then it runs the alacritty light theme one.
+bindsym $mod+Return exec /usr/share/theom/config/i3/start-alacritty.sh
 
 # kill focused window
 bindsym $mod+Shift+q kill
