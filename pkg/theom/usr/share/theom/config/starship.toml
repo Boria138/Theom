@@ -1,0 +1,49 @@
+# my_test_starship.toml
+
+format = """
+[ 󰣇 ](cyan)\
+$directory\
+$git_branch\
+$git_status\
+$nodejs\
+$python\
+$rust\
+$cmd_duration\
+$time\
+$line_break\
+$character"""
+
+[directory]
+style = "cyan"
+format = "[$path]($style) "
+
+[git_branch]
+format = "on  [$branch](magenta) "
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]](red) )'
+
+[nodejs]
+symbol = ""
+format = "via [$symbol $version](bold green) "
+
+[python]
+format = "via [ $version](yellow) "
+
+[rust]
+symbol = ""
+format = "via [$symbol $version](red) "
+
+[cmd_duration]
+format = "took [$duration](yellow) "
+
+[character]
+success_symbol = "[❯](green)"
+error_symbol = "[❯](red)"
+
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:#1d2230"
+format = '[[ $time ](fg:#a0a9cb)]($style)'

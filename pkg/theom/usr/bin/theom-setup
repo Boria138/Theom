@@ -20,7 +20,13 @@ mkdir -p ~/.config/alacritty ~/.config/dunst ~/.config/i3 ~/.config/picom ~/.con
 
 # Rofi
 [ ! -f ~/.config/rofi/config.rasi ] && cp /usr/share/theom/config/rofi/config.rasi ~/.config/rofi/
-[ ! -f ~/.config/rofi/colors.rasi ] && cp /usr/share/theom/config/rofi/colors.rasi ~/.config/rofi/
+[ ! -f ~/.config/rofi/colors.rasi ] && cp /usr/share/theom/config/rofi/colors.rasi /.config/rofi/
+
+# Starship
+[ ! -f ~/.config/starship.toml ] && cp /usr/share/theom/config/starship.toml ~/.config/starship.toml
+if ! grep -q 'eval "$(starship init bash)"' "$HOME/.bashrc"; then
+    echo 'eval "$(starship init bash)"' >> "$HOME/.bashrc"
+fi
 
 # Theom
 [ ! -f ~/.config/.theom/config.json ] && cp /usr/share/theom/config/.theom/config.json ~/.config/.theom/

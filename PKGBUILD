@@ -1,5 +1,5 @@
 pkgname="theom"
-pkgver="0.2"
+pkgver="0.3"
 pkgrel="1"
 pkgdesc="Theom desktop environement"
 arch=("x86_64")
@@ -32,9 +32,11 @@ depends=(
   'materia-gtk-theme'
   'pcmanfm' # fle manager
   'starship'
+  'theom-settings'
+  'theom-welcome'
 )
 
-url="https://github.com/Byson94/theom"
+url="https://github.com/AxOS-project/theom"
 license=('GPL')
 
 optdepends=(
