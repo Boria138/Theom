@@ -24,10 +24,7 @@ depends=(
   'pipewire-alsa'
   'pipewire-pulse'
   'alsa-utils'
-  'python-pyqt6'
-  'qt6-base'
   'lxappearance'
-  'python-pyqt6-sip'
   'python'
   'materia-gtk-theme'
   'pcmanfm' # fle manager
