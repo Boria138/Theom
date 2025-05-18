@@ -1,5 +1,5 @@
 pkgname="theom"
-pkgver="0.4.6"
+pkgver="0.4.7"
 pkgrel="1"
 pkgdesc="Theom desktop environement"
 arch=("x86_64")
