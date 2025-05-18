@@ -4,10 +4,6 @@
 decorations = "Buttonless"
 opacity = 0.9
 
-[colors.primary]
-background = "#272a32"
-foreground = "#D8DADC"
-
 [font]
 normal.family = "FiraCode Nerd Font"
 # normal.family = "Hack Nerd Font"
