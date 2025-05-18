@@ -29,6 +29,7 @@ depends=(
   'materia-gtk-theme'
   'pcmanfm' # fle manager
   'starship'
+  'blueman'
   'theom-settings'
   'theom-welcome'
 )
