@@ -1,5 +1,5 @@
 pkgname="theom"
-pkgver="0.4.3"
+pkgver="0.4.4"
 pkgrel="1"
 pkgdesc="Theom desktop environement"
 arch=("x86_64")
@@ -30,6 +30,7 @@ depends=(
   'pcmanfm' # fle manager
   'starship'
   'blueman'
+  'axos-wallpaper-collection'
   'theom-settings'
   'theom-welcome'
   'theom-notification-history'
