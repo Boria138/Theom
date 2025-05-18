@@ -42,6 +42,9 @@ exec_always --no-startup-id bash -c 'theme=$(theom-config theme | tr -d "[:space
 # Notification history tracker
 exec_always --no-startup-id theom-notification-history
 
+# mpd music daemon
+exec_always --no-startup-id mpd
+
 # Picom renderer
 # exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 # Check if compositing is enabled in the config only then run this.

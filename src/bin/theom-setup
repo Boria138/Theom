@@ -1,6 +1,6 @@
 #!/bin/sh
 
-mkdir -p ~/.config/alacritty/dark ~/.config/alacritty/light ~/.config/dunst/dark ~/.config/dunst/light ~/.config/i3 ~/.config/picom ~/.config/polybar/dark ~/.config/polybar/light ~/.config/rofi/dark ~/.config/rofi/light ~/.config/.theom
+mkdir -p ~/.config/alacritty/dark ~/.config/alacritty/light ~/.config/dunst/dark ~/.config/dunst/light ~/.config/i3 ~/.config/picom ~/.config/polybar/dark ~/.config/polybar/light ~/.config/rofi/dark ~/.config/rofi/light ~/.config/.theom ~/.config/mpd
 
 # Alacritty
 [ ! -f ~/.config/alacritty/dark/alacritty.toml ] && cp /usr/share/theom/config/alacritty/dark/alacritty.toml ~/.config/alacritty/dark
@@ -32,6 +32,9 @@ mkdir -p ~/.config/alacritty/dark ~/.config/alacritty/light ~/.config/dunst/dark
 if ! grep -q 'eval "$(starship init bash)"' "$HOME/.bashrc"; then
     echo 'eval "$(starship init bash)"' >> "$HOME/.bashrc"
 fi
+
+# MPD
+[ ! -f ~/.config/mpd/mpd.conf ] && cp /usr/share/theom/config/mpd/mpd.conf ~/.config/mpd/mpd.conf
 
 # Theom
 [ ! -f ~/.config/.theom/config.json ] && cp /usr/share/theom/config/.theom/config.json ~/.config/.theom/
