@@ -5,7 +5,11 @@
 ## Features
 
 - Minimal resource usage: 350-400MB ram use on idle
-- Hackable: easily customisable
+- Comes with two different themes: a dark theme and a light theme
+- Has a built in dashboard
+- Has a settings application to tweak the settings of theom
+- Welcomes user friendly greeter during startup
+- Easy to customize
 
 ## Screenshots
 
