@@ -1,6 +1,6 @@
 [window]
-#padding.x = 10
-#padding.y = 10
+padding.x = 10
+padding.y = 10
 decorations = "Buttonless"
 opacity = 0.9
 
