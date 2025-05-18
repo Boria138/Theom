@@ -39,6 +39,9 @@ exec_always --no-startup-id  ~/.config/polybar/launch.sh
 # Notification daemon
 exec_always --no-startup-id bash -c 'theme=$(theom-config theme | tr -d "[:space:]"); if [ "$theme" = "dark" ]; then dunst -config ~/.config/dunst/dark/dunstrc; elif [ "$theme" = "light" ]; then dunst -config ~/.config/dunst/light/dunstrc; else dunst; fi'
 
+# Notification history tracker
+exec_always --no-startup-id theom-notification-history
+
 # Picom renderer
 # exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 # Check if compositing is enabled in the config only then run this.
@@ -46,6 +49,9 @@ exec_always --no-startup-id /usr/share/theom/config/i3/start-picom.sh
 
 # rofi search
 bindsym $mod+d exec /usr/share/theom/config/i3/start-rofi.sh
+
+# Dashboard
+bindsym $mod+Shift+d exec theom-dashboard
 
 # terminal
 set $term alacritty

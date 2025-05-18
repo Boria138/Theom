@@ -32,6 +32,8 @@ depends=(
   'blueman'
   'theom-settings'
   'theom-welcome'
+  'theom-notification-history'
+  'theom-dashboard'
 )
 
 url="https://github.com/AxOS-project/theom"
