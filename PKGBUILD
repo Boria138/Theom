@@ -27,6 +27,7 @@ depends=(
   'lxappearance'
   'python'
   'materia-gtk-theme'
+  'papirus-icon-theme'
   'pcmanfm' # fle manager
   'starship'
   'blueman'
