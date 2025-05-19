@@ -2,5 +2,6 @@
   "welcomer": true,
   "compositing": true,
   "wallpaper": "/usr/share/backgrounds/moonlight.jpg",
-  "theme": "dark"
+  "theme": "dark",
+  "polybar-layout": "float"
 }
