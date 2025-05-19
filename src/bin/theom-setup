@@ -56,7 +56,7 @@ if [ ! -f "$GTK3_CONFIG" ]; then
     mkdir -p "$(dirname "$GTK3_CONFIG")"
     cat > "$GTK3_CONFIG" <<EOF
 [Settings]
-gtk-theme-name=Materia
+gtk-theme-name=Materia-dark
 gtk-icon-theme-name=Papirus
 gtk-font-name=Sans 10
 EOF
@@ -64,7 +64,7 @@ fi
 
 if [ ! -f "$GTK2_CONFIG" ]; then
     cat > "$GTK2_CONFIG" <<EOF
-gtk-theme-name="Materia"
+gtk-theme-name="Materia-dark"
 gtk-icon-theme-name="Papirus"
 EOF
 fi
@@ -73,6 +73,6 @@ if [ ! -f "$ICON_THEME_INDEX" ]; then
     mkdir -p "$ICON_THEME_DIR"
     cat > "$ICON_THEME_INDEX" <<EOF
 [Icon Theme]
-Inherits=Materia
+Inherits=Materia-dark
 EOF
 fi
