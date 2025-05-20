@@ -1,5 +1,5 @@
 pkgname="theom"
-pkgver="0.4.9"
+pkgver="0.5"
 pkgrel="1"
 pkgdesc="Theom desktop environement"
 arch=("x86_64")
@@ -28,7 +28,7 @@ depends=(
   'python'
   'materia-gtk-theme'
   'papirus-icon-theme'
-  'pcmanfm' # fle manager
+  'pcmanfm-gtk3' # fle manager
   'starship'
   'blueman'
   'axos-wallpaper-collection'
