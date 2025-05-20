@@ -1,0 +1,201 @@
+@use "colors" as *;
+
+$dark-mode: true;
+
+$bg-main: if($dark-mode, $dark-bg-main, $light-bg-main);
+$bg-alt: if($dark-mode, $dark-bg-alt, $light-bg-alt);
+$bg-button: if($dark-mode, $dark-bg-button, $light-bg-button);
+$bg-button-hover: if($dark-mode, $dark-bg-hover, $light-bg-button-hover);
+$bg-button-pressed: if($dark-mode, $dark-bg-pressed, $light-bg-button-pressed);
+$bg-disabled: if($dark-mode, $dark-bg-disabled, $light-bg-disabled);
+$bg-panel: if($dark-mode, $dark-bg-panel, $light-bg-panel);
+
+$border-color: if($dark-mode, $dark-border, $light-border);
+$border-disabled: if($dark-mode, $dark-border-disabled, $light-border-disabled);
+
+$fg-main: if($dark-mode, $dark-fg, $light-fg);
+$fg-alt: if($dark-mode, $dark-fg-alt, $light-fg-alt);
+$fg-muted: if($dark-mode, $dark-fg-muted, $light-fg-muted);
+
+$accent: if($dark-mode, $dark-accent, $light-accent);
+
+// Base metrics
+$radius: 6px;
+$padding-sm: 4px;
+$padding-md: 8px;
+$padding-lg: 12px;
+
+// =====================
+// Mixins
+// =====================
+
+@mixin button-style {
+  background-color: $bg-button;
+  color: $fg-main;
+  border: 1px solid $border-color;
+  border-radius: $radius;
+  padding: $padding-md $padding-lg;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  box-shadow: none;
+
+  &:hover {
+    background-color: $bg-button-hover;
+  }
+
+  &:active {
+    background-color: $bg-button-pressed;
+  }
+
+  &:focus {
+    outline: 2px solid $accent;
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    background-color: $bg-disabled;
+    color: $fg-muted;
+    border: 1px solid $border-disabled;
+    cursor: not-allowed;
+  }
+}
+
+@mixin input-style {
+  background-color: $bg-alt;
+  color: $fg-main;
+  border: 1px solid $border-color;
+  border-radius: $radius;
+  padding: $padding-md $padding-lg;
+  font-size: 1rem;
+  box-shadow: none;
+
+  &:focus {
+    border-color: $accent;
+    outline: none;
+    box-shadow: 0 0 5px $accent;
+  }
+
+  &:disabled {
+    background-color: $bg-disabled;
+    color: $fg-muted;
+    border: 1px solid $border-disabled;
+  }
+}
+
+// =====================
+// Global styles
+// =====================
+
+* {
+  font-family: "Segoe UI", sans-serif;
+  font-size: 14px;
+  color: $fg-main;
+}
+
+window,
+window.background {
+  background-color: $bg-main;
+  color: $fg-main;
+}
+
+// =====================
+// Widgets
+// =====================
+
+button,
+button.default {
+  @include button-style;
+}
+
+entry,
+textview {
+  @include input-style;
+}
+
+list,
+listview,
+treeview {
+  background-color: $bg-alt;
+  border: none;
+  padding: $padding-sm;
+  color: $fg-main;
+
+  item {
+    padding: 10px;
+    margin: 4px 0;
+    border-radius: $radius;
+    background-color: transparent;
+
+    &.selected {
+      background-color: $accent;
+      color: $fg-alt;
+    }
+  }
+}
+
+combobox {
+  background-color: $bg-alt;
+  color: $fg-main;
+  border: 1px solid $border-color;
+  border-radius: $radius;
+  padding: 6px $padding-lg;
+  min-height: 32px;
+
+  &:hover {
+    border-color: $accent;
+  }
+
+  &:focus {
+    outline: 2px solid $accent;
+    outline-offset: 2px;
+  }
+
+  popup {
+    background-color: $bg-alt;
+    border: 1px solid $border-color;
+    color: $fg-main;
+
+    item {
+      padding: 8px $padding-lg;
+      border-radius: 4px;
+
+      &.selected {
+        background-color: $accent;
+        color: $fg-alt;
+      }
+    }
+  }
+}
+
+label {
+  font-size: 16px;
+  color: $fg-main;
+}
+
+scrollbar {
+  background-color: $bg-alt;
+  border-radius: $radius;
+
+  slider {
+    background-color: $border-color;
+    border-radius: $radius;
+    box-shadow: none;
+
+    &:hover {
+      background-color: $accent;
+    }
+  }
+}
+
+// =====================
+// Frames and Panels
+// =====================
+
+frame {
+  background-color: $bg-panel;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: none;
+  border: 1px solid $border-color;
+}
