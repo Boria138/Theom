@@ -1,5 +1,5 @@
 pkgname="theom"
-pkgver="0.5"
+pkgver="0.5.1"
 pkgrel="1"
 pkgdesc="Theom desktop environement"
 arch=("x86_64")
@@ -12,8 +12,6 @@ depends=(
   'i3-gaps'
   'polybar'
   'alacritty'
-  'flameshot'
-  'parcellite'
   'network-manager-applet'
   'dunst'
   'rofi'
@@ -24,14 +22,8 @@ depends=(
   'pipewire-alsa'
   'pipewire-pulse'
   'alsa-utils'
-  'lxappearance'
   'python'
-  'materia-gtk-theme'
-  'papirus-icon-theme'
-  'pcmanfm-gtk3' # fle manager
-  'starship'
-  'blueman'
-  'axos-wallpaper-collection'
+  'theom-extras'
   'theom-settings'
   'theom-welcome'
   'theom-notification-history'
