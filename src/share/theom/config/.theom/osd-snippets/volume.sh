@@ -27,4 +27,4 @@ if [[ -z "$volume_percent" ]]; then
 fi
 
 # osd
-tosd-client "" slider "$volume_percent" -d 2 -s 0.5 -p TR -r
+tosd-client "" slider $volume_percent -d 2 -s 0.5 -p TR -r
