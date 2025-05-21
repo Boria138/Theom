@@ -47,7 +47,7 @@ exec_always --no-startup-id  ~/.config/polybar/launch.sh
 exec_always --no-startup-id bash -c 'theme=$(theom-config theme | tr -d "[:space:]"); if [ "$theme" = "dark" ]; then dunst -config ~/.config/dunst/dark/dunstrc; elif [ "$theme" = "light" ]; then dunst -config ~/.config/dunst/light/dunstrc; else dunst; fi'
 
 # Notification history tracker
-exec_always --no-startup-id theom-notification-history
+exec_always --no-startup-id sh -c 'pkill -f theom-notification-history; theom-notification-history &'
 
 # mpd music daemon
 exec_always --no-startup-id mpd
@@ -56,6 +56,9 @@ exec_always --no-startup-id mpd
 # exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 # Check if compositing is enabled in the config only then run this.
 exec_always --no-startup-id /usr/share/theom/config/i3/start-picom.sh
+
+# theom on screen display server
+exec_always --no-startup-id bash -c 'if [ "$(theom-config osd | tr -d "[:space:]")" = "True" ]; then pkill -f tosd_server.py; tosd-server & fi'
 
 # Start XDG autostart .desktop files using dex.
 exec --no-startup-id dex --autostart --environment i3
