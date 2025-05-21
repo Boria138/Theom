@@ -28,6 +28,8 @@ depends=(
   'theom-welcome'
   'theom-notification-history'
   'theom-dashboard'
+  'tosd-server'
+  'tosd-client'
 )
 
 url="https://github.com/AxOS-project/theom"

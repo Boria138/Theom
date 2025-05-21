@@ -1,3 +1,7 @@
+#########################
+#     Random config     #
+#########################
+
 set $mod Mod4
 
 # Font for window titles. 
@@ -7,13 +11,22 @@ font pango:monospace 8
 gaps inner 5
 gaps outer 0
 
+# no title bar
+for_window [class=".*"] border pixel 0
+
+#########################
+#      variables        #
+#########################
+# terminal
+set $term /usr/share/theom/config/i3/start-alacritty.sh
+
+#########################
+#      Autostart        #
+#########################
+
 # The following command ensures that gvfs starts so that the trash can will show up in thunar or pcmanfm.
 exec --no-startup-id /usr/lib/gvfsd
 exec --no-startup-id /usr/lib/gvfsd-trash
-
-# Brightness control
-bindsym XF86MonBrightnessUp exec brightnessctl set +10%
-bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 
 # ScreenShot 
 exec_always --no-startup-id flameshot
@@ -24,12 +37,6 @@ exec_always --no-startup-id parcellite
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec_always --no-startup-id  nm-applet
-
-# THE SCRATCH PAD
-# Show the first scratchpad window
-bindsym $mod+minus move scratchpad
-# Make the currently focused window a scratchpad
-bindsym $mod+Shift+minus scratchpad show
 
 # Background & Polybar startup
 #exec_always --no-startup-id feh --bg-scale /usr/share/backgrounds/Minimal-Nord.png
@@ -50,21 +57,6 @@ exec_always --no-startup-id mpd
 # Check if compositing is enabled in the config only then run this.
 exec_always --no-startup-id /usr/share/theom/config/i3/start-picom.sh
 
-# rofi search
-bindsym $mod+d exec /usr/share/theom/config/i3/start-rofi.sh
-
-# Dashboard
-bindsym $mod+Shift+d exec theom-dashboard
-
-# terminal
-set $term alacritty
-
-# no title bar
-for_window [class=".*"] border pixel 0
-
-# take screenshot
-bindsym Print exec flameshot gui
-
 # Start XDG autostart .desktop files using dex.
 exec --no-startup-id dex --autostart --environment i3
 
@@ -75,10 +67,32 @@ exec --no-startup-id dex --autostart --environment i3
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
+#########################
+#      Keybindings      #
+#########################
+# THE SCRATCH PAD
+# Show the first scratchpad window
+bindsym $mod+minus move scratchpad
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus scratchpad show
+
+# rofi search
+bindsym $mod+d exec /usr/share/theom/config/i3/start-rofi.sh
+
+# Dashboard
+bindsym $mod+Shift+d exec theom-dashboard
+
+# take screenshot
+bindsym Print exec flameshot gui
+
+# Brightness control
+bindsym XF86MonBrightnessUp exec brightnessctl set +10% && /usr/share/theom/config/i3/osd/brightness-change.sh
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%- && /usr/share/theom/config/i3/osd/brightness-change.sh
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status && /usr/share/theom/config/i3/osd/volume-change.sh
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status && /usr/share/theom/config/i3/osd/volume-change.sh
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
@@ -90,7 +104,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec /usr/share/theom/config/i3/start-alacritty.sh
+bindsym $mod+Return exec $term
 
 # kill focused window
 bindsym $mod+Shift+q kill

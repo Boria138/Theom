@@ -4,7 +4,7 @@
 #        Configs         #
 # ---------------------- #
 
-mkdir -p ~/.config/alacritty/dark ~/.config/alacritty/light ~/.config/dunst/dark ~/.config/dunst/light ~/.config/i3 ~/.config/picom ~/.config/polybar/dark ~/.config/polybar/light ~/.config/polybar/modules ~/.config/rofi/dark ~/.config/rofi/light ~/.config/.theom ~/.config/mpd ~/.config/mpd/playlists
+mkdir -p ~/.config/alacritty/dark ~/.config/alacritty/light ~/.config/dunst/dark ~/.config/dunst/light ~/.config/i3 ~/.config/picom ~/.config/polybar/dark ~/.config/polybar/light ~/.config/polybar/modules ~/.config/rofi/dark ~/.config/rofi/light ~/.config/.theom ~/.config/.theom/osd-snippets ~/.config/mpd ~/.config/mpd/playlists
 
 # Alacritty
 [ ! -f ~/.config/alacritty/dark/alacritty.toml ] && cp /usr/share/theom/config/alacritty/dark/alacritty.toml ~/.config/alacritty/dark
@@ -46,6 +46,8 @@ fi
 
 # Theom
 [ ! -f ~/.config/.theom/config.json ] && cp /usr/share/theom/config/.theom/config.json ~/.config/.theom/
+[ ! -f ~/.config/.theom/osd-snippets/brightness.sh ] && cp /usr/share/theom/config/.theom/osd-snippets/brightness.sh ~/.config/.theom/osd-snippets/brightness.sh
+[ ! -f ~/.config/.theom/osd-snippets/volume.sh ] && cp /usr/share/theom/config/.theom/osd-snippets/volume.sh ~/.config/.theom/osd-snippets/volume.sh
 
 # ---------------------- #
 #         Themes         #

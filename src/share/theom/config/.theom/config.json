@@ -3,5 +3,6 @@
   "compositing": true,
   "wallpaper": "/usr/share/backgrounds/moonlight.jpg",
   "theme": "dark",
-  "polybar-layout": "float"
+  "polybar-layout": "float",
+  "osd": true
 }
