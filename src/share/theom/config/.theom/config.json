@@ -4,5 +4,5 @@
   "wallpaper": "/usr/share/backgrounds/moonlight.jpg",
   "theme": "dark",
   "polybar-layout": "float",
-  "osd": true
+  "osd": false
 }
