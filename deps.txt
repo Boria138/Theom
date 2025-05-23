@@ -22,3 +22,5 @@ theom-settings
 theom-welcome
 theom-notification-history
 theom-dashboard
+tosd-server
+tosd-client
