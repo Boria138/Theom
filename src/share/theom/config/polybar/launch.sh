@@ -11,9 +11,6 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 # Get theme (dark or light)
 theme=$(theom-config theme | tr -d "[:space:]")
 
-# Get the structure
-multi=$(theom-config polybar-structure |tr -d "[:space:]")
-
 # Get layout (float or stuck)
 layout=$(theom-config polybar-layout | tr -d "[:space:]")
 
@@ -33,28 +30,11 @@ else
     cp "$LAYOUT_FLOAT" "$LAYOUT_TARGET"
 fi
 
-if [ "$multi" = "multiple" ]; then
-    # Launch Polybar with correct theme config
-    if [ "$theme" = "dark" ]; then
-        polybar -q left -c "$DIR/dark/config.ini" &
-        polybar -q center -c "$DIR/dark/config.ini" &
-        polybar -q right -c "$DIR/dark/config.ini" &
-    elif [ "$theme" = "light" ]; then
-        polybar -q left -c "$DIR/light/config.ini" &
-        polybar -q center -c "$DIR/light/config.ini" &
-        polybar -q right -c "$DIR/light/config.ini" &
-    else
-        polybar -q left -c "$DIR/dark/config.ini" &
-        polybar -q center -c "$DIR/dark/config.ini" &
-        polybar -q right -c "$DIR/dark/config.ini" &
-    fi
+# Launch Polybar with correct theme config
+if [ "$theme" = "dark" ]; then
+    polybar -q main -c "$DIR/dark/config.ini" &
+elif [ "$theme" = "light" ]; then
+    polybar -q main -c "$DIR/light/config.ini" &
 else
-    # Launch Polybar with correct theme config
-    if [ "$theme" = "dark" ]; then
-        polybar -q main -c "$DIR/dark/config.ini" &
-    elif [ "$theme" = "light" ]; then
-        polybar -q main -c "$DIR/light/config.ini" &
-    else
-        polybar -q main -c "$DIR/dark/config.ini" &
-    fi
+    polybar -q main -c "$DIR/dark/config.ini" &
 fi
