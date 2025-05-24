@@ -1,7 +1,7 @@
 {
   "welcomer": true,
   "compositing": true,
-  "wallpaper": "/usr/share/backgrounds/apple-dark.jpg",
+  "wallpaper": "/usr/share/backgrounds/midnight-reflections-moonlit-sea.jpg",
   "theme": "dark",
   "polybar-layout": "float",
   "osd": false
