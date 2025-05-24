@@ -29,4 +29,4 @@ if [[ -z "$brightness_percent" ]]; then
 fi
 
 # osd
-tosd-client "" slider $brightness_percent -d 2 -s 0.5 -p TR
+tosd-client "" slider $brightness_percent -d 2 -s 0.5 -p TR --margin-x 20 --margin-y 40
