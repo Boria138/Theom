@@ -13,9 +13,11 @@
 
 ## Screenshots
 
-![image](https://raw.githubusercontent.com/AxOS-project/Theom/main/screenshots/screenshot4.png)
 ![image](https://raw.githubusercontent.com/AxOS-project/Theom/main/screenshots/screenshot1.png)
+![image](https://raw.githubusercontent.com/AxOS-project/Theom/main/screenshots/screenshot2.png)
 ![image](https://raw.githubusercontent.com/AxOS-project/Theom/main/screenshots/screenshot3.png)
+![image](https://raw.githubusercontent.com/AxOS-project/Theom/main/screenshots/screenshot4.png)
+![image](https://raw.githubusercontent.com/AxOS-project/Theom/main/screenshots/screenshot5.png)
 
 ## Installation
 
