@@ -4,5 +4,6 @@
   "wallpaper": "/usr/share/backgrounds/midnight-reflections-moonlit-sea.jpg",
   "theme": "dark",
   "polybar-layout": "float",
-  "osd": false
+  "osd": false,
+  "use-eww": true
 }

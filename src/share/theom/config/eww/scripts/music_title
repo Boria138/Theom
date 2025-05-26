@@ -1,0 +1,17 @@
+#!/bin/bash
+
+print_title() {
+  local title
+  title=$(mpc current)
+  if [ ${#title} -gt 16 ]; then
+    echo "${title:0:16}..."
+  else
+    echo "$title"
+  fi
+}
+
+print_title # we do this because we want to get the result immedeatly during launch
+
+mpc idleloop player | while read -r; do
+  print_title
+done

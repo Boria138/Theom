@@ -1,0 +1,44 @@
+#!/bin/sh
+
+get_state() {
+  if command -v upower &>/dev/null; then
+    battery_path=$(upower -e | grep -E 'battery|BAT' | head -n1)
+    if [ -n "$battery_path" ]; then
+      upower -i "$battery_path" | awk -F': +' '/state/ {print $2}'
+    else
+      echo "unknown"
+    fi
+  elif [ -d /sys/class/power_supply/BAT0 ]; then
+    cat /sys/class/power_supply/BAT0/status
+  else
+    echo "unknown"
+  fi
+}
+
+get_percent() {
+  if command -v upower &>/dev/null; then
+    battery_path=$(upower -e | grep -E 'battery|BAT' | head -n1)
+    if [ -n "$battery_path" ]; then
+      upower -i "$battery_path" | awk -F': +' '/percentage/ {print $2}' | tr -d '%'
+    else
+      echo 0
+    fi
+  elif [ -d /sys/class/power_supply/BAT0 ]; then
+    cat /sys/class/power_supply/BAT0/capacity
+  else
+    echo 0
+  fi
+}
+
+case "$1" in
+  state)
+    get_state
+    ;;
+  percent)
+    get_percent
+    ;;
+  *)
+    echo "Usage: $0 {state|percent}"
+    exit 1
+    ;;
+esac
