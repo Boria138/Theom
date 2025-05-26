@@ -5,5 +5,5 @@
   "theme": "dark",
   "polybar-layout": "float",
   "osd": false,
-  "use-eww": true
+  "use-eww": false
 }
