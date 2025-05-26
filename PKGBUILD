@@ -1,7 +1,7 @@
-pkgname="theom-core"
+pkgname="theom"
 pkgver="0.5.6"
 pkgrel="1"
-pkgdesc="Core of Theom desktop environement"
+pkgdesc="Theom desktop environement"
 arch=("x86_64")
 depends=(
   'xorg-server'
@@ -21,6 +21,7 @@ depends=(
   'pipewire-alsa'
   'pipewire-pulse'
   'alsa-utils'
+  'theom-extras' # optional apps
   'theom-utils' # custom theom apps
 )
 

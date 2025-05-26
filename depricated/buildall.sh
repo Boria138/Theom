@@ -16,7 +16,7 @@ for file in .; do
     pushd "$file" > /dev/null
     makepkg -fs --noconfirm
     rm -r pkg/
-    mv ./*.pkg.tar.zst "../$OUTDIR/"
+    mv ./*.pkg.tar.zst "./$OUTDIR/"
     popd > /dev/null
 done
 
