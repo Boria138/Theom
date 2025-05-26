@@ -1,0 +1,20 @@
+pkgname="theom"
+pkgver="0.5.6"
+pkgrel="1"
+pkgdesc="Theom desktop environement"
+arch=("x86_64")
+depends=(
+  'theom-core'
+  'theom-extras' # optional apps
+)
+
+url="https://github.com/AxOS-project/theom"
+license=('GPL')
+
+optdepends=(
+  'plattenalbum: A GUI music player for mpd'
+)
+
+package() {
+    :
+}

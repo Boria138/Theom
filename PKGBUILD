@@ -1,7 +1,7 @@
-pkgname="theom"
-pkgver="0.5.5"
+pkgname="theom-core"
+pkgver="0.5.6"
 pkgrel="1"
-pkgdesc="Theom desktop environement"
+pkgdesc="Core of Theom desktop environement"
 arch=("x86_64")
 depends=(
   'xorg-server'
@@ -12,7 +12,6 @@ depends=(
   'i3-gaps'
   'polybar'
   'alacritty'
-  'network-manager-applet'
   'dunst'
   'rofi'
   'feh'
@@ -22,21 +21,13 @@ depends=(
   'pipewire-alsa'
   'pipewire-pulse'
   'alsa-utils'
-  'python'
-  'theom-extras'
-  'theom-settings'
-  'theom-welcome'
-  'theom-notification-history'
-  'theom-dashboard'
-  'tosd-server'
-  'tosd-client'
+  'theom-utils' # custom theom apps
 )
 
 url="https://github.com/AxOS-project/theom"
 license=('GPL')
 
 optdepends=(
-  'mpd: MPD music player'
   'plattenalbum: A GUI music player for mpd'
 )
 
