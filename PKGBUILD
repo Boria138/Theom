@@ -21,6 +21,10 @@ depends=(
   'pipewire-alsa'
   'pipewire-pulse'
   'alsa-utils'
+  'alsa-plugins'
+  'upower'
+  'pamixer'
+  'jq'
   'theom-extras' # optional apps
   'theom-utils' # custom theom apps
 )
