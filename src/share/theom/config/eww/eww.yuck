@@ -1,5 +1,4 @@
 ;; variables
-(defpoll theme :interval "5m" "scripts/get_theme")
 (defpoll day :interval "20h" "date '+%d'")
 (defpoll year :interval "20h" "date '+%Y'")
 (deflisten player_state :initial "paused"
@@ -22,8 +21,8 @@
 (deflisten music :initial ""
   "scripts/music_title")
 
-(deflisten battery_state :initial "unknown" "scripts/getbattery state")
-(deflisten battery_percent :initial "0" "scripts/getbattery percent")
+(defpoll battery_state :interval "2s" :initial "unknown" "scripts/getbattery state")
+(defpoll battery_percent :interval "2s" :initial "0" "scripts/getbattery percent")
 
 (deflisten volume :initial ""
   "scripts/getvol")
@@ -46,8 +45,6 @@
 ;; widgets
 (defwidget bar []
   (centerbox 
-    :visible "${theme != ''}"
-    :class "${theme == 'light' ? 'bar light-theme' : (theme == 'dark' ? 'bar dark-theme' : 'bar')}"
     :orientation "h"
     (left)
     (center)
@@ -69,12 +66,14 @@
 
 (defwidget right []
   (box :class "right" :orientation "h" :space-evenly false :halign "end"
+    (box :visible "${battery_state != 'unknown'}"
     (button
       :onclick ""
       :class "${battery_state == 'charging' ? 'battery-charging' : (battery_state == 'fully-charged' ? 'battery-full' : 'battery-discharging')}" ; sorryo i had to nest it
-      "󰁹 ${battery_percent}% ")
+      "󰁹 ${battery_percent}% "))
 
-    (separator)
+    (box :visible "${battery_state != 'unknown'}"
+    (separator))
 
     (metric :label ""
             :value volume
