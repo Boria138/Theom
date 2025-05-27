@@ -5,13 +5,13 @@ if ! pgrep -x eww >/dev/null; then
     while ! eww ping &>/dev/null; do
         sleep 0.1
     done
-else
-    eww reload
 fi
 
 if ! eww active-windows | grep -q '^bar: bar$'; then
     eww open bar
     echo "EWW bar launched."
+    sleep 0.1
 else
-    echo "EWW bar already open."
+    eww reload
+    echo "Existing bar found and it has been murdered."
 fi
