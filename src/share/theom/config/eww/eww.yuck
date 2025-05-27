@@ -1,4 +1,5 @@
 ;; variables
+(defpoll theme :interval "5m" "scripts/get_theme")
 (defpoll day :interval "20h" "date '+%d'")
 (defpoll year :interval "20h" "date '+%Y'")
 (deflisten player_state :initial "paused"
@@ -45,6 +46,8 @@
 ;; widgets
 (defwidget bar []
   (centerbox 
+    :visible "${theme != ''}"
+    :class "${theme == 'light' ? 'bar light-theme' : (theme == 'dark' ? 'bar dark-theme' : 'bar')}"
     :orientation "h"
     (left)
     (center)
