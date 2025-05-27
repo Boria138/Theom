@@ -41,8 +41,8 @@ exec_always --no-startup-id  nm-applet
 # Background & BAR startup
 #exec_always --no-startup-id feh --bg-scale /usr/share/backgrounds/Minimal-Nord.png
 exec_always --no-startup-id bash -c 'if [ "$(theom-config wallpaper | tr -d "[:space:]")" != "False" ]; then feh --bg-scale $(theom-config wallpaper); fi'
-exec_always --no-startup-id  ~/.config/polybar/launch.sh
-exec_always --no-startup-id  'if [ "$(theom-config use-eww | tr -d "[:space:]")" = "True" ]; then ~/.config/eww/launch.sh; else ~/.config/polybar/launch.sh; fi'
+#exec_always --no-startup-id  ~/.config/polybar/launch.sh
+exec_always --no-startup-id bash -c 'if [ "$(theom-config use-eww | tr -d "[:space:]")" = "True" ]; then ~/.config/eww/launch.sh; else ~/.config/polybar/launch.sh; fi'
 
 # Notification daemon
 exec_always --no-startup-id bash -c 'theme=$(theom-config theme | tr -d "[:space:]"); if [ "$theme" = "dark" ]; then dunst -config ~/.config/dunst/dark/dunstrc; elif [ "$theme" = "light" ]; then dunst -config ~/.config/dunst/light/dunstrc; else dunst; fi'
