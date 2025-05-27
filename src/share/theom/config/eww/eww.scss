@@ -8,18 +8,20 @@ $dark-text: #b0b4bc;
 $dark-battery-charging: #0f0;
 $dark-battery-full: #fff;
 $dark-battery-discharging: #b0b4bc;
-$dark-calendar-bg: #0f0f17;
+// $dark-calendar-bg: #0f0f17; // old
+$dark-calendar-bg: rgba(20, 20, 20, 0.75);
 $dark-calendar-text: #b0b4bc;
 $dark-calendar-highlight: #d35d6e;
 
-$light-bg: #efe1ca;
-$light-text: #251a12;
-$light-battery-charging: #357d84;
-$light-battery-full: #7a143c;
-$light-battery-discharging: #251a12;
-$light-calendar-bg: #e2d5be;
-$light-calendar-text: #251a12;
-$dark-calendar-highlight: #7a143c;
+$light-bg: rgba(255, 255, 255, 0.9);
+$light-text: #444;
+$light-battery-charging: #0a0;
+$light-battery-full: #d4af37;
+$light-battery-discharging: #555;
+// $light-calendar-bg: #f0f0f0; // old
+$light-calendar-bg: rgba(245, 245, 245, 0.75);
+$light-calendar-text: #444;
+$light-calendar-highlight: #d35d6e;
 
 .bar {
   background-color: transparent;
