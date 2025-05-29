@@ -8,6 +8,7 @@ $dark-text: #b0b4bc;
 $dark-battery-charging: #0f0;
 $dark-battery-full: #fff;
 $dark-battery-discharging: #b0b4bc;
+$dark-sys-tray: #282c34;
 // $dark-calendar-bg: #0f0f17; // old
 $dark-calendar-bg: rgba(20, 20, 20, 0.75);
 $dark-calendar-text: #b0b4bc;
@@ -18,6 +19,7 @@ $light-text: #444;
 $light-battery-charging: #0a0;
 $light-battery-full: #d4af37;
 $light-battery-discharging: #555;
+$light-sys-tray: #f8f8f8;
 // $light-calendar-bg: #f0f0f0; // old
 $light-calendar-bg: rgba(245, 245, 245, 0.75);
 $light-calendar-text: #444;
@@ -50,6 +52,31 @@ $light-calendar-highlight: #d35d6e;
   all: unset;
   padding: 5px 5px;
   font-size: larger;
+}
+
+.bar .notification-popup {
+  all: unset;
+  font-size: larger;
+  padding-right: 2px;
+  min-height: 10px;
+  min-width: 20px;
+  margin: 2px;
+  border-radius: 4px;
+}
+
+.bar .network-popup {
+  all: unset;
+  margin: 2px;
+  padding-right: 8px;
+  font-size: larger;
+  min-height: 10px;
+  min-width: 20px;
+  border-radius: 4px;
+}
+
+.bar .notification-popup,
+.bar .network-popup {
+  background-color: $dark-sys-tray;
 }
 
 .metric scale trough highlight {
@@ -166,12 +193,17 @@ calendar:indeterminate {
   color: $light-battery-discharging;
 }
 
-.bar.light-theme .calendar {
+.bar.light-theme .notification-popup,
+.bar.light-theme .network-popup {
+  background-color: $light-sys-tray;
+}
+
+.cal.light-theme .calendar {
   background-color: $light-calendar-bg;
   color: $light-calendar-text;
 }
 
-.bar.light-theme .calendar.highlight,
-.bar.light-theme calendar:selected {
+.cal.light-theme .calendar.highlight,
+.cal.light-theme calendar:selected {
   color: $dark-calendar-highlight;
 }

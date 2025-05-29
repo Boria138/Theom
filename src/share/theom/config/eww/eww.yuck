@@ -54,11 +54,15 @@
     (right)))
 
 (defwidget cal []
-(box :class "calendar" :orientation "v"
-(box :class "calendar-in"
-(calendar :class "calendar" 
-            :day day 
-            :year year))))
+  (box
+    :visible "${theme != ''}"
+    :class "${theme == 'light' ? 'cal light-theme' : (theme == 'dark' ? 'cal dark-theme' : 'cal')}"
+    :orientation "v"
+  (box :class "calendar" :orientation "v"
+  (box :class "calendar-in"
+  (calendar :class "calendar" 
+              :day day 
+              :year year)))))
     
 (defwidget separator []
   (box :class "separator"
@@ -78,17 +82,30 @@
     (box :visible "${battery_state != 'unknown'}"
     (separator))
 
-    (metric :label ""
+    (metric :label ""
             :value volume
             :onchange "amixer -D pulse sset Master {}%")
 
-    ;(metric :label ""
+    (box :class "tray-items"
+    (button
+      :onclick "echo nothing"
+      :class "notification-popup"
+      "")
+
+    (button
+      :onclick "echo nothing"
+      :class "network-popup"
+      ""))
+    
+      
+
+    ;(metric :label ""
     ;        :value {EWW_CPU["cores"][0]["usage"]}
     ;        :onchange "")
 
-    ; (label :text " ${EWW_CPU.cores[0].usage}%")
+    ; (label :text " ${EWW_CPU.cores[0].usage}%")
 
-    ;(metric :label ""
+    ;(metric :label ""
     ;        :value {EWW_RAM.used_mem_perc}
     ;        :onchange "")
     (separator)
@@ -114,11 +131,11 @@
 
     (separator)
 
-    (metric :label ""
+    (metric :label ""
         :value {EWW_CPU["cores"][0]["usage"]}
         :onchange "")
 
-    (metric :label ""
+    (metric :label ""
             :value {EWW_RAM.used_mem_perc}
             :onchange "")))
 
@@ -165,6 +182,4 @@
 (defwindow calendar_popup
     :geometry (geometry :x "-20px" :y "7%" :anchor "top right" :width "270px" :height "60px")
     :windowtype "dialog"
-    :onblur "eww close calendar_popup"
     (cal))
-    
