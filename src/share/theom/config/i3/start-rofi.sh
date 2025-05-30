@@ -1,5 +1,5 @@
 #!/bin/bash
-theme=$(theom-config theme | tr -d "[:space:]")
+theme=$(theom-config appearance.theme | tr -d "[:space:]")
 if [ "$theme" = "dark" ]; then
     rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/rofi/dark/config.rasi
 elif [ "$theme" = "light" ]; then

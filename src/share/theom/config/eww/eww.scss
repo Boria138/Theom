@@ -8,7 +8,9 @@ $dark-text: #b0b4bc;
 $dark-battery-charging: #0f0;
 $dark-battery-full: #fff;
 $dark-battery-discharging: #b0b4bc;
-$dark-calendar-bg: #0f0f17;
+$dark-sys-tray: #282c34;
+// $dark-calendar-bg: #0f0f17; // old
+$dark-calendar-bg: rgba(20, 20, 20, 0.75);
 $dark-calendar-text: #b0b4bc;
 $dark-calendar-highlight: #d35d6e;
 
@@ -17,6 +19,7 @@ $light-text: #251a12;
 $light-battery-charging: #357d84;
 $light-battery-full: #7a143c;
 $light-battery-discharging: #251a12;
+$light-sys-tray: #f4e9d7;
 $light-calendar-bg: #e2d5be;
 $light-calendar-text: #251a12;
 $dark-calendar-highlight: #7a143c;
@@ -48,6 +51,31 @@ $dark-calendar-highlight: #7a143c;
   all: unset;
   padding: 5px 5px;
   font-size: larger;
+}
+
+.bar .notification-popup {
+  all: unset;
+  font-size: larger;
+  padding-right: 2px;
+  min-height: 10px;
+  min-width: 20px;
+  margin: 2px;
+  border-radius: 4px;
+}
+
+.bar .network-popup {
+  all: unset;
+  margin: 2px;
+  padding-right: 8px;
+  font-size: larger;
+  min-height: 10px;
+  min-width: 20px;
+  border-radius: 4px;
+}
+
+.bar .notification-popup,
+.bar .network-popup {
+  background-color: $dark-sys-tray;
 }
 
 .metric scale trough highlight {
@@ -164,12 +192,17 @@ calendar:indeterminate {
   color: $light-battery-discharging;
 }
 
-.bar.light-theme .calendar {
+.bar.light-theme .notification-popup,
+.bar.light-theme .network-popup {
+  background-color: $light-sys-tray;
+}
+
+.cal.light-theme .calendar {
   background-color: $light-calendar-bg;
   color: $light-calendar-text;
 }
 
-.bar.light-theme .calendar.highlight,
-.bar.light-theme calendar:selected {
+.cal.light-theme .calendar.highlight,
+.cal.light-theme calendar:selected {
   color: $dark-calendar-highlight;
 }
