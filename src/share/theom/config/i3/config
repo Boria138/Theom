@@ -68,4 +68,5 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 #########################
 #      Keybindings      #
 #########################
+bindsym Mod4+Return exec alacritty
 include ~/.config/.theom/keybindings.conf
