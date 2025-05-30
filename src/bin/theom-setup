@@ -56,7 +56,8 @@ fi
 [ ! -f ~/.config/mpd/mpd.conf ] && cp /usr/share/theom/config/mpd/mpd.conf ~/.config/mpd/mpd.conf
 
 # Theom
-[ ! -f ~/.config/.theom/config.json ] && cp /usr/share/theom/config/.theom/config.json ~/.config/.theom/
+[ ! -f ~/.config/.theom/config.toml ] && cp /usr/share/theom/config/.theom/config.toml ~/.config/.theom/
+[ ! -f ~/.config/.theom/keybindings.conf ] && cp /usr/share/theom/config/.theom/keybindings.conf ~/.config/.theom/
 [ ! -f ~/.config/.theom/osd-snippets/brightness.sh ] && cp /usr/share/theom/config/.theom/osd-snippets/brightness.sh ~/.config/.theom/osd-snippets/brightness.sh
 [ ! -f ~/.config/.theom/osd-snippets/volume.sh ] && cp /usr/share/theom/config/.theom/osd-snippets/volume.sh ~/.config/.theom/osd-snippets/volume.sh
 

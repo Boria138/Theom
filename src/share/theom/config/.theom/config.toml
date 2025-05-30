@@ -1,12 +1,15 @@
+# IMPORTANT NOTE
+# This structure of this config file, should be kept the same and only the values should be customised.
+# Only tweak the values, changing the key names or removing them may result in any unnecessary bugs or errors.
+
 [appearance]
 theme = "light"
 wallpaper = "/usr/share/backgrounds/mountain-winter1.jpg"
 
 [bar]
-polybar_layout = "float"
+polybar_layout = "stuck"
 use_eww = true
 
 [features]
-# welcomer = true # depricated
 compositing = true
 osd = false
