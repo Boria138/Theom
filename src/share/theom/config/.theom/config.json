@@ -1,9 +1,0 @@
-{
-  "welcomer": true,
-  "compositing": true,
-  "wallpaper": "/usr/share/backgrounds/mountain-winter1.jpg",
-  "theme": "light",
-  "polybar-layout": "float",
-  "osd": false,
-  "use-eww": true
-}

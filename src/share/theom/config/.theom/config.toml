@@ -1,0 +1,12 @@
+[appearance]
+theme = "light"
+wallpaper = "/usr/share/backgrounds/mountain-winter1.jpg"
+
+[bar]
+polybar_layout = "float"
+use_eww = true
+
+[features]
+# welcomer = true # depricated
+compositing = true
+osd = false

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-enable_osd=$(theom-config osd | tr -d "[:space:]")
+enable_osd=$(theom-config features.osd | tr -d "[:space:]")
 
 if [[ "$enable_osd" == "True" ]]; then
     if systemctl --user is-active --quiet tosd.service; then

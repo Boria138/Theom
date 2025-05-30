@@ -1,6 +1,6 @@
 #!/bin/sh
 
-theme=$(theom-config theme)
+theme=$(theom-config appearance.theme)
 
 if [ "$theme" = "False" ]; then
   echo "dark"
