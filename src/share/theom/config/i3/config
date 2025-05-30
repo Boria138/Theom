@@ -20,9 +20,6 @@ for_window [class=".*"] border pixel 0
 # terminal
 set $term /usr/share/theom/config/i3/start-alacritty.sh
 
-##### Keybinding Variables ######
-include ~/.config/.theom/keybindings.conf
-
 #########################
 #      Autostart        #
 #########################
@@ -71,102 +68,4 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 #########################
 #      Keybindings      #
 #########################
-
-# Scratchpad
-bindsym $key_scratch_show move scratchpad
-bindsym $key_scratch_move scratchpad show
-
-# App Launchers
-bindsym $key_term exec $term
-bindsym $key_kill kill
-bindsym $key_rofi exec /usr/share/theom/config/i3/start-rofi.sh
-bindsym $key_dashboard exec theom-dashboard
-bindsym $key_ss exec flameshot gui
-
-# Focus
-bindsym $key_focus_left focus left
-bindsym $key_focus_down focus down
-bindsym $key_focus_up focus up
-bindsym $key_focus_right focus right
-bindsym $key_focus_left_alt focus left
-bindsym $key_focus_down_alt focus down
-bindsym $key_focus_up_alt focus up
-bindsym $key_focus_right_alt focus right
-
-# Move
-bindsym $key_move_left move left
-bindsym $key_move_down move down
-bindsym $key_move_up move up
-bindsym $key_move_right move right
-bindsym $key_move_left_alt move left
-bindsym $key_move_down_alt move down
-bindsym $key_move_up_alt move up
-bindsym $key_move_right_alt move right
-
-# Layout / Floating / Mode
-bindsym $key_split_h split h
-bindsym $key_split_v split v
-bindsym $key_fullscreen fullscreen toggle
-bindsym $key_layout_stack layout stacking
-bindsym $key_layout_tab layout tabbed
-bindsym $key_toggle_split layout toggle split
-bindsym $key_floating floating toggle
-bindsym $key_toggle_mode focus mode_toggle
-bindsym $key_focus_parent focus parent
-bindsym $key_resize_mode mode "resize"
-
-# Brightness
-bindsym $key_bright_up exec brightnessctl set +10% && /usr/share/theom/config/i3/osd/brightness-change.sh
-bindsym $key_bright_down exec brightnessctl set 10%- && /usr/share/theom/config/i3/osd/brightness-change.sh
-
-# Volume / Mic
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym $key_vol_up exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && /usr/share/theom/config/i3/osd/volume-change.sh && $refresh_i3status
-bindsym $key_vol_down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && /usr/share/theom/config/i3/osd/volume-change.sh && $refresh_i3status
-bindsym $key_vol_mute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym $key_mic_mute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
-# Workspace Switch
-bindsym $key_ws_1 workspace number $ws1
-bindsym $key_ws_2 workspace number $ws2
-bindsym $key_ws_3 workspace number $ws3
-bindsym $key_ws_4 workspace number $ws4
-bindsym $key_ws_5 workspace number $ws5
-bindsym $key_ws_6 workspace number $ws6
-bindsym $key_ws_7 workspace number $ws7
-bindsym $key_ws_8 workspace number $ws8
-bindsym $key_ws_9 workspace number $ws9
-bindsym $key_ws_10 workspace number $ws10
-
-# Move Window to Workspace
-bindsym $key_mv_1 move container to workspace number $ws1
-bindsym $key_mv_2 move container to workspace number $ws2
-bindsym $key_mv_3 move container to workspace number $ws3
-bindsym $key_mv_4 move container to workspace number $ws4
-bindsym $key_mv_5 move container to workspace number $ws5
-bindsym $key_mv_6 move container to workspace number $ws6
-bindsym $key_mv_7 move container to workspace number $ws7
-bindsym $key_mv_8 move container to workspace number $ws8
-bindsym $key_mv_9 move container to workspace number $ws9
-bindsym $key_mv_10 move container to workspace number $ws10
-
-# Reload / Restart / Exit
-bindsym $key_reload reload
-bindsym $key_restart restart
-bindsym $key_exit exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
-mode "resize" {
-    bindsym $key_resize_shrink_width  resize shrink width 10 px or 10 ppt
-    bindsym $key_resize_grow_height   resize grow height 10 px or 10 ppt
-    bindsym $key_resize_shrink_height resize shrink height 10 px or 10 ppt
-    bindsym $key_resize_grow_width    resize grow width 10 px or 10 ppt
-
-    bindsym $key_resize_shrink_width_alt  resize shrink width 10 px or 10 ppt
-    bindsym $key_resize_grow_height_alt   resize grow height 10 px or 10 ppt
-    bindsym $key_resize_shrink_height_alt resize shrink height 10 px or 10 ppt
-    bindsym $key_resize_grow_width_alt    resize grow width 10 px or 10 ppt
-
-    bindsym $key_resize_exit_return mode "default"
-    bindsym $key_resize_exit_escape mode "default"
-    bindsym $key_resize_exit_modr mode "default"
-}
+include ~/.config/.theom/keybindings.conf
