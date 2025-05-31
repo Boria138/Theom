@@ -68,5 +68,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 #########################
 #      Keybindings      #
 #########################
-exec_always --no-startup-id /usr/share/theom/config/i3/kb-exists.sh # Protection from de failing
+
+# Protection from de failing
+exec_always --no-startup-id /usr/share/theom/config/i3/kb-exists.sh
+
 include ~/.config/.theom/keybindings.conf
