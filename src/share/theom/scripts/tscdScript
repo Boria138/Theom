@@ -1,0 +1,22 @@
+#!/bin/bash
+
+TSCL_PATH="$HOME/.config/.THEOM_SYSTEM/&info&.tscd"
+TSC="tscdctl"
+
+[ ! -d "$HOME/.config/.THEOM_SYSTEM" ] && mkdir -p "$HOME/.config/.THEOM_SYSTEM"
+
+if [ ! -f "$TSCL_PATH" ]; then
+    $TSC --out "$TSCL_PATH" \
+        --set vrdeconf_unstelle=0.1 premier_run=false premier_current=true
+else
+    PREV_VAL=$($TSC --out "$TSCL_PATH" --get premier_run 2>/dev/null)
+
+    if [ "$PREV_VAL" = "true" ]; then
+        $TSC --out "$TSCL_PATH" \
+            --set vrdeconf_unstelle=0.1 premier_current=true \
+            --flip premier_run
+    else
+        $TSC --out "$TSCL_PATH" \
+            --set vrdeconf_unstelle=0.1 premier_current=false
+    fi
+fi

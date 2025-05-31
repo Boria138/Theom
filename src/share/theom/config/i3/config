@@ -24,6 +24,9 @@ set $term /usr/share/theom/config/i3/start-alacritty.sh
 #      Autostart        #
 #########################
 
+# Do first boot welcome
+exec --no-startup-id /usr/share/theom/config/i3/other/first-time-welcome.sh
+
 # Start gfsd
 exec --no-startup-id /usr/lib/gvfsd
 exec --no-startup-id /usr/lib/gvfsd-trash
@@ -39,10 +42,10 @@ exec_always --no-startup-id  nm-applet
 #exec_always --no-startup-id feh --bg-scale /usr/share/backgrounds/Minimal-Nord.png
 exec_always --no-startup-id bash -c 'if [ "$(theom-config appearance.wallpaper | tr -d "[:space:]")" != "false" ]; then feh --bg-scale $(theom-config appearance.wallpaper); fi'
 #exec_always --no-startup-id  ~/.config/polybar/launch.sh
-exec_always --no-startup-id bash -c 'if [ "$(theom-config bar.use_eww | tr -d "[:space:]")" != "false" ]; then ~/.config/eww/launch.sh; else ~/.config/polybar/launch.sh; fi'
+exec_always --no-startup-id /usr/share/theom/config/i3/start-eww.sh
 
 # Notification daemon
-exec_always --no-startup-id bash -c 'theme=$(theom-config appearance.theme | tr -d "[:space:]"); if [ "$theme" = "dark" ]; then dunst -config ~/.config/dunst/dark/dunstrc; elif [ "$theme" = "light" ]; then dunst -config ~/.config/dunst/light/dunstrc; else dunst; fi'
+exec_always --no-startup-id /usr/share/theom/config/i3/start-dunst.sh
 
 # Notification history tracker
 exec_always --no-startup-id /usr/share/theom/config/i3/start-tnh.sh
@@ -68,4 +71,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 #########################
 #      Keybindings      #
 #########################
+
+# Protection from de failing
+exec_always --no-startup-id /usr/share/theom/config/i3/kb-exists.sh
+
 include ~/.config/.theom/keybindings.conf

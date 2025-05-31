@@ -1,5 +1,5 @@
 pkgname="theom"
-pkgver="0.5.9"
+pkgver="0.6.0"
 pkgrel="1"
 pkgdesc="Theom desktop environement"
 arch=("x86_64")
@@ -40,7 +40,7 @@ package() {
     mkdir -p "${pkgdir}/usr/"
     
     cp -r "$srcdir/bin" "$pkgdir/usr/"
-    cp -r "$srcdir/share" "$pkgdir/usr/"
+    cp -r "$srcdir/share/." "$pkgdir/usr/share/"
 
     install -Dm644 "$srcdir/share/xsessions/theom.desktop" "$pkgdir/usr/share/xsessions/theom.desktop"
 

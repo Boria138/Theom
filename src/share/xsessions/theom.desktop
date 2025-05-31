@@ -2,5 +2,5 @@
 Name=Theom
 Comment=Theom desktop environment
 Exec=theom
-Type=XSession
+Type=Application
 DesktopNames=Theom

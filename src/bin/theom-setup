@@ -62,6 +62,11 @@ fi
 [ ! -f ~/.config/.theom/osd-snippets/volume.sh ] && cp /usr/share/theom/config/.theom/osd-snippets/volume.sh ~/.config/.theom/osd-snippets/volume.sh
 
 # ---------------------- #
+#       Auto Gen         #
+# ---------------------- #
+/usr/share/theom/scripts/tscdScript
+
+# ---------------------- #
 #         Themes         #
 # ---------------------- #
 
