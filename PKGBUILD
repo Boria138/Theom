@@ -40,7 +40,7 @@ package() {
     mkdir -p "${pkgdir}/usr/"
     
     cp -r "$srcdir/bin" "$pkgdir/usr/"
-    cp -r "$srcdir/share" "$pkgdir/usr/"
+    cp -r "$srcdir/share/." "$pkgdir/usr/share/"
 
     install -Dm644 "$srcdir/share/xsessions/theom.desktop" "$pkgdir/usr/share/xsessions/theom.desktop"
 
