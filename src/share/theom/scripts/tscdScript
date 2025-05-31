@@ -1,17 +1,24 @@
 #!/bin/bash
 
 TSCL_PATH="$HOME/.config/.THEOM_SYSTEM/&info&.tscd"
+TSC="/home/byson94/Documents/Programming/Theom-packages/tscdctl/src/tscdctl"
 
-PREV_VAL=$(tscdctl --out "$TSCL_PATH" --get premier_run 2>/dev/null)
+[ ! -d "$HOME/.config/.THEOM_SYSTEM" ] && mkdir -p "$HOME/.config/.THEOM_SYSTEM"
 
-if [ -z "$PREV_VAL" ]; then
-    PREV_VAL=false
-fi
+if [ ! -f "$TSCL_PATH" ]; then
+    $TSC --out "$TSCL_PATH" \
+        --set vrdeconf_unstelle=0.1 premier_run=false premier_current=true
+    notify-send "Welcome to Theom!"
+else
+    PREV_VAL=$($TSC --out "$TSCL_PATH" --get premier_run 2>/dev/null)
 
-tscdctl --out "$TSCL_PATH" \
-    --set vrdeconf_unstelle=0.1 premier_current="$PREV_VAL" \
-    --flip premier_run
-
-if [ "$PREV_VAL" = "true" ]; then
-    notify-send "Welcome to theom!"
+    if [ "$PREV_VAL" = "true" ]; then
+        $TSC --out "$TSCL_PATH" \
+            --set vrdeconf_unstelle=0.1 premier_current=true \
+            --flip premier_run
+        notify-send "Welcome to Theom!"
+    else
+        $TSC --out "$TSCL_PATH" \
+            --set vrdeconf_unstelle=0.1 premier_current=false
+    fi
 fi
