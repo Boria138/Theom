@@ -1,0 +1,17 @@
+#!/bin/bash
+
+TSCL_PATH="$HOME/.config/.THEOM_SYSTEM/&info&.tscd"
+
+PREV_VAL=$(tscdctl --out "$TSCL_PATH" --get premier_run 2>/dev/null)
+
+if [ -z "$PREV_VAL" ]; then
+    PREV_VAL=false
+fi
+
+tscdctl --out "$TSCL_PATH" \
+    --set vrdeconf_unstelle=0.1 premier_current="$PREV_VAL" \
+    --flip premier_run
+
+if [ "$PREV_VAL" = "true" ]; then
+    notify-send "Welcome to theom!"
+fi
