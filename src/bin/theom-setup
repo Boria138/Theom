@@ -1,6 +1,13 @@
 #!/bin/sh
 
 # ---------------------- #
+#      Information       #
+# ---------------------- #
+
+##$ This script runs every time theom is launched.
+##$ This script makes sure that all necessary files exists for theom to run.
+
+# ---------------------- #
 #        Configs         #
 # ---------------------- #
 
