@@ -11,6 +11,7 @@ depends=(
   'i3-wm'
   'i3-gaps'
   'polybar'
+  'eww'
   'alacritty'
   'dunst'
   'rofi'
