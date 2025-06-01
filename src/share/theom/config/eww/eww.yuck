@@ -88,7 +88,7 @@
 
     (box :class "tray-items"
     (button
-      :onclick "tnotifications"
+      :onclick "tnotifications &"
       :class "notification-popup"
       "")
 
