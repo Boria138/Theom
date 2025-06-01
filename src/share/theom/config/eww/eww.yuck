@@ -88,7 +88,7 @@
 
     (box :class "tray-items"
     (button
-      :onclick "tnotifications &"
+      :onclick "tnotifications --position TR --margin-x 10 --margin-y 40 &"
       :class "notification-popup"
       "")
 
