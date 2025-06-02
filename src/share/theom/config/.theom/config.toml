@@ -4,7 +4,7 @@
 
 [appearance]
 theme = "light"
-wallpaper = "/usr/share/backgrounds/mountain-winter1.jpg"
+wallpaper = "/usr/share/backgrounds/dunes-sun.jpg"
 
 [bar]
 polybar_layout = "stuck"
