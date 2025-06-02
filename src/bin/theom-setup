@@ -81,6 +81,7 @@ GTK3_CONFIG="$HOME/.config/gtk-3.0/settings.ini"
 GTK2_CONFIG="$HOME/.gtkrc-2.0"
 ICON_THEME_DIR="$HOME/.icons/default"
 ICON_THEME_INDEX="$ICON_THEME_DIR/index.theme"
+XRESOURCES="$HOME/.Xresources"
 
 if [ ! -f "$GTK3_CONFIG" ]; then
     mkdir -p "$(dirname "$GTK3_CONFIG")"
@@ -88,6 +89,8 @@ if [ ! -f "$GTK3_CONFIG" ]; then
 [Settings]
 gtk-theme-name=Materia-dark
 gtk-icon-theme-name=Papirus
+gtk-cursor-theme-name=capitaine-cursors
+gtk-cursor-theme-size=24
 gtk-font-name=Sans 10
 EOF
 fi
@@ -96,6 +99,7 @@ if [ ! -f "$GTK2_CONFIG" ]; then
     cat > "$GTK2_CONFIG" <<EOF
 gtk-theme-name="Materia-dark"
 gtk-icon-theme-name="Papirus"
+gtk-cursor-theme-name=capitaine-cursors
 EOF
 fi
 
@@ -103,6 +107,14 @@ if [ ! -f "$ICON_THEME_INDEX" ]; then
     mkdir -p "$ICON_THEME_DIR"
     cat > "$ICON_THEME_INDEX" <<EOF
 [Icon Theme]
-Inherits=Materia-dark
+Inherits=capitaine-cursors
+EOF
+fi
+
+if [ ! -f "$XRESOURCES" ]; then
+    cat > "$XRESOURCES" <<EOF
+! Xresources for cursor theme
+Xcursor.theme: capitaine-cursors
+Xcursor.size: 24
 EOF
 fi
