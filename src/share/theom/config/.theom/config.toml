@@ -18,7 +18,7 @@ show = [
 
 [compositor]
 compositing = true
-compositing_mode = "performance"
+compositing_mode = "performance" # performance mode is light and recommended and compatibility mode is heavy and prevents visual glitches. 
 
 [osd]
-osd = false
+osd = false # deprecated
