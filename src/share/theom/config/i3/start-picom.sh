@@ -1,5 +1,7 @@
 #!/bin/bash
 
+pkill picom # Kill picom so that we can restart it.
+
 enable_compositing=$(theom-config compositor.compositing | tr -d "[:space:]")
 compositing_mode=$(theom-config compositor.compositing_mode | tr -d "[:space:]")
 theom_theme=$(theom-config appearance.theme | tr -d '[:space:]')
