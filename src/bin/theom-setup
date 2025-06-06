@@ -11,7 +11,7 @@
 #        Configs         #
 # ---------------------- #
 
-mkdir -p ~/.config/alacritty/dark ~/.config/alacritty/light ~/.config/dunst/dark ~/.config/dunst/light ~/.config/i3 ~/.config/picom ~/.config/polybar/dark ~/.config/polybar/light ~/.config/polybar/modules ~/.config/rofi/dark ~/.config/rofi/light ~/.config/.theom ~/.config/.theom/osd-snippets ~/.mpd ~/.config/mpd/playlists ~/.config/eww ~/.config/eww/scripts
+mkdir -p ~/.config/alacritty/dark ~/.config/alacritty/light ~/.config/dunst/dark ~/.config/dunst/light ~/.config/i3 ~/.config/picom ~/.config/polybar/dark ~/.config/polybar/light ~/.config/polybar/modules ~/.config/rofi/dark ~/.config/rofi/light ~/.config/.theom ~/.config/.theom/osd-snippets ~/.mpd ~/.config/mpd/playlists ~/.config/eww ~/.config/eww/scripts ~/.config/widgets
 
 # Alacritty
 [ ! -f ~/.config/alacritty/dark/alacritty.toml ] && cp /usr/share/theom/config/alacritty/dark/alacritty.toml ~/.config/alacritty/dark
@@ -61,6 +61,10 @@ fi
 
 # MPD
 [ ! -f ~/.mpd/mpd.conf ] && cp /usr/share/theom/config/mpd/mpd.conf ~/.mpd/mpd.conf
+
+# Widgets
+[ ! -f ~/.config/widgets/README.md ] && cp /usr/share/theom/config/widgets/README.md ~/.config/widgets/
+[ ! -f ~/.config/widgets/time.lua ] && cp /usr/share/theom/config/widgets/time.lua ~/.config/widgets/
 
 # Theom
 [ ! -f ~/.config/.theom/config.toml ] && cp /usr/share/theom/config/.theom/config.toml ~/.config/.theom/
