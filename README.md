@@ -29,9 +29,7 @@ sudo pacman -U <installed-file>
 
 ## Documentation
 
-You can read the basic theom documentaiton that covers on how we can use it at: [theom - axos docs](https://www.axos-project.com/docs/guides/theom/)
-
-You can read the full documentation which covers on how to use it, how it works and how we can customise it, at our [GitHub wiki](https://github.com/AxOS-project/Theom/wiki/)
+You can read the theom documentaiton that covers on how we can use/configure theom at: [theom - axos docs](https://www.axos-project.com/docs/guides/theom/)
 
 ## Dependencies
 
