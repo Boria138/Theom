@@ -16,6 +16,9 @@ show = [
     "~/.config/widgets/time.lua"
 ]
 
-[features]
+[compositor]
 compositing = true
+compositing_mode = "performance"
+
+[osd]
 osd = false
