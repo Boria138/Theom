@@ -13,7 +13,8 @@ use_eww = true
 [widgets]
 enable_widgets = true
 show = [
-    "~/.config/widgets/time.lua"
+    "~/.config/widgets/time.lua",
+    "~/.config/widgets/uptime.lua"
 ]
 
 [compositor]
