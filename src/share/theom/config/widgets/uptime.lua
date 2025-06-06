@@ -7,7 +7,7 @@ conky.config = {
     double_buffer = true,
     alignment = 'center',
     gap_x = 0,
-    gap_y = -30,
+    gap_y = -20,
     use_xft = true,
     font = 'FiraCode Nerd Font:bold:italic:size=12',
 };

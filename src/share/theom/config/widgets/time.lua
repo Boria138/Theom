@@ -13,11 +13,11 @@ conky.config = {
     -- minimum_width = 200,
     -- minimum_height = 50,
     use_xft = true,
-    -- font = 'Monospace:bold:size=50',
+    -- font = 'FiraCode Nerd Font:bold:size=50',
 };
 
 conky.text = [[
-${alignc}${font Monospace:bold:size=60}${time %H:%M}${font}
-${alignc}${voffset 5}${font Monospace:size=14}${time %a, %b %d %Y}${font}
+${alignc}${font FiraCode Nerd Font:bold:size=60}${time %H:%M}${font}
+${alignc}${voffset 5}${font FiraCode Nerd Font:size=14}${time %a, %b %d %Y}${font}
 ]];
 
