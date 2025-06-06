@@ -12,6 +12,7 @@ depends=(
   'i3-gaps'
   'polybar'
   'eww'
+  'conky'
   'alacritty'
   'dunst'
   'rofi'
