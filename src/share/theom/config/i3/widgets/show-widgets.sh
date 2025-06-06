@@ -10,6 +10,9 @@ if [ "$enable_widgets" = "True" ]; then
     IFS=',' read -r -a widget_array <<< "$cleaned_output"
 
     for widget in "${widget_array[@]}"; do
+        widget="${widget#"${widget%%[![:space:]]*}"}"
+        widget="${widget%"${widget##*[![:space:]]}"}"
+        
         widget_path="${widget/#\~/$HOME}"
         conky -c "$widget_path" &
     done
