@@ -17,7 +17,7 @@ conky.config = {
 };
 
 conky.text = [[
-${alignc}${font Monospace:bold:size=50}${time %H:%M}${font}
+${alignc}${font Monospace:bold:size=60}${time %H:%M}${font}
 ${alignc}${voffset 5}${font Monospace:size=14}${time %a, %b %d %Y}${font}
 ]];
 
