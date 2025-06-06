@@ -48,7 +48,7 @@ exec_always --no-startup-id /usr/share/theom/config/i3/start-eww.sh
 exec_always --no-startup-id /usr/share/theom/config/i3/widgets/show-widgets.sh
 
 # Notification daemon
-exec_always --no-startup-id /usr/share/theom/config/i3/start-dunst.sh
+exec_always --no-startup-id /usr/share/theom/config/i3/start-dunst.sh &
 
 # Notification history tracker
 exec_always --no-startup-id /usr/share/theom/config/i3/start-tnh.sh
