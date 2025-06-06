@@ -5,8 +5,8 @@ picom
 i3-wm
 i3-gaps
 polybar
+eww
 alacritty
-network-manager-applet
 dunst
 rofi
 feh
@@ -16,11 +16,9 @@ libpipewire
 pipewire-alsa
 pipewire-pulse
 alsa-utils
-python
+alsa-plugins
+upower
+pamixer
+jq
 theom-extras
-theom-settings
-theom-welcome
-theom-notification-history
-theom-dashboard
-tosd-server
-tosd-client
+theom-utils

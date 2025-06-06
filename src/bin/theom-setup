@@ -1,10 +1,17 @@
 #!/bin/sh
 
 # ---------------------- #
+#      Information       #
+# ---------------------- #
+
+##$ This script runs every time theom is launched.
+##$ This script makes sure that all necessary files exists for theom to run.
+
+# ---------------------- #
 #        Configs         #
 # ---------------------- #
 
-mkdir -p ~/.config/alacritty/dark ~/.config/alacritty/light ~/.config/dunst/dark ~/.config/dunst/light ~/.config/i3 ~/.config/picom ~/.config/polybar/dark ~/.config/polybar/light ~/.config/polybar/modules ~/.config/rofi/dark ~/.config/rofi/light ~/.config/.theom ~/.config/.theom/osd-snippets ~/.config/mpd ~/.config/mpd/playlists ~/.config/eww ~/.config/eww/scripts
+mkdir -p ~/.config/alacritty/dark ~/.config/alacritty/light ~/.config/dunst/dark ~/.config/dunst/light ~/.config/i3 ~/.config/picom ~/.config/polybar/dark ~/.config/polybar/light ~/.config/polybar/modules ~/.config/rofi/dark ~/.config/rofi/light ~/.config/.theom ~/.config/.theom/osd-snippets ~/.mpd ~/.config/mpd/playlists ~/.config/eww ~/.config/eww/scripts
 
 # Alacritty
 [ ! -f ~/.config/alacritty/dark/alacritty.toml ] && cp /usr/share/theom/config/alacritty/dark/alacritty.toml ~/.config/alacritty/dark
@@ -53,7 +60,7 @@ if ! grep -q 'eval "$(starship init bash)"' "$HOME/.bashrc"; then
 fi
 
 # MPD
-[ ! -f ~/.config/mpd/mpd.conf ] && cp /usr/share/theom/config/mpd/mpd.conf ~/.config/mpd/mpd.conf
+[ ! -f ~/.mpd/mpd.conf ] && cp /usr/share/theom/config/mpd/mpd.conf ~/.mpd/mpd.conf
 
 # Theom
 [ ! -f ~/.config/.theom/config.toml ] && cp /usr/share/theom/config/.theom/config.toml ~/.config/.theom/
@@ -74,6 +81,7 @@ GTK3_CONFIG="$HOME/.config/gtk-3.0/settings.ini"
 GTK2_CONFIG="$HOME/.gtkrc-2.0"
 ICON_THEME_DIR="$HOME/.icons/default"
 ICON_THEME_INDEX="$ICON_THEME_DIR/index.theme"
+XRESOURCES="$HOME/.Xresources"
 
 if [ ! -f "$GTK3_CONFIG" ]; then
     mkdir -p "$(dirname "$GTK3_CONFIG")"
@@ -81,6 +89,8 @@ if [ ! -f "$GTK3_CONFIG" ]; then
 [Settings]
 gtk-theme-name=Materia-dark
 gtk-icon-theme-name=Papirus
+gtk-cursor-theme-name=capitaine-cursors
+gtk-cursor-theme-size=24
 gtk-font-name=Sans 10
 EOF
 fi
@@ -89,6 +99,7 @@ if [ ! -f "$GTK2_CONFIG" ]; then
     cat > "$GTK2_CONFIG" <<EOF
 gtk-theme-name="Materia-dark"
 gtk-icon-theme-name="Papirus"
+gtk-cursor-theme-name=capitaine-cursors
 EOF
 fi
 
@@ -96,6 +107,14 @@ if [ ! -f "$ICON_THEME_INDEX" ]; then
     mkdir -p "$ICON_THEME_DIR"
     cat > "$ICON_THEME_INDEX" <<EOF
 [Icon Theme]
-Inherits=Materia-dark
+Inherits=capitaine-cursors
+EOF
+fi
+
+if [ ! -f "$XRESOURCES" ]; then
+    cat > "$XRESOURCES" <<EOF
+! Xresources for cursor theme
+Xcursor.theme: capitaine-cursors
+Xcursor.size: 24
 EOF
 fi

@@ -1,5 +1,5 @@
 pkgname="theom"
-pkgver="0.6.0"
+pkgver="0.6.1"
 pkgrel="1"
 pkgdesc="Theom desktop environement"
 arch=("x86_64")
@@ -11,6 +11,7 @@ depends=(
   'i3-wm'
   'i3-gaps'
   'polybar'
+  'eww'
   'alacritty'
   'dunst'
   'rofi'
