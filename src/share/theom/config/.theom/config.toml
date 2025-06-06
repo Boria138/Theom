@@ -10,6 +10,16 @@ wallpaper = "/usr/share/backgrounds/dunes-sun.jpg"
 polybar_layout = "stuck"
 use_eww = true
 
-[features]
+[widgets]
+enable_widgets = true
+show = [
+    "~/.config/widgets/time.lua",
+    "~/.config/widgets/uptime.lua"
+]
+
+[compositor]
 compositing = true
-osd = false
+compositing_mode = "performance" # performance mode is light and recommended and compatibility mode is heavy and prevents visual glitches. 
+
+[osd]
+osd = false # deprecated
