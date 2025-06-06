@@ -11,7 +11,7 @@
 #        Configs         #
 # ---------------------- #
 
-mkdir -p ~/.config/alacritty/dark ~/.config/alacritty/light ~/.config/dunst/dark ~/.config/dunst/light ~/.config/i3 ~/.config/picom ~/.config/polybar/dark ~/.config/polybar/light ~/.config/polybar/modules ~/.config/rofi/dark ~/.config/rofi/light ~/.config/.theom ~/.config/.theom/osd-snippets ~/.config/mpd ~/.config/mpd/playlists ~/.config/eww ~/.config/eww/scripts
+mkdir -p ~/.config/alacritty/dark ~/.config/alacritty/light ~/.config/dunst/dark ~/.config/dunst/light ~/.config/i3 ~/.config/picom ~/.config/polybar/dark ~/.config/polybar/light ~/.config/polybar/modules ~/.config/rofi/dark ~/.config/rofi/light ~/.config/.theom ~/.config/.theom/osd-snippets ~/.mpd ~/.config/mpd/playlists ~/.config/eww ~/.config/eww/scripts
 
 # Alacritty
 [ ! -f ~/.config/alacritty/dark/alacritty.toml ] && cp /usr/share/theom/config/alacritty/dark/alacritty.toml ~/.config/alacritty/dark
@@ -60,7 +60,7 @@ if ! grep -q 'eval "$(starship init bash)"' "$HOME/.bashrc"; then
 fi
 
 # MPD
-[ ! -f ~/.config/mpd/mpd.conf ] && cp /usr/share/theom/config/mpd/mpd.conf ~/.config/mpd/mpd.conf
+[ ! -f ~/.mpd/mpd.conf ] && cp /usr/share/theom/config/mpd/mpd.conf ~/.mpd/mpd.conf
 
 # Theom
 [ ! -f ~/.config/.theom/config.toml ] && cp /usr/share/theom/config/.theom/config.toml ~/.config/.theom/
