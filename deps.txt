@@ -6,6 +6,7 @@ i3-wm
 i3-gaps
 polybar
 eww
+conky
 alacritty
 dunst
 rofi

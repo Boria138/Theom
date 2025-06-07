@@ -1,3 +1,5 @@
+-- THEOM uptime widget
+
 conky.config = {
     own_window = true,
     update_interval = 1,
