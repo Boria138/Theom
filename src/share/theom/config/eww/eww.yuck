@@ -92,10 +92,10 @@
       :class "notification-popup"
       "")
 
-    (button
-      :onclick "echo nothing"
-      :class "network-popup"
-      ""))
+    ;(button
+    ;  :onclick "echo nothing"
+    ;  :class "network-popup"
+    ;  ""))
     
       
 
