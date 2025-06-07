@@ -42,7 +42,7 @@ exec_always --no-startup-id  nm-applet
 #exec_always --no-startup-id feh --bg-scale /usr/share/backgrounds/Minimal-Nord.png
 exec_always --no-startup-id bash -c 'if [ "$(theom-config appearance.wallpaper | tr -d "[:space:]")" != "false" ]; then feh --bg-scale $(theom-config appearance.wallpaper); fi'
 #exec_always --no-startup-id  ~/.config/polybar/launch.sh
-exec_always --no-startup-id /usr/share/theom/config/i3/start-eww.sh
+exec_always --no-startup-id /usr/share/theom/config/i3/start-bar.sh
 
 # Widgets
 exec_always --no-startup-id /usr/share/theom/config/i3/widgets/show-widgets.sh
