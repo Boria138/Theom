@@ -1,9 +1,7 @@
 # Upcomming features to theom
 
-- Improved eww bar
+- Network button in eww bar
 - Custom light gtk theme
-- More customisation options
-- A GUI to tweak keybindings
 
 # Features that might be included
 
