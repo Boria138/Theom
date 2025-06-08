@@ -24,6 +24,11 @@ set $term /usr/share/theom/config/i3/start-alacritty.sh
 #      Autostart        #
 #########################
 
+# Picom renderer
+# exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
+# Check if compositing is enabled in the config only then run this.
+exec_always --no-startup-id /usr/share/theom/config/i3/start-picom.sh
+
 # Do first boot welcome
 exec --no-startup-id /usr/share/theom/config/i3/other/first-time-welcome.sh
 
@@ -55,11 +60,6 @@ exec_always --no-startup-id /usr/share/theom/config/i3/start-tnh.sh
 
 # mpd music daemon
 exec_always --no-startup-id mpd
-
-# Picom renderer
-# exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
-# Check if compositing is enabled in the config only then run this.
-exec_always --no-startup-id /usr/share/theom/config/i3/start-picom.sh
 
 # theom on screen display server
 exec_always --no-startup-id /usr/share/theom/config/i3/osd/start-tosds.sh
