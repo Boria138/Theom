@@ -7,6 +7,4 @@ systemctl --user import-environment XDG_CURRENT_DESKTOP DESKTOP_SESSION
 
 /usr/bin/theom-setup
 
-/usr/bin/theom-welcome &
-
 exec i3 -c /usr/share/theom/config/i3/config
