@@ -45,6 +45,7 @@ mkdir -p ~/.config ~/.config/alacritty/dark ~/.config/alacritty/light ~/.config/
 [ ! -s ~/.config/eww/scripts/getvol ] && cp /usr/share/theom/config/eww/scripts/getvol ~/.config/eww/scripts/
 [ ! -s ~/.config/eww/scripts/music ] && cp /usr/share/theom/config/eww/scripts/music ~/.config/eww/scripts/
 [ ! -s ~/.config/eww/scripts/music_title ] && cp /usr/share/theom/config/eww/scripts/music_title ~/.config/eww/scripts/
+[ ! -s ~/.config/eww/scripts/open-systray ] && cp /usr/share/theom/config/eww/scripts/open-systray ~/.config/eww/scripts/
 [ ! -s ~/.config/eww/scripts/workspace ] && cp /usr/share/theom/config/eww/scripts/workspace ~/.config/eww/scripts/
 
 # Rofi
