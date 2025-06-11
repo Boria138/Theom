@@ -11,67 +11,67 @@
 #        Configs         #
 # ---------------------- #
 
-mkdir -p ~/.config/alacritty/dark ~/.config/alacritty/light ~/.config/dunst/dark ~/.config/dunst/light ~/.config/i3 ~/.config/picom ~/.config/polybar/dark ~/.config/polybar/light ~/.config/polybar/modules ~/.config/rofi/dark ~/.config/rofi/light ~/.config/.theom ~/.config/.theom/osd-snippets ~/.mpd ~/.config/mpd/playlists ~/.config/eww ~/.config/eww/scripts ~/.config/widgets
+mkdir -p ~/.config ~/.config/alacritty/dark ~/.config/alacritty/light ~/.config/dunst/dark ~/.config/dunst/light ~/.config/i3 ~/.config/picom ~/.config/polybar/dark ~/.config/polybar/light ~/.config/polybar/modules ~/.config/rofi/dark ~/.config/rofi/light ~/.config/.theom ~/.config/.theom/osd-snippets ~/.mpd ~/.config/mpd/playlists ~/.config/eww ~/.config/eww/scripts ~/.config/widgets
 
 # Alacritty
-[ ! -f ~/.config/alacritty/dark/alacritty.toml ] && cp /usr/share/theom/config/alacritty/dark/alacritty.toml ~/.config/alacritty/dark
-[ ! -f ~/.config/alacritty/light/alacritty.toml ] && cp /usr/share/theom/config/alacritty/light/alacritty.toml ~/.config/alacritty/light
+[ ! -s ~/.config/alacritty/dark/alacritty.toml ] && cp /usr/share/theom/config/alacritty/dark/alacritty.toml ~/.config/alacritty/dark
+[ ! -s ~/.config/alacritty/light/alacritty.toml ] && cp /usr/share/theom/config/alacritty/light/alacritty.toml ~/.config/alacritty/light
 
 # Dunst
-[ ! -f ~/.config/dunst/dark/dunstrc ] && cp /usr/share/theom/config/dunst/dark/dunstrc ~/.config/dunst/dark/
-[ ! -f ~/.config/dunst/light/dunstrc ] && cp /usr/share/theom/config/dunst/light/dunstrc ~/.config/dunst/light/
+[ ! -s ~/.config/dunst/dark/dunstrc ] && cp /usr/share/theom/config/dunst/dark/dunstrc ~/.config/dunst/dark/
+[ ! -s ~/.config/dunst/light/dunstrc ] && cp /usr/share/theom/config/dunst/light/dunstrc ~/.config/dunst/light/
 
 # i3
-#[ ! -f ~/.config/i3/config ] && cp /usr/share/theom/config/i3/config ~/.config/i3/
+#[ ! -s ~/.config/i3/config ] && cp /usr/share/theom/config/i3/config ~/.config/i3/
 
 # Picom
-#[ ! -f ~/.config/picom/picom.conf ] && cp /usr/share/theom/config/picom/picom.conf ~/.config/picom/
+#[ ! -s ~/.config/picom/picom.conf ] && cp /usr/share/theom/config/picom/picom.conf ~/.config/picom/
 
 # Polybar
-[ ! -f ~/.config/polybar/dark/config.ini ] && cp /usr/share/theom/config/polybar/dark/config.ini ~/.config/polybar/dark/
-[ ! -f ~/.config/polybar/light/config.ini ] && cp /usr/share/theom/config/polybar/light/config.ini ~/.config/polybar/light/
-[ ! -f ~/.config/polybar/launch.sh ] && cp /usr/share/theom/config/polybar/launch.sh ~/.config/polybar/
-[ ! -f ~/.config/polybar/modules/layout.conf ] && cp /usr/share/theom/config/polybar/modules/layout.conf ~/.config/polybar/modules/
-[ ! -f ~/.config/polybar/modules/layout.float.conf ] && cp /usr/share/theom/config/polybar/modules/layout.float.conf ~/.config/polybar/modules/
-[ ! -f ~/.config/polybar/modules/layout.stuck.conf ] && cp /usr/share/theom/config/polybar/modules/layout.stuck.conf ~/.config/polybar/modules/
+[ ! -s ~/.config/polybar/dark/config.ini ] && cp /usr/share/theom/config/polybar/dark/config.ini ~/.config/polybar/dark/
+[ ! -s ~/.config/polybar/light/config.ini ] && cp /usr/share/theom/config/polybar/light/config.ini ~/.config/polybar/light/
+[ ! -s ~/.config/polybar/launch.sh ] && cp /usr/share/theom/config/polybar/launch.sh ~/.config/polybar/
+[ ! -s ~/.config/polybar/modules/layout.conf ] && cp /usr/share/theom/config/polybar/modules/layout.conf ~/.config/polybar/modules/
+[ ! -s ~/.config/polybar/modules/layout.float.conf ] && cp /usr/share/theom/config/polybar/modules/layout.float.conf ~/.config/polybar/modules/
+[ ! -s ~/.config/polybar/modules/layout.stuck.conf ] && cp /usr/share/theom/config/polybar/modules/layout.stuck.conf ~/.config/polybar/modules/
 
 # EWW
-[ ! -f ~/.config/eww/launch.sh ] && cp /usr/share/theom/config/eww/launch.sh ~/.config/eww/
-[ ! -f ~/.config/eww/eww.yuck ] && cp /usr/share/theom/config/eww/eww.yuck ~/.config/eww/
-[ ! -f ~/.config/eww/eww.scss ] && cp /usr/share/theom/config/eww/eww.scss ~/.config/eww/
-[ ! -f ~/.config/eww/scripts/calendar_popup ] && cp /usr/share/theom/config/eww/scripts/calendar_popup ~/.config/eww/scripts/
-[ ! -f ~/.config/eww/scripts/get_theme ] && cp /usr/share/theom/config/eww/scripts/get_theme ~/.config/eww/scripts/
-[ ! -f ~/.config/eww/scripts/getbattery ] && cp /usr/share/theom/config/eww/scripts/getbattery ~/.config/eww/scripts/
-[ ! -f ~/.config/eww/scripts/getvol ] && cp /usr/share/theom/config/eww/scripts/getvol ~/.config/eww/scripts/
-[ ! -f ~/.config/eww/scripts/music ] && cp /usr/share/theom/config/eww/scripts/music ~/.config/eww/scripts/
-[ ! -f ~/.config/eww/scripts/music_title ] && cp /usr/share/theom/config/eww/scripts/music_title ~/.config/eww/scripts/
-[ ! -f ~/.config/eww/scripts/workspace ] && cp /usr/share/theom/config/eww/scripts/workspace ~/.config/eww/scripts/
+[ ! -s ~/.config/eww/launch.sh ] && cp /usr/share/theom/config/eww/launch.sh ~/.config/eww/
+[ ! -s ~/.config/eww/eww.yuck ] && cp /usr/share/theom/config/eww/eww.yuck ~/.config/eww/
+[ ! -s ~/.config/eww/eww.scss ] && cp /usr/share/theom/config/eww/eww.scss ~/.config/eww/
+[ ! -s ~/.config/eww/scripts/calendar_popup ] && cp /usr/share/theom/config/eww/scripts/calendar_popup ~/.config/eww/scripts/
+[ ! -s ~/.config/eww/scripts/get_theme ] && cp /usr/share/theom/config/eww/scripts/get_theme ~/.config/eww/scripts/
+[ ! -s ~/.config/eww/scripts/getbattery ] && cp /usr/share/theom/config/eww/scripts/getbattery ~/.config/eww/scripts/
+[ ! -s ~/.config/eww/scripts/getvol ] && cp /usr/share/theom/config/eww/scripts/getvol ~/.config/eww/scripts/
+[ ! -s ~/.config/eww/scripts/music ] && cp /usr/share/theom/config/eww/scripts/music ~/.config/eww/scripts/
+[ ! -s ~/.config/eww/scripts/music_title ] && cp /usr/share/theom/config/eww/scripts/music_title ~/.config/eww/scripts/
+[ ! -s ~/.config/eww/scripts/workspace ] && cp /usr/share/theom/config/eww/scripts/workspace ~/.config/eww/scripts/
 
 # Rofi
-[ ! -f ~/.config/rofi/dark/config.rasi ] && cp /usr/share/theom/config/rofi/dark/config.rasi ~/.config/rofi/dark/
-[ ! -f ~/.config/rofi/dark/colors.rasi ] && cp /usr/share/theom/config/rofi/dark/colors.rasi ~/.config/rofi/dark/
-[ ! -f ~/.config/rofi/light/config.rasi ] && cp /usr/share/theom/config/rofi/light/config.rasi ~/.config/rofi/light/
-[ ! -f ~/.config/rofi/light/colors.rasi ] && cp /usr/share/theom/config/rofi/light/colors.rasi ~/.config/rofi/light/
+[ ! -s ~/.config/rofi/dark/config.rasi ] && cp /usr/share/theom/config/rofi/dark/config.rasi ~/.config/rofi/dark/
+[ ! -s ~/.config/rofi/dark/colors.rasi ] && cp /usr/share/theom/config/rofi/dark/colors.rasi ~/.config/rofi/dark/
+[ ! -s ~/.config/rofi/light/config.rasi ] && cp /usr/share/theom/config/rofi/light/config.rasi ~/.config/rofi/light/
+[ ! -s ~/.config/rofi/light/colors.rasi ] && cp /usr/share/theom/config/rofi/light/colors.rasi ~/.config/rofi/light/
 
 # Starship
-[ ! -f ~/.config/starship.toml ] && cp /usr/share/theom/config/starship.toml ~/.config/starship.toml
+[ ! -s ~/.config/starship.toml ] && cp /usr/share/theom/config/starship.toml ~/.config/starship.toml
 if ! grep -q 'eval "$(starship init bash)"' "$HOME/.bashrc"; then
     echo 'eval "$(starship init bash)"' >> "$HOME/.bashrc"
 fi
 
 # MPD
-[ ! -f ~/.mpd/mpd.conf ] && cp /usr/share/theom/config/mpd/mpd.conf ~/.mpd/mpd.conf
+[ ! -s ~/.mpd/mpd.conf ] && cp /usr/share/theom/config/mpd/mpd.conf ~/.mpd/mpd.conf
 
 # Widgets
-[ ! -f ~/.config/widgets/README.md ] && cp /usr/share/theom/config/widgets/README.md ~/.config/widgets/
-[ ! -f ~/.config/widgets/time.lua ] && cp /usr/share/theom/config/widgets/time.lua ~/.config/widgets/
-[ ! -f ~/.config/widgets/uptime.lua ] && cp /usr/share/theom/config/widgets/uptime.lua ~/.config/widgets/
+[ ! -s ~/.config/widgets/README.md ] && cp /usr/share/theom/config/widgets/README.md ~/.config/widgets/
+[ ! -s ~/.config/widgets/time.lua ] && cp /usr/share/theom/config/widgets/time.lua ~/.config/widgets/
+[ ! -s ~/.config/widgets/uptime.lua ] && cp /usr/share/theom/config/widgets/uptime.lua ~/.config/widgets/
 
 # Theom
-[ ! -f ~/.config/.theom/config.toml ] && cp /usr/share/theom/config/.theom/config.toml ~/.config/.theom/
-[ ! -f ~/.config/.theom/keybindings.conf ] && cp /usr/share/theom/config/.theom/keybindings.conf ~/.config/.theom/
-[ ! -f ~/.config/.theom/osd-snippets/brightness.sh ] && cp /usr/share/theom/config/.theom/osd-snippets/brightness.sh ~/.config/.theom/osd-snippets/brightness.sh
-[ ! -f ~/.config/.theom/osd-snippets/volume.sh ] && cp /usr/share/theom/config/.theom/osd-snippets/volume.sh ~/.config/.theom/osd-snippets/volume.sh
+[ ! -s ~/.config/.theom/config.toml ] && cp /usr/share/theom/config/.theom/config.toml ~/.config/.theom/
+[ ! -s ~/.config/.theom/keybindings.conf ] && cp /usr/share/theom/config/.theom/keybindings.conf ~/.config/.theom/
+[ ! -s ~/.config/.theom/osd-snippets/brightness.sh ] && cp /usr/share/theom/config/.theom/osd-snippets/brightness.sh ~/.config/.theom/osd-snippets/brightness.sh
+[ ! -s ~/.config/.theom/osd-snippets/volume.sh ] && cp /usr/share/theom/config/.theom/osd-snippets/volume.sh ~/.config/.theom/osd-snippets/volume.sh
 
 # ---------------------- #
 #       Auto Gen         #
@@ -88,7 +88,7 @@ ICON_THEME_DIR="$HOME/.icons/default"
 ICON_THEME_INDEX="$ICON_THEME_DIR/index.theme"
 XRESOURCES="$HOME/.Xresources"
 
-if [ ! -f "$GTK3_CONFIG" ]; then
+if [ ! -s "$GTK3_CONFIG" ]; then
     mkdir -p "$(dirname "$GTK3_CONFIG")"
     cat > "$GTK3_CONFIG" <<EOF
 [Settings]
@@ -100,7 +100,7 @@ gtk-font-name=Sans 10
 EOF
 fi
 
-if [ ! -f "$GTK2_CONFIG" ]; then
+if [ ! -s "$GTK2_CONFIG" ]; then
     cat > "$GTK2_CONFIG" <<EOF
 gtk-theme-name="Materia-dark"
 gtk-icon-theme-name="Papirus"
@@ -108,7 +108,7 @@ gtk-cursor-theme-name=capitaine-cursors
 EOF
 fi
 
-if [ ! -f "$ICON_THEME_INDEX" ]; then
+if [ ! -s "$ICON_THEME_INDEX" ]; then
     mkdir -p "$ICON_THEME_DIR"
     cat > "$ICON_THEME_INDEX" <<EOF
 [Icon Theme]
@@ -116,7 +116,7 @@ Inherits=capitaine-cursors
 EOF
 fi
 
-if [ ! -f "$XRESOURCES" ]; then
+if [ ! -s "$XRESOURCES" ]; then
     cat > "$XRESOURCES" <<EOF
 ! Xresources for cursor theme
 Xcursor.theme: capitaine-cursors
