@@ -63,7 +63,7 @@ $dark-calendar-highlight: #7a143c;
   border-radius: 4px;
 }
 
-.bar .network-popup {
+.bar .systray-open {
   all: unset;
   margin: 2px;
   padding-right: 8px;
@@ -74,7 +74,7 @@ $dark-calendar-highlight: #7a143c;
 }
 
 .bar .notification-popup,
-.bar .network-popup {
+.bar .systray-open {
   background-color: $dark-sys-tray;
 }
 
@@ -193,7 +193,7 @@ calendar:indeterminate {
 }
 
 .bar.light-theme .notification-popup,
-.bar.light-theme .network-popup {
+.bar.light-theme .systray-open {
   background-color: $light-sys-tray;
 }
 
