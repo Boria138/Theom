@@ -36,6 +36,9 @@ exec --no-startup-id /usr/share/theom/config/i3/other/first-time-welcome.sh
 exec --no-startup-id /usr/lib/gvfsd
 exec --no-startup-id /usr/lib/gvfsd-trash
 
+# Run the greeter
+exec --no-startup-id /usr/bin/theom-setup
+
 # ScreenShot 
 exec_always --no-startup-id flameshot
 
