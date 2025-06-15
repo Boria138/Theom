@@ -15,4 +15,4 @@ else
   eww open calendar_popup
   echo "open" > $STATEFILE
 fi
-sleep 0.1
+sleep 0.2
