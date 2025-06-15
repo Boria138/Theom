@@ -27,6 +27,12 @@
 sudo pacman -U <installed-file>
 ```
 
+- Or run the following command if you have [epsilon](https://github.com/AxOs-project/epsilon) installed.
+
+```
+epsi i theom
+```
+
 ## Documentation
 
 You can read the theom documentaiton that covers on how we can use/configure theom at: [theom - axos docs](https://www.axos-project.com/docs/guides/theom/)
@@ -34,3 +40,7 @@ You can read the theom documentaiton that covers on how we can use/configure the
 ## Dependencies
 
 View the dependencies in [the deps.txt file](https://raw.githubusercontent.com/AxOS-project/Theom/main/deps.txt)
+
+## Credits
+
+- Wallpapers from [axos wallpaper collection](https://github.com/AxOS-project/wallpapers) by [ardox](https://github.com/levraiardox)
