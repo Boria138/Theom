@@ -1,6 +1,6 @@
 # Theom
 
-**Theom** is an extremely lightweight desktop environment built on top of i3wm for [AxOS](https://www.axos-project.com/), designed for speed, simplicity, and elegance. Ideal for minimalists, power users, and systems where every megabyte matters.
+**Theom** is an extremely lightweight desktop environment built on top of [i3wm](https://i3wm.org/) for [AxOS](https://www.axos-project.com/), designed for speed, simplicity, and elegance. Ideal for minimalists, power users, and systems where every megabyte matters.
 
 ## Features
 
