@@ -1,10 +1,93 @@
-#!/bin/sh
+#!/bin/bash
 
-export XDG_CURRENT_DESKTOP="Theom"
-export DESKTOP_SESSION="theom"
+set -e
 
-systemctl --user import-environment XDG_CURRENT_DESKTOP DESKTOP_SESSION
+VERSION="1.0.0"
+CONFIG_DIR="$HOME/.config/.theom"
+CORE_BINS=("/usr/bin/theom-config" "/usr/bin/theom-setup")
 
-/usr/bin/theom-setup
+# Color codes
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m'
 
-exec i3 -c /usr/share/theom/config/i3/config
+print_help() {
+    cat <<EOF
+Theom Desktop Environment - Launcher
+
+Usage:
+  theom [OPTION]
+
+Options:
+  --help        Show this help message and exit
+  --version     Print version information
+  --dry-run     Validate config and binaries, then exit
+EOF
+}
+
+case "$1" in
+    --help|-h)
+        print_help
+        exit 0
+        ;;
+    --version|-v)
+        echo "Theom version $VERSION © 2025 Byson94 and contributors"
+        exit 0
+        ;;
+    --dry-run)
+        echo "Dry-run: checking Theom environment..."
+
+        CONFIG_FILE="$CONFIG_DIR/config.toml"
+        KEYBIND_FILE="$CONFIG_DIR/keybindings.conf"
+
+        errors=0
+
+        echo ">>> Checking configuration files:"
+        if [ ! -f "$CONFIG_FILE" ]; then
+            echo -e "  ${RED}Missing:${NC} $CONFIG_FILE"
+            errors=1
+        else
+            echo -e "  ${GREEN}Found:${NC} $CONFIG_FILE"
+        fi
+
+        if [ ! -f "$KEYBIND_FILE" ]; then
+            echo -e "  ${RED}Missing:${NC} $KEYBIND_FILE"
+            errors=1
+        else
+            echo -e "  ${GREEN}Found:${NC} $KEYBIND_FILE"
+        fi
+
+        echo ">>> Checking required binaries:"
+        for bin in "${CORE_BINS[@]}"; do
+            if [ ! -x "$bin" ]; then
+                echo -e "  ${RED}Missing or not executable:${NC} $bin"
+                errors=1
+            else
+                echo -e "  ${GREEN}Found:${NC} $bin"
+            fi
+        done
+
+        if [ "$errors" -eq 1 ]; then
+            echo -e "${RED}One or more problems found. Please fix before launching.${NC}"
+            exit 1
+        else
+            echo -e "${GREEN}Environment check passed. Ready to launch.${NC}"
+            exit 0
+        fi
+        ;;
+    "")
+        export XDG_CURRENT_DESKTOP="Theom"
+        export DESKTOP_SESSION="theom"
+
+        systemctl --user import-environment XDG_CURRENT_DESKTOP DESKTOP_SESSION
+
+        /usr/bin/theom-setup
+
+        exec i3 -c /usr/share/theom/config/i3/config
+        ;;
+    *)
+        echo "Unknown option: $1"
+        echo "Use --help for usage."
+        exit 1
+        ;;
+esac

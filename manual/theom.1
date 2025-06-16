@@ -5,22 +5,63 @@ theom \- a lightweight desktop environment based on i3wm
 
 .SH SYNOPSIS
 .B theom
+.RI [ options ]
 
 .SH DESCRIPTION
-\fBtheom\fR is a lightweight desktop environment that builds on the power and flexibility of i3wm. It is designed for users who demand simplicity, extreme performance, and full control over their environment.
+\fBtheom\fR is a lightweight desktop environment that builds on the power and flexibility of i3wm. It is designed for users who demand simplicity, performance, and full control over their environment.
 
-Theom provides its own session manager, configuration system, and integrated tools to create a cohesive user experience with minimal resource usage.
+Theom provides its own session manager, configuration system, and integrated setup tools to create a cohesive user experience with minimal resource usage.
 
 .SH OPTIONS
+
 .TP
-None
+.BR \-\-help ", " \-h
+Display usage information and exit.
+
+.TP
+.BR \-\-version ", " \-v
+Print version information and exit.
+
+.TP
+.B \--dry-run
+Check whether essential configuration files and binaries exist. Returns a non-zero status if any critical file is missing.
 
 .SH EXAMPLES
-Start the \fBtheom\fR desktop environment:
-.IP
-\fBtheom\fR
-.P
-Launches the default session and starts all configured components.
+
+.TP
+Start the Theom desktop session:
+.EX
+$ theom
+.EE
+
+.TP
+Print version information:
+.EX
+$ theom --version
+.EE
+
+.TP
+Verify configuration and environment before launching:
+.EX
+$ theom --dry-run
+.EE
+
+.SH FILES
+.TP
+\fB~/.config/.theom/config.toml\fR
+User configuration file.
+
+.TP
+\fB~/.config/.theom/keybindings.conf\fR
+User keybinding definitions.
+
+.TP
+\fB/usr/bin/theom-config\fR
+Theom configuration utility.
+
+.TP
+\fB/usr/bin/theom-setup\fR
+Startup initialization script.
 
 .SH AUTHOR
 Written by Byson94 <byson94wastaken@gmail.com>
