@@ -12,6 +12,14 @@ All notable changes to **Theom** will be documented in this file.
 
 ---
 
+## [1.0.1] - 2025-06-16
+
+### Fixed
+
+- Eww calendar not opening
+
+---
+
 ## [1.0.0] - 2025-06-16
 
 🎉 **First Stable Release**
