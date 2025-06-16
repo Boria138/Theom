@@ -43,4 +43,4 @@ View the dependencies in [the deps.txt file](https://raw.githubusercontent.com/A
 
 ## Credits
 
-- Wallpapers from [axos wallpaper collection](https://github.com/AxOS-project/wallpapers) by [ardox](https://github.com/levraiardox)
+- Wallpapers from [axos wallpaper collection](https://github.com/AxOS-project/wallpapers) by [@ardox](https://github.com/levraiardox)
