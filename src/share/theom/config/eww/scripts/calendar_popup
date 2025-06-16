@@ -1,6 +1,6 @@
 #!/bin/bash
 
-STATEFILE=/tmp/eww_calendar_popup_state
+STATEFILE="$XDG_RUNTIME_DIR/eww_calendar_popup_state"
 
 if [[ -f $STATEFILE ]]; then
   last_state=$(cat $STATEFILE)
