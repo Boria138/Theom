@@ -19,7 +19,7 @@ For full performance details, visit <https://raw.githubusercontent.com/AxOS-proj
 ![image](https://raw.githubusercontent.com/AxOS-project/Theom/main/screenshots/screenshot2.png)
 ![image](https://raw.githubusercontent.com/AxOS-project/Theom/main/screenshots/screenshot3.png)
 ![image](https://raw.githubusercontent.com/AxOS-project/Theom/main/screenshots/screenshot4.png)
-![image](https://raw.githubusercontent.com/AxOS-project/Theom/main/screenshots/screenshot5.png)
+![image](https://raw.githubusercontent.com/AxOS-project/Theom/main/screenshots/theom-bar.gif)
 
 ## Installation
 
