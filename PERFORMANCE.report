@@ -1,0 +1,24 @@
+Performance Reports
+
+This file keeps track of the performance of Theom in a VM (Virtual Machine).
+System RAM: 1.90G
+
+Note: The compositor's performance and compatibility modes show only a minor memory difference (approximately 20–50M), so this distinction is omitted from the report.
+
+[2025-06-16 11:19:25] [Version 0.9.0]
+
+Idle:                          
+  RAM: [####..................] 21%   (402M / 1.90G)  
+  CPU: [##....................]  9.5%
+
+Firefox (1 tab: Google):      
+  RAM: [##########............] 46%   (876M / 1.90G)
+  CPU: [#####.................] 18.7%
+
+Firefox (1 tab: YouTube - Music): 
+  RAM: [###############.......] 63%   (1.21G / 1.90G)
+  CPU: [###############.......] 54.9%
+
+System Upgrade:               
+  RAM: [########..............] 30%   (582M / 1.90G)
+  CPU: [#######...............] 26.6%

@@ -1,5 +1,5 @@
 pkgname="theom"
-pkgver="0.9.0"
+pkgver="1.0.0"
 pkgrel="1"
 pkgdesc="Theom desktop environement"
 arch=("x86_64")
@@ -47,5 +47,5 @@ package() {
     install -Dm644 "$srcdir/share/xsessions/theom.desktop" "$pkgdir/usr/share/xsessions/theom.desktop"
 
     install -Dm644 "$srcdir/share/theom/themes/fonts/feather.ttf" \
-    "$pkgdir/usr/share/fonts/feather.ttf"
+    "$pkgdir/usr/share/fonts/theom/feather.ttf"
 }

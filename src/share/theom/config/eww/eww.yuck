@@ -93,7 +93,7 @@
       "")
 
     (button
-      :onclick "scripts/open-systray"
+      :onclick "scripts/open-systray ${theme}"
       :class "systray-open"
       ""))
 

@@ -1,0 +1,181 @@
+.TH theom 5 "June 2025" "1.0.0" "Theom Configuration Manual"
+
+.SH NAME
+theom \- configuration guide for the Theom desktop environment
+
+.SH SYNOPSIS
+.B ~/.config/.theom/config.toml
+.br
+.B ~/.config/.theom/keybindings.conf
+
+.SH DESCRIPTION
+Theom uses two main configuration files:
+
+.IP \[bu] 2
+\fBconfig.toml\fR: Manages appearance, widgets, compositor settings, and bar layout.
+.IP \[bu]
+\fBkeybindings.conf\fR: Controls keyboard shortcuts using i3-style syntax.
+
+Both files reside in the \fB~/.config/.theom/\fR directory.
+
+.SH CONFIGURATION FILE: config.toml
+
+The \fBconfig.toml\fR file is TOML-formatted and must retain its structure. Only edit values; renaming sections or removing keys may result in errors.
+
+.SS [appearance]
+Controls the UI theme and wallpaper.
+
+.TP
+\fBtheme\fR
+Set to \fBlight\fR or \fBdark\fR.
+
+.TP
+\fBwallpaper\fR
+Absolute path to the desktop wallpaper image.
+
+.EX
+[appearance]
+theme = "light"
+wallpaper = "/usr/share/backgrounds/dunes-sun.jpg"
+.EE
+
+.SS [bar]
+Controls the bar (dock/panel) system.
+
+.TP
+\fBpolybar_layout\fR
+Layout used by Polybar. Default: \fBstuck\fR
+
+.TP
+\fBuse_eww\fR
+Boolean. If true, uses Eww for widgets/bar (recommended).
+
+.EX
+[bar]
+polybar_layout = "stuck"
+use_eww = true
+.EE
+
+.SS [widgets]
+Controls widget visibility.
+
+.TP
+\fBenable_widgets\fR
+Boolean to enable or disable widgets.
+
+.TP
+\fBshow\fR
+Array of Lua widget paths (used with Conky).
+
+.EX
+[widgets]
+enable_widgets = true
+show = [
+  "~/.config/widgets/time.lua",
+  "~/.config/widgets/uptime.lua"
+]
+.EE
+
+.SS [compositor]
+Controls transparency and performance.
+
+.TP
+\fBcompositing\fR
+Boolean to enable/disable compositing.
+
+.TP
+\fBcompositing_mode\fR
+\fBperformance\fR or \fBcompatibility\fR.
+
+.EX
+[compositor]
+compositing = true
+compositing_mode = "performance"
+.EE
+
+.SS [osd]
+Deprecated section. Has no effect.
+
+.EX
+[osd]
+osd = false
+.EE
+
+.SH CONFIGURATION FILE: keybindings.conf
+
+This file uses the same syntax as \fBi3wm\fR config files.
+
+.SS Syntax
+
+Each keybinding uses:
+
+.EX
+bindsym <key combo> <action>
+.EE
+
+Example:
+
+.EX
+bindsym $mod+Return exec alacritty
+.EE
+
+.SS Variables
+
+Variables may be defined to simplify complex configs.
+
+.EX
+set $mod Mod4
+.EE
+
+Only \fB$mod\fR is predefined. Others may be added by the user.
+
+.SS Reloading Keybindings
+
+After editing:
+
+.IP \[bu]
+Run \fBi3-msg restart\fR
+.IP \[bu]
+Or press \fB$mod+Shift+r\fR (if bound)
+
+.SH TROUBLESHOOTING
+
+If the configuration or keybindings are broken:
+
+.IP \[bu]
+Switch to TTY: \fBCtrl + Alt + F3\fR
+.IP \[bu]
+Restore config:
+
+.EX
+# Reset config.toml
+rm ~/.config/.theom/config.toml
+cp /usr/share/theom/config/.theom/config.toml ~/.config/.theom/
+
+# Reset keybindings.conf
+rm ~/.config/.theom/keybindings.conf
+cp /usr/share/theom/config/.theom/keybindings.conf ~/.config/.theom/
+.EE
+
+Then re-login.
+
+.SH FILES
+.TP
+\fB~/.config/.theom/config.toml\fR
+User-defined desktop configuration.
+.TP
+\fB~/.config/.theom/keybindings.conf\fR
+User-defined keybindings.
+.TP
+\fB/usr/share/theom/config/.theom/\fR
+Default configuration directory.
+
+.SH SEE ALSO
+.BR theom-config (1),
+.BR i3 (1)
+
+.SH AUTHOR
+Byson94 <byson94wastaken@gmail.com>
+
+.SH COPYRIGHT
+GNU General Public License v3 (GPLv3)

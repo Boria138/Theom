@@ -22,7 +22,7 @@ $light-battery-discharging: #251a12;
 $light-sys-tray: #f4e9d7;
 $light-calendar-bg: #e2d5be;
 $light-calendar-text: #251a12;
-$dark-calendar-highlight: #7a143c;
+$light-calendar-highlight: #7a143c;
 
 .bar {
   background-color: transparent;
@@ -102,6 +102,7 @@ $dark-calendar-highlight: #7a143c;
 .bar .workspace button:hover {
   all: unset;
   color: #d35d6e;
+  font-size: 10px;
 }
 
 .bar .workspace button {

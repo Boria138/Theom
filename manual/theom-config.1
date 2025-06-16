@@ -1,0 +1,63 @@
+.TH theom-config 1 "June 2025" "1.0.0" "Theom Manual"
+
+.SH NAME
+theom-config \- query Theom desktop environment configuration values
+
+.SH SYNOPSIS
+.B theom-config
+[\fIkey.path\fR]
+
+.SH DESCRIPTION
+\fBtheom-config\fR is a utility for querying specific configuration values used by the Theom desktop environment. Configuration is stored in a TOML file located at:
+
+.IP
+\fB~/.config/.theom/config.toml\fR
+
+.PP
+The tool takes a single dot-delimited key path (e.g., \fBappearance.theme\fR) and prints the corresponding value to standard output. If the key does not exist, it exits with a non-zero status and prints \fBfalse\fR.
+
+.PP
+If no key is provided, the command will print usage information and exit with code 1.
+
+.SH OPTIONS
+None.
+
+.SH EXAMPLES
+.PP
+Query the currently configured Theom theme:
+.IP
+\fBtheom-config appearance.theme\fR
+
+.PP
+Get the wallpaper path:
+.IP
+\fBtheom-config appearance.wallpaper\fR
+
+.PP
+Check the compositing mode:
+.IP
+\fBtheom-config compositor.compositing_mode\fR
+
+.SH FILES
+.TP
+\fB~/.config/.theom/config.toml\fR
+The main user configuration file for the Theom desktop environment.
+
+.SH EXIT STATUS
+.TP
+.B 0
+The key was found and printed.
+.TP
+.B 1
+The key was not found, no key was given, or the config file could not be read.
+
+.SH AUTHOR
+Written by Byson94 <byson94wastaken@gmail.com>
+
+.SH REPORTING BUGS
+Report bugs at:
+.IP
+<https://github.com/AxOS-project/Theom/issues>
+
+.SH COPYRIGHT
+Licensed under the GNU General Public License version 3 (GPLv3).
