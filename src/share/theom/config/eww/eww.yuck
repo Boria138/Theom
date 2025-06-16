@@ -55,7 +55,8 @@
 
 (defwidget cal []
   (box
-    :class "cal"
+    :visible "${theme != ''}"
+    :class "${theme == 'light' ? 'cal light-theme' : (theme == 'dark' ? 'cal dark-theme' : 'cal')}"
     :orientation "v"
   (box :class "calendar" :orientation "v"
   (box :class "calendar-in"

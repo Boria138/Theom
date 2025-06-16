@@ -11,6 +11,8 @@
 - Welcomes user friendly greeter during startup
 - Easy to customize
 
+For full performance details, visit <https://raw.githubusercontent.com/AxOS-project/Theom/main/PERFORMANCE.report>
+
 ## Screenshots
 
 ![image](https://raw.githubusercontent.com/AxOS-project/Theom/main/screenshots/screenshot1.png)

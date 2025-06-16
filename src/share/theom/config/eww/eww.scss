@@ -197,3 +197,13 @@ calendar:indeterminate {
 .bar.light-theme .systray-open {
   background-color: $light-sys-tray;
 }
+
+.cal.light-theme .calendar {
+  background-color: $light-calendar-bg;
+  color: $light-calendar-text;
+}
+
+.cal.light-theme .calendar.highlight,
+.cal.light-theme calendar:selected {
+  color: $dark-calendar-highlight;
+}
