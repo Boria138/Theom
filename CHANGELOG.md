@@ -12,6 +12,50 @@ All notable changes to **Theom** will be documented in this file.
 
 ---
 
+## [1.0.0] - 2025-06-16
+
+🎉 **First Stable Release**
+
+Theom has matured into a reliable, customizable desktop experience. Version 1.0.0 marks a major milestone in stability, feature completeness, and usability. This release introduces polish-focused improvements, better documentation, and greater robustness across the board.
+
+### Added
+
+- **Manual Pages**: `man theom`, `man theom-setup`, `man theom-config`
+- **Command-line improvements** for `theom` binary:
+  - `--help`: shows usage
+  - `--version`: shows current version
+  - `--dry-run`: starts Theom without committing system changes
+- **New documentation files**:
+  - `CHANGELOG.md` for structured release notes
+  - `TODO.md` for roadmap visibility
+  - `PERFORMANCE.report` for performance insights
+- **Proper credits** for wallpaper and asset authors in the README
+
+### Changed
+
+- **Eww bar**: Fixed font-size scaling bug in widgets
+- **Systray visuals**: Polished integration with `theom-systray`
+- **Default theme**: Changed the default theme from light to dark
+
+### Meta
+
+- **Marked as stable (1.0.0)** after extensive internal testing
+- **Compatibility mode** (e.g. VM, low-end hardware) confirmed working reliably
+- No known bugs at time of release
+
+### Semver & Future Commitments
+
+> Theom now follows [Semantic Versioning 2.0.0](https://semver.org/).  
+> Breaking changes will increment the major version.  
+> Backward-compatible improvements will be in minor and patch updates.
+
+> This changelog is maintained in [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) style  
+> and will reflect all future GitHub release content.
+
+---
+
+This release is for users and contributors who want a solid, predictable starting point. Expect future updates to refine and build upon this foundation — without breaking what works.
+
 ## [0.9.0] - 2025-06-14
 
 ### Added
