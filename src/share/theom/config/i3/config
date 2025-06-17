@@ -25,10 +25,10 @@ set $term /usr/share/theom/config/i3/start-alacritty.sh
 #########################
 
 # Picom renderer
-exec_always /usr/share/theom/config/i3/start-picom.sh
+exec_always --no-startup-id /usr/share/theom/config/i3/start-picom.sh
 
 # Just making sure that all autostart exists
-
+exec_always --no-startup-id /usr/share/theom/config/i3/autostarts-exists.sh
 
 # Run all exec_once autostarts
 exec --no-startup-id ~/.config/.theom-autostarts/exec_once.sh
