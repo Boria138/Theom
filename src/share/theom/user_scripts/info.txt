@@ -1,1 +1,0 @@
-This folder will be moved to `~/.config/.theom/` by theom-setup during startup.
