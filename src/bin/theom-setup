@@ -97,8 +97,8 @@ fi
 [ ! -s ~/.config/.theom/osd-snippets/volume.sh ] && cp /usr/share/theom/config/.theom/osd-snippets/volume.sh ~/.config/.theom/osd-snippets/
 
 # Theom autostarts
-[! -s ~/.config/.theom-autostarts/exec_once.sh ] && cp /usr/share/theom/config/.theom-autostarts/exec_once.sh ~/.config/.theom-autostarts/
-[! -s ~/.config/.theom/autostarts/exec_always.sh ] && cp /usr/share/theom/config/.theom-autostarts/exec_always.sh ~/.config/.theom-autostarts/
+[ ! -s ~/.config/.theom-autostarts/exec_once.sh ] && cp /usr/share/theom/config/.theom-autostarts/exec_once.sh ~/.config/.theom-autostarts/
+[ ! -s ~/.config/.theom/autostarts/exec_always.sh ] && cp /usr/share/theom/config/.theom-autostarts/exec_always.sh ~/.config/.theom-autostarts/
 
 # User scripts
 [ ! -s ~/.config/.theom/user_scripts/battery_notify ] && cp /usr/share/theom/config/.theom/user_scripts/battery-notify ~/.config/.theom/user_scripts/
