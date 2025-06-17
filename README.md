@@ -4,7 +4,7 @@
 
 ## Features
 
-- Minimal resource usage: 400-450MB ram use on idle
+- Minimal resource usage: 400-450MB ram use on idle (information from VM)
 - Comes with two different themes: a dark theme and a light theme
 - Has a built in dashboard
 - Has a settings application to tweak the settings of theom
