@@ -24,7 +24,7 @@ while true; do
 
     elif [[ "$status" == "Charging" ]]; then
         if (( percent >= FULL_THRESHOLD )) && [ "$notified_full" = false ]; then
-            notify-send -u normal "Battery Full" "Battery is at 100%. You can unplug now."
+            notify-send -u normal "Battery Full" "Battery is at ${percemt}%. You can unplug now."
             notified_full=true
         fi
 
