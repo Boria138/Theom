@@ -27,6 +27,7 @@ depends=(
   'upower'
   'pamixer'
   'jq'
+  'gvfs'
   'theom-extras' # optional apps
   'theom-utils' # custom theom apps
 )
