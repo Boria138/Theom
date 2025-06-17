@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOW_THRESHOLD=60
+LOW_THRESHOLD=20
 CRITICAL_THRESHOLD=10
 FULL_THRESHOLD=95 # Not going for 100. 95 seems like a sweet spot.
 
