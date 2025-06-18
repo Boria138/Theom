@@ -45,4 +45,5 @@ View the dependencies in [the deps.txt file](https://raw.githubusercontent.com/A
 
 ## Credits
 
-- Wallpapers from [axos wallpaper collection](https://github.com/AxOS-project/wallpapers) by [@ardox](https://github.com/levraiardox)
+- [Wallpapers](<https://en.wikipedia.org/wiki/Wallpaper_(computing)>) from [axos wallpaper collection](https://github.com/AxOS-project/wallpapers) by [@ardox](https://github.com/levraiardox)
+- [User Interface](https://en.wikipedia.org/wiki/User_interface) inspired by [sleex](https://github.com/AxOS-project/Sleex)

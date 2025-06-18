@@ -18,6 +18,7 @@ All notable changes to **Theom** will be documented in this file.
 
 - Autostarts (`~/.config/.theom-autostarts/exec_once.sh` & `~/.config/.theom-autostarts/exec_always.sh`) to make theom more customisable.
 - Scripts oriented to improving user experience (`~/.config/.theom/user_scripts/`).
+- Theom control (Currently only used to add/list autostarts).
 
 ### Fixed
 
