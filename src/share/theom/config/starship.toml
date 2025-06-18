@@ -1,7 +1,6 @@
-# my_test_starship.toml
-
 format = """
-[ 󰣇 ](cyan)\
+[╭─](cyan) \
+$username \
 $directory\
 $git_branch\
 $git_status\
@@ -9,12 +8,21 @@ $nodejs\
 $python\
 $rust\
 $cmd_duration\
-$time\
 $line_break\
-$character"""
+[╰─λ](bold purple) """
+
+[username]
+show_always = true
+style_user = "bold cyan"
+style_root = "bold red"
+format = "[$user]($style)"
+
+[hostname]
+ssh_only = false
+format = "[@$hostname](blue) "
 
 [directory]
-style = "cyan"
+style = "green"
 format = "[$path]($style) "
 
 [git_branch]
