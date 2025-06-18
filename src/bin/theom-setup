@@ -11,7 +11,28 @@
 #        Configs         #
 # ---------------------- #
 
-mkdir -p ~/.config ~/.config/alacritty/dark ~/.config/alacritty/light ~/.config/dunst/dark ~/.config/dunst/light ~/.config/i3 ~/.config/picom ~/.config/polybar/dark ~/.config/polybar/light ~/.config/polybar/modules ~/.config/rofi/dark ~/.config/rofi/light ~/.config/.theom ~/.config/.theom/osd-snippets ~/.mpd ~/.config/mpd/playlists ~/.config/eww ~/.config/eww/scripts ~/.config/widgets
+mkdir -p \
+  ~/.config \
+  ~/.config/alacritty/dark \
+  ~/.config/alacritty/light \
+  ~/.config/dunst/dark \
+  ~/.config/dunst/light \
+  ~/.config/i3 \
+  ~/.config/picom \
+  ~/.config/polybar/dark \
+  ~/.config/polybar/light \
+  ~/.config/polybar/modules \
+  ~/.config/rofi/dark \
+  ~/.config/rofi/light \
+  ~/.config/.theom \
+  ~/.config/.theom/user_scripts \
+  ~/.config/.theom/osd-snippets \
+  ~/.config/.theom-autostarts \
+  ~/.config/eww \
+  ~/.config/eww/scripts \
+  ~/.config/widgets \
+  ~/.mpd \
+  ~/.config/mpd/playlists
 
 # Alacritty
 [ ! -s ~/.config/alacritty/dark/alacritty.toml ] && cp /usr/share/theom/config/alacritty/dark/alacritty.toml ~/.config/alacritty/dark
@@ -71,8 +92,16 @@ fi
 # Theom
 [ ! -s ~/.config/.theom/config.toml ] && cp /usr/share/theom/config/.theom/config.toml ~/.config/.theom/
 [ ! -s ~/.config/.theom/keybindings.conf ] && cp /usr/share/theom/config/.theom/keybindings.conf ~/.config/.theom/
-[ ! -s ~/.config/.theom/osd-snippets/brightness.sh ] && cp /usr/share/theom/config/.theom/osd-snippets/brightness.sh ~/.config/.theom/osd-snippets/brightness.sh
-[ ! -s ~/.config/.theom/osd-snippets/volume.sh ] && cp /usr/share/theom/config/.theom/osd-snippets/volume.sh ~/.config/.theom/osd-snippets/volume.sh
+## depreicated theom osd
+[ ! -s ~/.config/.theom/osd-snippets/brightness.sh ] && cp /usr/share/theom/config/.theom/osd-snippets/brightness.sh ~/.config/.theom/osd-snippets/
+[ ! -s ~/.config/.theom/osd-snippets/volume.sh ] && cp /usr/share/theom/config/.theom/osd-snippets/volume.sh ~/.config/.theom/osd-snippets/
+
+# Theom autostarts
+[ ! -s ~/.config/.theom-autostarts/exec_once.sh ] && cp /usr/share/theom/config/.theom-autostarts/exec_once.sh ~/.config/.theom-autostarts/
+[ ! -s ~/.config/.theom/autostarts/exec_always.sh ] && cp /usr/share/theom/config/.theom-autostarts/exec_always.sh ~/.config/.theom-autostarts/
+
+# User scripts
+[ ! -s ~/.config/.theom/user_scripts/battery_notify ] && cp /usr/share/theom/config/.theom/user_scripts/battery_notify ~/.config/.theom/user_scripts/
 
 # ---------------------- #
 #       Auto Gen         #

@@ -17,11 +17,13 @@ if [ "$enable_compositing" = "True" ]; then
         else
             picom --config /usr/share/theom/config/picom/performance/picom-dark.conf &
         fi
-    #else
-    #    if [ "$theom_theme" = "light" ]; then
-    #        picom --config /usr/share/theom/config/picom/performance/picom-light.conf &
-    #    else
-    #        picom --config /usr/share/theom/config/picom/performance/picom-dark.conf &
-    #    fi # Well, no safety net if you did a typo ;)
     fi
+
+    for i in {1..50}; do
+        if xprop -root _NET_WM_CM_S0 >/dev/null 2>&1; then
+            echo "Compositor ready"
+            break
+        fi
+        sleep 0.1
+    done
 fi

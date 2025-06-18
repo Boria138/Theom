@@ -4,7 +4,7 @@
 
 ## Features
 
-- Minimal resource usage: 400-450MB ram use on idle
+- Minimal resource usage: 400-450MB ram use on idle (information from VM)
 - Comes with two different themes: a dark theme and a light theme
 - Has a built in dashboard
 - Has a settings application to tweak the settings of theom
@@ -45,4 +45,5 @@ View the dependencies in [the deps.txt file](https://raw.githubusercontent.com/A
 
 ## Credits
 
-- Wallpapers from [axos wallpaper collection](https://github.com/AxOS-project/wallpapers) by [@ardox](https://github.com/levraiardox)
+- [Wallpapers](<https://en.wikipedia.org/wiki/Wallpaper_(computing)>) from [axos wallpaper collection](https://github.com/AxOS-project/wallpapers) by [@ardox](https://github.com/levraiardox)
+- [User Interface](https://en.wikipedia.org/wiki/User_interface) inspired by [sleex](https://github.com/AxOS-project/Sleex)

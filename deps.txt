@@ -6,6 +6,7 @@ conky
 dunst
 eww
 feh
+gvfs
 i3-gaps
 i3-wm
 jq

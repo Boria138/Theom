@@ -23,19 +23,21 @@ We welcome contributions in many forms:
 
 1. **Fork** this repository.
 2. **Clone** your fork locally:
-    ``` bash
-    git clone https://github.com/AxOS-project/Theom.git
-    ```
-4. Create a **new branch** for your contribution:
-    ``` bash
-    git checkout -b change/your-change
-    ```
-5. Make your changes.
-6. Commit and push:
-  ``` bash
-  git commit -m "explain what the commit does"
-  git push origin change/your-change
-  ```
+   ```bash
+   git clone https://github.com/AxOS-project/Theom.git
+   ```
+3. Create a **new branch** for your contribution:
+   ```bash
+   git checkout -b change/your-change
+   ```
+4. Make your changes.
+5. Commit and push:
+
+```bash
+git commit -m "explain what the commit does"
+git push origin change/your-change
+```
+
 7. Open a PR (Pull request) on Theom repository.
 
 ## Testing
@@ -50,3 +52,22 @@ Before you do make a PR (Pull request) on a code contribution, make sure that it
 - `src/share/theom` contains the theom configs, scripts, themes etc.
 - `src/share/xsession` contains the xsession that shows theom on the greeter.
 - `src/share/theom/config` contains all the configs of theom.
+
+## Using scripts
+
+- run `./gen_man.sh` if you updated the manual to generate the manual in `/src/share/man/`
+- run `./update_deps_txt.sh` if you updated the PKGBUILD to change the dependencies
+- run `./update_version.sh <version_num>` to upgrade the theom version on all required files.
+
+**Usage example**:
+
+```bash
+# After updating the theom manual
+./gen_man.sh # Run this in the root of the project
+
+# After updating the theom dependencies
+./update_deps_txt.sh # Run this in the root of the project
+
+# When upgrading theom version. (eg: 1.0.0 -> 1.0.1)
+./update_version.sh 1.0.1 # Run this in the root of the project
+```

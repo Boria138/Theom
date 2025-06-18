@@ -2,10 +2,9 @@
 padding.x = 10
 padding.y = 10
 decorations = "Buttonless"
-opacity = 0.9
 
 [colors.primary]
-background = "#272a32"
+background = "#1E1E1E"
 foreground = "#D8DADC"
 
 [font]

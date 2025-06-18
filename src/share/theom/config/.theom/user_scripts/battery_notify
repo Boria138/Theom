@@ -1,0 +1,46 @@
+#!/bin/bash
+
+LOW_THRESHOLD=20
+CRITICAL_THRESHOLD=10
+FULL_THRESHOLD=95 # Not going for 100. 95 seems like a sweet spot.
+
+BAT_PATH="/sys/class/power_supply/BAT0"
+
+if [ ! -d "$BAT_PATH" ]; then
+    echo "No battery detected. Exiting."
+    exit 0
+fi
+
+warned_low=false
+warned_crit=false
+notified_full=false
+
+while true; do
+    percent=$(<"$BAT_PATH/capacity")
+    status=$(<"$BAT_PATH/status")
+
+    if [[ "$status" == "Discharging" ]]; then
+        if (( percent <= CRITICAL_THRESHOLD )) && [ "$warned_crit" = false ]; then
+            notify-send -u critical "Critical Battery" "Battery at ${percent}%. Plug in now!"
+            warned_crit=true
+        elif (( percent <= LOW_THRESHOLD )) && [ "$warned_low" = false ]; then
+            notify-send -u normal "Low Battery" "Battery at ${percent}%. Consider plugging in."
+            warned_low=true
+        fi
+
+    elif [[ "$status" == "Charging" ]]; then
+        if (( percent >= FULL_THRESHOLD )) && [ "$notified_full" = false ]; then
+            notify-send -u normal "Battery Full" "You can unplug now."
+            notified_full=true
+        fi
+
+        warned_low=false
+        warned_crit=false
+    else
+        warned_low=false
+        warned_crit=false
+        notified_full=false
+    fi
+
+    sleep 60
+done

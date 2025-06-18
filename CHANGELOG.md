@@ -12,6 +12,22 @@ All notable changes to **Theom** will be documented in this file.
 
 ---
 
+## [1.1.0] - 2025-06-18
+
+### Added
+
+- Autostarts (`~/.config/.theom-autostarts/exec_once.sh` & `~/.config/.theom-autostarts/exec_always.sh`) to make theom more customisable.
+- Scripts oriented to improving user experience (`~/.config/.theom/user_scripts/`).
+- Theom control (Currently only used to add/list autostarts).
+
+### Fixed
+
+- gvfs not installed on system.
+
+### Removed
+
+- Alacritty (default terminal) dark theme transparency.
+
 ## [1.0.1] - 2025-06-16
 
 ### Fixed
