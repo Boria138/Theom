@@ -11,15 +11,17 @@ $cmd_duration\
 $line_break\
 [╰─λ](bold purple) """
 
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:#1d2230"
+format = '[[ $time ](fg:#a0a9cb)]($style)'
+
 [username]
 show_always = true
 style_user = "bold cyan"
 style_root = "bold red"
 format = "[$user]($style)"
-
-[hostname]
-ssh_only = false
-format = "[@$hostname](blue) "
 
 [directory]
 style = "green"
@@ -45,13 +47,11 @@ format = "via [$symbol $version](red) "
 [cmd_duration]
 format = "took [$duration](yellow) "
 
-[character]
-success_symbol = "[❯](green)"
-error_symbol = "[❯](red)"
+# Unused
+# [character]
+# success_symbol = "[❯](green)"
+# error_symbol = "[❯](red)"
 
-
-[time]
-disabled = false
-time_format = "%R" # Hour:Minute Format
-style = "bg:#1d2230"
-format = '[[ $time ](fg:#a0a9cb)]($style)'
+# [hostname]
+# ssh_only = false
+# format = "[@$hostname](blue) "
