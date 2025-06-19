@@ -11,7 +11,7 @@ theom-config \- query Theom desktop environment configuration values
 \fBtheom-config\fR is a utility for querying specific configuration values used by the Theom desktop environment. Configuration is stored in a TOML file located at:
 
 .IP
-\fB~/.config/.theom/config.toml\fR
+\fB~/.config/theom/config.toml\fR
 
 .PP
 The tool takes a single dot-delimited key path (e.g., \fBappearance.theme\fR) and prints the corresponding value to standard output. If the key does not exist, it exits with a non-zero status and prints \fBfalse\fR.
@@ -40,7 +40,7 @@ Check the compositing mode:
 
 .SH FILES
 .TP
-\fB~/.config/.theom/config.toml\fR
+\fB~/.config/theom/config.toml\fR
 The main user configuration file for the Theom desktop environment.
 
 .SH EXIT STATUS

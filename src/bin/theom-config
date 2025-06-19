@@ -4,7 +4,7 @@ import sys
 import os
 import tomllib
 
-CONFIG_PATH = os.path.expanduser("~/.config/.theom/config.toml")
+CONFIG_PATH = os.path.expanduser("~/.config/theom/config.toml")
 
 def get_config(key_path):
     try:
