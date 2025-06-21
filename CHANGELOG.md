@@ -4,11 +4,33 @@ All notable changes to **Theom** will be documented in this file.
 
 > This project follows a loose [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) format and uses [GitHub releases](https://github.com/axos-project/theom/releases) as the primary source.
 
-> ⚠️ Note on Version History:
-> Earlier versions of Theom (prior to 0.6.0) followed an informal versioning scheme.
-> Releases were made when significant updates were ready, not necessarily in sequence.
-> As such, some version numbers (e.g., 0.2, 0.3) were skipped or never publicly released.
-> Starting from version 0.6.0, versioning has become more consistent.
+---
+
+## [1.2.0] - 2025-06-22
+
+### Added
+
+- Better starship theme for terminal.
+
+### Changed
+
+- Most theom packages to be sleek, modern and fast.
+- Theom config directory path.
+
+### Fixed
+
+- Theom packages so that they can rely on `theom-config` for setting/getting values.
+
+---
+
+> ⚠️ Note on Package Compatibility:
+> Earlier versions of Theom (prior to 1.2.0) followed a bad configuration path.
+> Previously, the configuration directory had a leading `.` in the `~/.config` directory.
+> Directories with leading `.` are not supposed to be used in `~/.config`, as stated by XDG.
+> So, starting from version 1.2.0, theom packages will now follow the new path (`~/.config/theom`) to function.
+> If you use a version prior to 1.2.0, theom packages such as the settings, dashboard etc. will stop functioning as intended.
+> If you are fine with that, then the core desktop environment will still work fine but at the cost of losing the official GUI applications of theom.
+> This wont happen again since all theom packages have updated and they now rely on `theom-config` directly to set/get values.
 
 ---
 
@@ -155,6 +177,14 @@ This release is for users and contributors who want a solid, predictable startin
 ### Fixed
 
 - Potential DE black screen and broken keybindings from 0.5.9
+
+---
+
+> ⚠️ Note on Version History:
+> Earlier versions of Theom (prior to 0.6.0) followed an informal versioning scheme.
+> Releases were made when significant updates were ready, not necessarily in sequence.
+> As such, some version numbers (e.g., 0.2, 0.3) were skipped or never publicly released.
+> Starting from version 0.6.0, versioning has become more consistent.
 
 ---
 

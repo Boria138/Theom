@@ -12,4 +12,4 @@
 
 # User scripts
 ## Battery notify
-[ ! -s ~/.config/.theom/user_scripts/battery_notify ] && ~/.config/.theom/user_scripts/battery_notify & # Only executed if the script exists and is non-empty
+[ ! -s ~/.config/theom/user_scripts/battery_notify ] && ~/.config/theom/user_scripts/battery_notify & # Only executed if the script exists and is non-empty

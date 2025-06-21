@@ -6,28 +6,97 @@ import tomllib
 
 CONFIG_PATH = os.path.expanduser("~/.config/theom/config.toml")
 
-def get_config(key_path):
+def load_config():
     try:
         with open(CONFIG_PATH, "rb") as f:
-            config = tomllib.load(f)
+            return tomllib.load(f)
     except FileNotFoundError:
-        print("ERROR: Config file not found.")
+        print("ERROR: Config file not found.", file=sys.stderr)
         sys.exit(1)
     except tomllib.TOMLDecodeError as e:
-        print(f"ERROR: Config parse error: {e}")
+        print(f"ERROR: Config parse error: {e}", file=sys.stderr)
         sys.exit(1)
 
+def get_nested(config, key_path):
     keys = key_path.split(".")
     for key in keys:
         if isinstance(config, dict) and key in config:
             config = config[key]
         else:
-            return "false"
-            sys.exit(1)
+            return None
     return config
 
-if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("ERROR: no argument found!")
+def update_value_in_file(key_path, new_value):
+    with open(CONFIG_PATH, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+
+    keys = key_path.split(".")
+    if len(keys) != 2:
+        print(f"ERROR: Only section.key is supported for safe editing", file=sys.stderr)
         sys.exit(1)
-    print(get_config(sys.argv[1]))
+
+    section_name, target_key = keys
+    in_section = False
+    found = False
+
+    for i, line in enumerate(lines):
+        stripped = line.strip()
+
+        if stripped.startswith("[") and stripped.endswith("]"):
+            current_section = stripped[1:-1].strip()
+            in_section = (current_section == section_name)
+            continue
+
+        if in_section and stripped.startswith(f"{target_key} ="):
+            prefix, comment = line.split("=", 1)
+            comment_part = ""
+            if "#" in comment:
+                value_part, comment_part = comment.split("#", 1)
+                value_part = value_part.strip()
+                comment_part = "  #" + comment_part.strip()
+            else:
+                value_part = comment.strip()
+
+            # Handle quoting if original was quoted
+            if value_part.startswith('"') and value_part.endswith('"'):
+                new_value_str = f'"{new_value}"'
+            elif value_part in ("true", "false"):
+                new_value_str = new_value.lower()
+            else:
+                new_value_str = new_value
+
+            lines[i] = f"{prefix.strip()} = {new_value_str}{comment_part}\n"
+            found = True
+            break
+
+    if not found:
+        print(f"ERROR: key not found or can't safely edit: {key_path}", file=sys.stderr)
+        sys.exit(1)
+
+    with open(CONFIG_PATH, "w", encoding="utf-8") as f:
+        f.writelines(lines)
+
+def main():
+    if len(sys.argv) == 2:
+        # get value
+        key_path = sys.argv[1]
+        config = load_config()
+        value = get_nested(config, key_path)
+        if value is None:
+            print(f"ERROR: key not found: {key_path}", file=sys.stderr)
+            sys.exit(1)
+        elif isinstance(value, bool):
+            print(str(value).lower())
+        else:
+            print(value)
+    elif len(sys.argv) == 4 and sys.argv[1] == "set":
+        # set value
+        key_path = sys.argv[2]
+        new_value = sys.argv[3]
+        update_value_in_file(key_path, new_value)
+    else:
+        print("Usage:\n  theom-config key.path\n  theom-config set key.path value", file=sys.stderr)
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()

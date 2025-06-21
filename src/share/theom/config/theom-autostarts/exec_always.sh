@@ -8,7 +8,9 @@ parcellite &
 nm-applet &
 
 # Wallpaper
-if [ "$(theom-config appearance.wallpaper | tr -d "[:space:]")" != "false" ]; then feh --bg-scale $(theom-config appearance.wallpaper); fi
+if wp=$(theom-config appearance.wallpaper 2>/dev/null); then
+    feh --bg-scale "$wp"
+fi
 
 # Start bar (polybar/eww)
 /usr/share/theom/config/i3/start-bar.sh &
