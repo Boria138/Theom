@@ -1,0 +1,25 @@
+# IMPORTANT NOTE
+# This structure of this config file, should be kept the same and only the values should be customised.
+# Only tweak the values, changing the key names or removing them may result in any unnecessary bugs or errors.
+
+[appearance]
+theme = "dark"
+wallpaper = "/usr/share/backgrounds/dunes-sun.jpg"
+
+[bar]
+polybar_layout = "stuck"
+use_eww = true
+
+[widgets]
+enable_widgets = true
+show = [
+    "~/.config/widgets/time.lua",
+    "~/.config/widgets/uptime.lua"
+]
+
+[compositor]
+compositing = true
+compositing_mode = "performance" # performance mode is light and recommended and compatibility mode is heavy and prevents visual glitches. 
+
+[osd]
+osd = false # deprecated

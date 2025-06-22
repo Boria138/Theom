@@ -1,12 +1,12 @@
-.TH theom 5 "June 2025" "1.1.0" "Theom Configuration Manual"
+.TH theom 5 "June 2025" "1.2.0" "Theom Configuration Manual"
 
 .SH NAME
 theom \- configuration guide for the Theom desktop environment
 
 .SH SYNOPSIS
-.B ~/.config/.theom/config.toml
+.B ~/.config/theom/config.toml
 .br
-.B ~/.config/.theom/keybindings.conf
+.B ~/.config/theom/keybindings.conf
 
 .SH DESCRIPTION
 Theom uses two main configuration files:
@@ -16,7 +16,7 @@ Theom uses two main configuration files:
 .IP \[bu]
 \fBkeybindings.conf\fR: Controls keyboard shortcuts using i3-style syntax.
 
-Both files reside in the \fB~/.config/.theom/\fR directory.
+Both files reside in the \fB~/.config/theom/\fR directory.
 
 .SH CONFIGURATION FILE: config.toml
 
@@ -149,25 +149,25 @@ Restore config:
 
 .EX
 # Reset config.toml
-rm ~/.config/.theom/config.toml
-cp /usr/share/theom/config/.theom/config.toml ~/.config/.theom/
+rm ~/.config/theom/config.toml
+cp /usr/share/theom/config/theom/config.toml ~/.config/theom/
 
 # Reset keybindings.conf
-rm ~/.config/.theom/keybindings.conf
-cp /usr/share/theom/config/.theom/keybindings.conf ~/.config/.theom/
+rm ~/.config/theom/keybindings.conf
+cp /usr/share/theom/config/theom/keybindings.conf ~/.config/theom/
 .EE
 
 Then re-login.
 
 .SH FILES
 .TP
-\fB~/.config/.theom/config.toml\fR
+\fB~/.config/theom/config.toml\fR
 User-defined desktop configuration.
 .TP
-\fB~/.config/.theom/keybindings.conf\fR
+\fB~/.config/theom/keybindings.conf\fR
 User-defined keybindings.
 .TP
-\fB/usr/share/theom/config/.theom/\fR
+\fB/usr/share/theom/config/theom/\fR
 Default configuration directory.
 
 .SH SEE ALSO

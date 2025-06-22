@@ -1,0 +1,2 @@
+This folder contains the shell scripts that trigger OSD (On Screen Display) effects.
+Editing the files in this folder is not recommended but if you want to customise the OSD colors, you may do so.
