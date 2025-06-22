@@ -14,7 +14,7 @@ All notable changes to **Theom** will be documented in this file.
 
 ### Changed
 
-- Most theom packages to be sleek, modern and fast.
+- Theom packages (settings & dashboard) to be sleek, modern and fast.
 - Theom config directory path.
 
 ### Fixed
