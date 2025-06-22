@@ -8,7 +8,7 @@
 /usr/lib/gvfsd-trash &
 
 # Theom greeter
-/usr/bin/theom-setup &
+/usr/bin/theom-welcome &
 
 # User scripts
 ## Battery notify

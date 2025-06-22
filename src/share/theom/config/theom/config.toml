@@ -4,7 +4,7 @@
 
 [appearance]
 theme = "dark"
-wallpaper = "/usr/share/backgrounds/dunes-sun.jpg"
+wallpaper = "/usr/share/backgrounds/aesthetic_deer.jpg"
 
 [bar]
 polybar_layout = "stuck"
