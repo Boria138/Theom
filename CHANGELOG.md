@@ -6,6 +6,18 @@ All notable changes to **Theom** will be documented in this file.
 
 ---
 
+## [1.2.1] - 2025-06-22
+
+### Changed
+
+- Default wallpaper (dunes-sun -> aesthetic_deer)
+
+### Fixed
+
+- Broken scripts (scripts broken by 1.2.0 `theom-config` change)
+
+---
+
 ## [1.2.0] - 2025-06-22
 
 ### Added
@@ -20,6 +32,10 @@ All notable changes to **Theom** will be documented in this file.
 ### Fixed
 
 - Theom packages so that they can rely on `theom-config` for setting/getting values.
+
+> [!CAUTION]
+> This version of theom is broken due to the core scripts not being upto date with `theom-config`
+> It is recommended to install the 1.2.1 version as it addressed the broken scripts.
 
 ---
 
