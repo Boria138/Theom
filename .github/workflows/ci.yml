@@ -20,7 +20,7 @@ jobs:
       - uses: actions/checkout@v4
       - run: sudo apt update && sudo apt install -y python3-pip
       - run: pip install flake8
-      - run: flake8 . || true
+      - run: flake8 .
 
   lua:
     runs-on: ubuntu-latest
@@ -28,7 +28,7 @@ jobs:
       - uses: actions/checkout@v4
       - run: sudo apt update && sudo apt install -y luarocks
       - run: sudo luarocks install luacheck
-      - run: luacheck . || true
+      - run: luacheck .
 
   scss:
     runs-on: ubuntu-latest
