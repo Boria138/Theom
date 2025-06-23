@@ -1,6 +1,6 @@
 # Contributing to Theom Desktop Environment
 
-Thanks for your interest in contributing to Theom! Whether you're submitting code, reporting bugs, improving documentation, or suggesting ideas — you're welcome here.
+Thanks for your interest in contributing to Theom! Whether you're submitting code, reporting bugs, improving documentation, or suggesting ideas - you're welcome here.
 
 ---
 
@@ -8,11 +8,10 @@ Thanks for your interest in contributing to Theom! Whether you're submitting cod
 
 We welcome contributions in many forms:
 
-- Code (core components, integrations, scripts, EWW widgets, etc.)
+- Code (core components, integrations, scripts, conky widgets, etc.)
 - Bug reports
 - Documentation improvements
 - Themes and style tweaks
-- Translations (eventually)
 - Packaging or install script fixes
 - Design/UI feedback
 - Feature suggestions
@@ -21,10 +20,25 @@ We welcome contributions in many forms:
 
 ## Getting Started
 
-1. **Fork** this repository.
+### Suggestions, Feedback, or Bug Reports
+
+If you have ideas, usability feedback, or found a bug that doesn't require you to change the code:
+
+1. [Open an issue](https://github.com/AxOS-project/theom/issues) with a clear title and description.
+2. Choose the appropriate issue template: `bug`, `feature request`, `blank issue`.
+3. Include details like:
+   - What you expected vs what happened
+   - Steps to reproduce (if it’s a bug)
+   - Screenshots (if visual)
+
+_You don’t need to write code to be a valuable contributor._
+
+### Code contribution
+
+1. **[Fork](https://github.com/AxOS-project/Theom/fork)** this repository.
 2. **Clone** your fork locally:
    ```bash
-   git clone https://github.com/AxOS-project/Theom.git
+   git clone https://github.com/YOUR-USERNAME/FORK-NAME.git
    ```
 3. Create a **new branch** for your contribution:
    ```bash

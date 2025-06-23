@@ -43,6 +43,13 @@ You can read the theom documentaiton that covers on how we can use/configure the
 
 View the dependencies in [the deps.txt file](https://raw.githubusercontent.com/AxOS-project/Theom/main/deps.txt)
 
+## Contributheoming
+
+Do you want to contribute to theom? great! You can ready our [CONTRIBUTING.md](https://github.com/AxOS-project/Theom/blob/main/CONTRIBUTING.md) to get started!
+
+> [!NOTICE]
+> Any kind of contribution (code and non-code) is deeply appreciated.
+
 ## Credits
 
 - [Wallpapers](<https://en.wikipedia.org/wiki/Wallpaper_(computing)>) from [axos wallpaper collection](https://github.com/AxOS-project/wallpapers) by [@ardox](https://github.com/levraiardox)
