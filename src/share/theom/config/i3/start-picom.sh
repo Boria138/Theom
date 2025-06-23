@@ -19,7 +19,7 @@ if [ "$enable_compositing" = "true" ]; then
         fi
     fi
 
-    for i in {1..50}; do
+    for _ in {1..50}; do
         if xprop -root _NET_WM_CM_S0 >/dev/null 2>&1; then
             echo "Compositor ready"
             break
