@@ -17,8 +17,9 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt update
-          sudo apt install -y shellcheck luacheck sassc python3-pip man-db
+          sudo apt install -y shellcheck sassc python3-pip man-db luarocks
           pip install flake8
+          sudo luarocks install luacheck
 
       - name: ShellCheck (shell script lint)
         run: |
