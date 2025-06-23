@@ -1,0 +1,41 @@
+name: Theom CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y shellcheck luacheck sassc python3-pip man-db
+          pip install flake8
+
+      - name: ShellCheck (shell script lint)
+        run: |
+          find . -type f -name "*.sh" | xargs -r shellcheck
+
+      - name: Python Lint (flake8)
+        run: |
+          flake8 . || true
+
+      - name: Lua Lint
+        run: |
+          luacheck . || true
+
+      - name: SCSS Check
+        run: |
+          find . -type f -name "*.scss" | while read f; do sassc "$f" /dev/null; done
+
+      - name: Man Page Check
+        run: |
+          find . -name "*.1" | while read f; do man -l "$f" > /dev/null; done
