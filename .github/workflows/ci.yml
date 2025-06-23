@@ -28,7 +28,7 @@ jobs:
       - uses: actions/checkout@v4
       - run: sudo apt update && sudo apt install -y luarocks
       - run: sudo luarocks install luacheck
-      - run: luacheck .
+      - run: luacheck . --config .github/workflows/luacheckrc
 
   scss:
     runs-on: ubuntu-latest
