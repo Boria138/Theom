@@ -47,7 +47,7 @@ View the dependencies in [the deps.txt file](https://raw.githubusercontent.com/A
 
 Do you want to contribute to theom? great! You can ready our [CONTRIBUTING.md](https://github.com/AxOS-project/Theom/blob/main/CONTRIBUTING.md) to get started!
 
-> [!NOTICE]
+> [!NOTE]
 > Any kind of contribution (code and non-code) is deeply appreciated.
 
 ## Credits
