@@ -116,7 +116,7 @@ Theom has matured into a reliable, customizable desktop experience. Version 1.0.
 
 ---
 
-This release is for users and contributors who want a solid, predictable starting point. Expect future updates to refine and build upon this foundation — without breaking what works.
+This release is for users and contributors who want a solid, predictable starting point. Expect future updates to refine and build upon this foundation, without breaking what works.
 
 ## [0.9.0] - 2025-06-14
 
