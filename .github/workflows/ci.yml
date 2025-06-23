@@ -7,36 +7,39 @@ on:
     branches: [main]
 
 jobs:
-  check:
+  shellcheck:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - run: sudo apt update && sudo apt install -y shellcheck
+      - run: find . -type f -name "*.sh" | xargs -r shellcheck
 
-      - name: Install dependencies
-        run: |
-          sudo apt update
-          sudo apt install -y shellcheck sassc python3-pip man-db luarocks
-          pip install flake8
-          sudo luarocks install luacheck
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt update && sudo apt install -y python3-pip
+      - run: pip install flake8
+      - run: flake8 . || true
 
-      - name: ShellCheck (shell script lint)
-        run: |
-          find . -type f -name "*.sh" | xargs -r shellcheck
+  lua:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt update && sudo apt install -y luarocks
+      - run: sudo luarocks install luacheck
+      - run: luacheck . || true
 
-      - name: Python Lint (flake8)
-        run: |
-          flake8 . || true
+  scss:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt update && sudo apt install -y sassc
+      - run: find . -type f -name "*.scss" | while read f; do sassc "$f" /dev/null; done
 
-      - name: Lua Lint
-        run: |
-          luacheck . || true
-
-      - name: SCSS Check
-        run: |
-          find . -type f -name "*.scss" | while read f; do sassc "$f" /dev/null; done
-
-      - name: Man Page Check
-        run: |
-          find . -name "*.1" | while read f; do man -l "$f" > /dev/null; done
+  manpages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt update && sudo apt install -y man-db
+      - run: find . -name "*.1" | while read f; do man -l "$f" > /dev/null; done
