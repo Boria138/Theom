@@ -18,6 +18,10 @@ All notable changes to **Theom** will be documented in this file.
 - `theom-setup` so that it wont output the logs of `tscdScript`.
 - Changed wallpaper path. `/usr/share/backgrounds/` to `/usr/share/backgrounds/theom`.
 
+### Fixed
+
+- `show-widgets.sh` script which is responsible for showing widgets on the screen.
+
 ### Credits
 
 - Thank's to [@ardox](https://github.com/levraiardox) for giving me the permission to use wallpapers from [axos wallpaper collection](https://github.com/AxOS-project/wallpapers) which helped me by a ton.
