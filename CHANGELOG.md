@@ -8,13 +8,19 @@ All notable changes to **Theom** will be documented in this file.
 
 ## [2.0.0] - 2025-06-24
 
-### Aded
+### Added
 
 - `--checkup`, `-c` argument and `--verbose` sub argument for theom-config.
+- More wallpapers to theom.
 
 ### Changed
 
 - `theom-setup` so that it wont output the logs of `tscdScript`.
+- Changed wallpaper path. `/usr/share/backgrounds/` to `/usr/share/backgrounds/theom`.
+
+### Credits
+
+- Thank's to [@ardox](https://github.com/levraiardox) for giving me the permission to use wallpapers from [axos wallpaper collection](https://github.com/AxOS-project/wallpapers) which helped me by a ton.
 
 ## [1.2.1] - 2025-06-22
 
