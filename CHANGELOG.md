@@ -6,6 +6,16 @@ All notable changes to **Theom** will be documented in this file.
 
 ---
 
+## [2.0.0] - 2025-06-24
+
+### Aded
+
+- `--checkup`, `-c` argument and `--verbose` sub argument for theom-config.
+
+### Changed
+
+- `theom-setup` so that it wont output the logs of `tscdScript`.
+
 ## [1.2.1] - 2025-06-22
 
 ### Changed

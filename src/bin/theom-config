@@ -17,6 +17,25 @@ def load_config():
         print(f"ERROR: Config parse error: {e}", file=sys.stderr)
         sys.exit(1)
 
+def check_config(verbosity=False):
+    try:
+        with open(CONFIG_PATH, "rb") as f:
+            loaded_config = tomllib.load(f)
+    except FileNotFoundError:
+        print("Problem encountered: Config file not found.", file=sys.stderr)
+        sys.exit(1)
+    except tomllib.TOMLDecodeError as e:
+        print(f"Problem encountered: Config parse error: {e}", file=sys.stderr)
+        sys.exit(1)
+
+    if (loaded_config):
+        print("Checkup succesful! No problems were found!")
+        print("- Configuration syntax is correct.")
+        if verbosity:
+            print("- Parsed configuration:")
+            print(loaded_config)
+        sys.exit(0)
+
 def get_nested(config, key_path):
     keys = key_path.split(".")
     for key in keys:
@@ -77,9 +96,37 @@ def update_value_in_file(key_path, new_value):
         f.writelines(lines)
 
 def main():
-    if len(sys.argv) == 2:
-        # get value
-        key_path = sys.argv[1]
+    args = sys.argv[1:]
+
+    if not args:
+        print_usage()
+        sys.exit(1)
+
+    cmd = args[0]
+
+    if cmd == "--checkup" or cmd == "-c":
+        test = args[1]
+        if len(args) > 1:
+            if args[1] == "--verbose":
+                check_config(True)
+        else:
+            check_config(False)
+
+    elif cmd == "--help" or cmd == "-h":
+        print_usage()
+
+    elif cmd == "set":
+        if len(args) != 3:
+            print("ERROR: Invalid usage of 'set'.\n")
+            print("Usage: theom-config set <key_path> <new_value>")
+            print("Example: theom-config set appearance.theme dark")
+            sys.exit(1)
+
+        key_path, new_value = args[1], args[2]
+        update_value_in_file(key_path, new_value)
+
+    elif len(args) == 1:
+        key_path = args[0]
         config = load_config()
         value = get_nested(config, key_path)
         if value is None:
@@ -89,14 +136,28 @@ def main():
             print(str(value).lower())
         else:
             print(value)
-    elif len(sys.argv) == 4 and sys.argv[1] == "set":
-        # set value
-        key_path = sys.argv[2]
-        new_value = sys.argv[3]
-        update_value_in_file(key_path, new_value)
+
     else:
-        print("Usage:\n  theom-config key.path\n  theom-config set key.path value", file=sys.stderr)
+        print_usage()
         sys.exit(1)
+
+
+def print_usage():
+    print("""Usage:
+  theom-config <key_path>
+      Get the value of a config key.
+
+  theom-config set <key_path> <new_value>
+      Set the value of a config key.
+
+  theom-config --checkup, -c
+      Check the config file for issues.
+
+  theom-config --help, -h
+      Show this message.
+
+  - For more details, run `man theom-config` in the terminal.
+""", file=sys.stderr)
 
 if __name__ == "__main__":
     main()

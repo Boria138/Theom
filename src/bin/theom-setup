@@ -106,7 +106,7 @@ fi
 # ---------------------- #
 #       Auto Gen         #
 # ---------------------- #
-/usr/share/theom/scripts/tscdScript
+/usr/share/theom/scripts/tscdScript > /dev/null 2>&1
 
 # ---------------------- #
 #         Themes         #
