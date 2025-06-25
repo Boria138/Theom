@@ -70,7 +70,7 @@ Before you do make a PR (Pull request) on a code contribution, make sure that it
 ## Using scripts
 
 - run `./gen_man.sh` if you updated the manual to generate the manual in `/src/share/man/`
-- run `./update_deps_txt.sh` if you updated the PKGBUILD to change the dependencies
+- run `./extra_scripts/update_deps_txt.sh` if you updated the PKGBUILD to change the dependencies
 - run `./update_version.sh <version_num>` to upgrade the theom version on all required files.
 
 **Usage example**:
@@ -80,7 +80,7 @@ Before you do make a PR (Pull request) on a code contribution, make sure that it
 ./gen_man.sh # Run this in the root of the project
 
 # After updating the theom dependencies
-./update_deps_txt.sh # Run this in the root of the project
+./extra_scripts/update_deps_txt.sh # Run this in the root of the project
 
 # When upgrading theom version. (eg: 1.0.0 -> 1.0.1)
 ./update_version.sh 1.0.1 # Run this in the root of the project
