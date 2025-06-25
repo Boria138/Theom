@@ -6,17 +6,20 @@ All notable changes to **Theom** will be documented in this file.
 
 ---
 
-## [2.0.0] - 2025-06-24
+## [2.0.0] - 2025-06-26
 
 ### Added
 
 - `--checkup`, `-c` argument and `--verbose` sub argument for theom-config.
 - More wallpapers to theom.
+- `tcheatsheet` application so that users can use it to see default `theom keybindings`.
+- New default keybinding for `tcheatsheet` (Super+f1).
 
 ### Changed
 
 - `theom-setup` so that it wont output the logs of `tscdScript`.
 - Changed wallpaper path. `/usr/share/backgrounds/` to `/usr/share/backgrounds/theom`.
+- `theom-welcome` so that it relies on `theom-config` for getting/setting values in theom configuration.
 
 ### Fixed
 
@@ -29,6 +32,15 @@ All notable changes to **Theom** will be documented in this file.
 ### Credits
 
 - Thank's to [@ardox](https://github.com/levraiardox) for giving me the permission to use wallpapers from [axos wallpaper collection](https://github.com/AxOS-project/wallpapers) which helped me by a ton.
+
+### Reasons and Pledges
+
+Theom v2 had to be released due to the breaking changes that happened in v1.2.0+
+
+> With T2, I will ensure that breaking changes will be minimal.
+> I pledge to make sure that ever version works correctly before any release and follow [SemVer v2](https://semver.org/) correctly.
+
+---
 
 ## [1.2.1] - 2025-06-22
 
