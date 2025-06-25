@@ -11,8 +11,6 @@
 - Welcomes user friendly greeter during startup
 - Easy to customize
 
-For full performance details, visit <https://raw.githubusercontent.com/AxOS-project/Theom/main/PERFORMANCE.report>
-
 ## Screenshots
 
 ![image](https://raw.githubusercontent.com/AxOS-project/Theom/main/screenshots/screenshot1.png)
@@ -45,7 +43,7 @@ View the dependencies in [the deps.txt file](https://raw.githubusercontent.com/A
 
 ## Contributheoming
 
-Do you want to contribute to theom? great! You can ready our [CONTRIBUTING.md](https://github.com/AxOS-project/Theom/blob/main/CONTRIBUTING.md) to get started!
+Do you want to contribute to theom? great! You can read our [CONTRIBUTING.md](https://github.com/AxOS-project/Theom/blob/main/CONTRIBUTING.md) to get started!
 
 > [!NOTE]
 > Any kind of contribution (code and non-code) is deeply appreciated.

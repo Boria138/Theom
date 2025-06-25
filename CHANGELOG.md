@@ -22,6 +22,10 @@ All notable changes to **Theom** will be documented in this file.
 
 - `show-widgets.sh` script which is responsible for showing widgets on the screen.
 
+### Removed
+
+- `enable on screen display effects` option from theom greeter.
+
 ### Credits
 
 - Thank's to [@ardox](https://github.com/levraiardox) for giving me the permission to use wallpapers from [axos wallpaper collection](https://github.com/AxOS-project/wallpapers) which helped me by a ton.
