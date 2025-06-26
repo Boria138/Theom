@@ -20,6 +20,7 @@ All notable changes to **Theom** will be documented in this file.
 - `theom-setup` so that it wont output the logs of `tscdScript`.
 - Changed wallpaper path. `/usr/share/backgrounds/` to `/usr/share/backgrounds/theom`.
 - `theom-welcome` so that it relies on `theom-config` for getting/setting values in theom configuration.
+- Path to theom widgets (`~/.config/widgets/` -> `~/.config/theom/twidgets/`)
 
 ### Fixed
 

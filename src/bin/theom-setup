@@ -85,9 +85,9 @@ fi
 [ ! -s ~/.mpd/mpd.conf ] && cp /usr/share/theom/config/mpd/mpd.conf ~/.mpd/mpd.conf
 
 # Widgets
-[ ! -s ~/.config/theom/twidgets/README.md ] && cp /usr/share/theom/config/widgets/README.md ~/.config/widgets/
-[ ! -s ~/.config/theom/twidgets/time.lua ] && cp /usr/share/theom/config/widgets/time.lua ~/.config/widgets/
-[ ! -s ~/.config/theom/twidgets/uptime.lua ] && cp /usr/share/theom/config/widgets/uptime.lua ~/.config/widgets/
+[ ! -s ~/.config/theom/twidgets/README.md ] && cp /usr/share/theom/config/theom/twidgets/README.md ~/.config/widgets/
+[ ! -s ~/.config/theom/twidgets/time.lua ] && cp /usr/share/theom/config/theom/twidgets/time.lua ~/.config/widgets/
+[ ! -s ~/.config/theom/twidgets/uptime.lua ] && cp /usr/share/theom/config/theom/twidgets/uptime.lua ~/.config/widgets/
 
 # Theom
 [ ! -s ~/.config/theom/config.toml ] && cp /usr/share/theom/config/theom/config.toml ~/.config/theom/
