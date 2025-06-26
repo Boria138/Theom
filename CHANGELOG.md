@@ -19,7 +19,7 @@ All notable changes to **Theom** will be documented in this file.
 ### Changed
 
 - `theom-setup` so that it wont output the logs of `tscdScript`.
-- Changed wallpaper path. `/usr/share/backgrounds/` to `/usr/share/backgrounds/theom`.
+- Changed wallpaper path (`/usr/share/backgrounds/` -> `/usr/share/backgrounds/theom`).
 - `theom-welcome` so that it relies on `theom-config` for getting/setting values in theom configuration.
 - Path to theom widgets (`~/.config/widgets/` -> `~/.config/theom/twidgets/`)
 
@@ -40,10 +40,12 @@ All notable changes to **Theom** will be documented in this file.
 
 ### Reasons and Pledges
 
-Theom v2 had to be released due to the breaking changes that happened in v1.2.0+
-
-> With T2, I will ensure that breaking changes will be minimal.
-> I pledge to make sure that ever version works correctly before any release and follow [SemVer v2](https://semver.org/) correctly.
+> With T2 (Theom 2.0), I pledge to:
+>
+> - Follow [Semantic Versioning v2](https://semver.org/) precisely.
+> - Ensure that major breaking changes only occur in major versions (e.g., 3.x, 4.x).
+> - Test every release for usability and configuration stability before public rollout.
+> - Handle all future breaking configuration or widget path changes via automated migration tools.
 
 ---
 
