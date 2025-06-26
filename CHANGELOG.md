@@ -24,10 +24,12 @@ All notable changes to **Theom** will be documented in this file.
 ### Fixed
 
 - `show-widgets.sh` script which is responsible for showing widgets on the screen.
+- Config directory path in `theom` script (dry run).
 
 ### Removed
 
-- `enable on screen display effects` option from theom greeter.
+- `Enable on screen display effects` option from theom greeter.
+- All reference to previous config path (`~/.config/.theom/`).
 
 ### Credits
 
