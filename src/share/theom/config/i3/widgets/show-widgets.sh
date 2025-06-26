@@ -2,7 +2,7 @@
 
 enable_widgets=$(theom-config widgets.enable_widgets | tr -d '[:space:]')
 
-if [ "$enable_widgets" = "True" ]; then
+if [ "$enable_widgets" = "true" ]; then
     raw_output=$(theom-config widgets.show)
     
     cleaned_output=$(echo "$raw_output" | sed -e "s/^\[//" -e "s/\]$//" -e "s/'//g")

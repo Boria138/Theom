@@ -1,26 +1,44 @@
 .TH theom-config 1 "June 2025" "1.0.0" "Theom Manual"
 
 .SH NAME
-theom-config \- query Theom desktop environment configuration values
+theom-config \- Manages Theom desktop environment configuration values
 
 .SH SYNOPSIS
 .B theom-config
 [\fIkey.path\fR]
 
+.B theom-config set
+\fIkey.path value\fR
+
+.B theom-config --checkup | -c
+
+.B theom-config --help | -h
+
 .SH DESCRIPTION
-\fBtheom-config\fR is a utility for querying specific configuration values used by the Theom desktop environment. Configuration is stored in a TOML file located at:
+\fBtheom-config\fR is a utility for managing specific configuration values used by the Theom desktop environment. Configuration is stored in a TOML file located at:
 
 .IP
 \fB~/.config/theom/config.toml\fR
 
 .PP
-The tool takes a single dot-delimited key path (e.g., \fBappearance.theme\fR) and prints the corresponding value to standard output. If the key does not exist, it exits with a non-zero status and prints \fBfalse\fR.
+The tool supports reading, setting, and validating configuration keys. It can also check the current system state or restore defaults.
 
 .PP
-If no key is provided, the command will print usage information and exit with code 1.
+If a key is provided, its value is printed to standard output. If the key does not exist, the command prints \fBfalse\fR and exits with code 1.
 
 .SH OPTIONS
-None.
+.TP
+.BR --help ", " -h
+Show usage information and exit.
+
+.TP
+.BR --checkup ", " -c
+Run diagnostics on the configuration and environment. Useful for debugging issues with Theom setup.
+
+.SH COMMANDS
+.TP
+.B set \fIkey.path value\fR
+Set the given configuration key to the specified value.
 
 .SH EXAMPLES
 .PP
@@ -29,14 +47,14 @@ Query the currently configured Theom theme:
 \fBtheom-config appearance.theme\fR
 
 .PP
-Get the wallpaper path:
+Set the wallpaper path:
 .IP
-\fBtheom-config appearance.wallpaper\fR
+\fBtheom-config set appearance.wallpaper "~/Pictures/Awesome_wallpaper.png"\fR
 
 .PP
-Check the compositing mode:
+Run a system checkup:
 .IP
-\fBtheom-config compositor.compositing_mode\fR
+\fBtheom-config --checkup\fR
 
 .SH FILES
 .TP
@@ -46,7 +64,8 @@ The main user configuration file for the Theom desktop environment.
 .SH EXIT STATUS
 .TP
 .B 0
-The key was found and printed.
+The key was found and printed, or the command ran successfully.
+
 .TP
 .B 1
 The key was not found, no key was given, or the config file could not be read.

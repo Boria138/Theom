@@ -25,12 +25,12 @@ mkdir -p \
   ~/.config/rofi/dark \
   ~/.config/rofi/light \
   ~/.config/theom \
+  ~/.config/theom/twidgets \
   ~/.config/theom/user_scripts \
   ~/.config/theom/osd-snippets \
   ~/.config/theom-autostarts \
   ~/.config/eww \
   ~/.config/eww/scripts \
-  ~/.config/widgets \
   ~/.mpd \
   ~/.config/mpd/playlists
 
@@ -85,9 +85,9 @@ fi
 [ ! -s ~/.mpd/mpd.conf ] && cp /usr/share/theom/config/mpd/mpd.conf ~/.mpd/mpd.conf
 
 # Widgets
-[ ! -s ~/.config/widgets/README.md ] && cp /usr/share/theom/config/widgets/README.md ~/.config/widgets/
-[ ! -s ~/.config/widgets/time.lua ] && cp /usr/share/theom/config/widgets/time.lua ~/.config/widgets/
-[ ! -s ~/.config/widgets/uptime.lua ] && cp /usr/share/theom/config/widgets/uptime.lua ~/.config/widgets/
+[ ! -s ~/.config/theom/twidgets/README.md ] && cp /usr/share/theom/config/theom/twidgets/README.md ~/.config/theom/twidgets/
+[ ! -s ~/.config/theom/twidgets/time.lua ] && cp /usr/share/theom/config/theom/twidgets/time.lua ~/.config/theom/twidgets/
+[ ! -s ~/.config/theom/twidgets/uptime.lua ] && cp /usr/share/theom/config/theom/twidgets/uptime.lua ~/.config/theom/twidgets/
 
 # Theom
 [ ! -s ~/.config/theom/config.toml ] && cp /usr/share/theom/config/theom/config.toml ~/.config/theom/
@@ -106,7 +106,7 @@ fi
 # ---------------------- #
 #       Auto Gen         #
 # ---------------------- #
-/usr/share/theom/scripts/tscdScript
+/usr/share/theom/scripts/tscdScript > /dev/null 2>&1
 
 # ---------------------- #
 #         Themes         #

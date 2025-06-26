@@ -6,6 +6,49 @@ All notable changes to **Theom** will be documented in this file.
 
 ---
 
+## [2.0.0] - 2025-06-26
+
+### Added
+
+- `--checkup`, `-c` argument for theom-config.
+- More wallpapers to theom.
+- `tcheatsheet` application so that users can use it to see default `theom keybindings`.
+- New default keybinding for `tcheatsheet` (Super+f1).
+- Added `/usr/share/theom/version` file to store theom version (Useful to migrate from future breaks).
+
+### Changed
+
+- `theom-setup` so that it wont output the logs of `tscdScript`.
+- Changed wallpaper path (`/usr/share/backgrounds/` -> `/usr/share/backgrounds/theom`).
+- `theom-welcome` so that it relies on `theom-config` for getting/setting values in theom configuration.
+- Path to theom widgets (`~/.config/widgets/` -> `~/.config/theom/twidgets/`)
+
+### Fixed
+
+- `show-widgets.sh` script which is responsible for showing widgets on the screen.
+- Config directory path in `theom` script (dry run).
+- Window manager to use new path.
+
+### Removed
+
+- `Enable on screen display effects` option from theom greeter.
+- All reference to previous config path (`~/.config/.theom/`).
+
+### Credits
+
+- Thank's to [@ardox](https://github.com/levraiardox) for giving me the permission to use wallpapers from [axos wallpaper collection](https://github.com/AxOS-project/wallpapers) which helped me by a ton.
+
+### Reasons and Pledges
+
+> With T2 (Theom 2.0), I pledge to:
+>
+> - Follow [Semantic Versioning v2](https://semver.org/) precisely.
+> - Ensure that major breaking changes only occur in major versions (e.g., 3.x, 4.x).
+> - Test every release for usability and configuration stability before public rollout.
+> - Handle all future breaking configuration or widget path changes via automated migration tools.
+
+---
+
 ## [1.2.1] - 2025-06-22
 
 ### Changed
@@ -116,7 +159,7 @@ Theom has matured into a reliable, customizable desktop experience. Version 1.0.
 
 ---
 
-This release is for users and contributors who want a solid, predictable starting point. Expect future updates to refine and build upon this foundation — without breaking what works.
+This release is for users and contributors who want a solid, predictable starting point. Expect future updates to refine and build upon this foundation, without breaking what works.
 
 ## [0.9.0] - 2025-06-14
 
