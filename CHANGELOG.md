@@ -26,6 +26,7 @@ All notable changes to **Theom** will be documented in this file.
 
 - `show-widgets.sh` script which is responsible for showing widgets on the screen.
 - Config directory path in `theom` script (dry run).
+- Window manager to use new path.
 
 ### Removed
 
