@@ -10,7 +10,7 @@ All notable changes to **Theom** will be documented in this file.
 
 ### Added
 
-- `--checkup`, `-c` argument and `--verbose` sub argument for theom-config.
+- `--checkup`, `-c` argument for theom-config.
 - More wallpapers to theom.
 - `tcheatsheet` application so that users can use it to see default `theom keybindings`.
 - New default keybinding for `tcheatsheet` (Super+f1).
