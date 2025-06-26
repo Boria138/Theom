@@ -27,6 +27,16 @@ else
     exit 1
 fi
 
+# Update version in ./src/share/theom/version
+VERSION_FILE_PATH="./src/share/theom/version"
+if [ -f "$VERSION_FILE_PATH" ]; then
+    echo "$1" > "$VERSION_FILE_PATH"
+    echo "Updated VERSION in $VERSION_FILE_PATH to $NEW_VERSION"
+else
+    echo "$VERSION_FILE_PATH not found!"
+    exit 1
+fi
+
 # Function to update .TH line in a man page file
 update_man_version() {
     local file="$1"
@@ -48,9 +58,9 @@ update_man_version() {
 
     if [[ "$current_version" =~ $version_regex ]]; then
         sed -i -E 's/^(\.TH[[:space:]]+theom[[:space:]]+[0-9]+[[:space:]]+")([^"]+)("[[:space:]]+")([^"]+)("[[:space:]]+")([^"]+)(".*)/\1\2\3'"${NEW_VERSION}"'\5\6\7/' "$file"
-        echo "Updated version in $file to $NEW_VERSION"
+        echo "Updated VERSION in $file to $NEW_VERSION"
     else
-        echo "Skipping $file: version field '$current_version' does not match expected pattern"
+        echo "Skipping $file: VERSION field '$current_version' does not match expected pattern"
     fi
 }
 

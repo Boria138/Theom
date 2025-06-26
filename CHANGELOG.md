@@ -14,6 +14,7 @@ All notable changes to **Theom** will be documented in this file.
 - More wallpapers to theom.
 - `tcheatsheet` application so that users can use it to see default `theom keybindings`.
 - New default keybinding for `tcheatsheet` (Super+f1).
+- Added `/usr/share/theom/version` file to store theom version (Useful to migrate from future breaks).
 
 ### Changed
 
