@@ -14,8 +14,6 @@ theom-config \- Manages Theom desktop environment configuration values
 
 .B theom-config --help | -h
 
-.B theom-config --checkout [--verbose]
-
 .SH DESCRIPTION
 \fBtheom-config\fR is a utility for managing specific configuration values used by the Theom desktop environment. Configuration is stored in a TOML file located at:
 
@@ -37,14 +35,6 @@ Show usage information and exit.
 .BR --checkup ", " -c
 Run diagnostics on the configuration and environment. Useful for debugging issues with Theom setup.
 
-.TP
-.BR --checkout
-Restore configuration to default or backup state.
-
-.TP
-.BR --verbose
-Use with \fB--checkout\fR or \fB--checkup\fR to enable verbose output.
-
 .SH COMMANDS
 .TP
 .B set \fIkey.path value\fR
@@ -65,11 +55,6 @@ Set the wallpaper path:
 Run a system checkup:
 .IP
 \fBtheom-config --checkup\fR
-
-.PP
-Restore configuration with verbose output:
-.IP
-\fBtheom-config --checkout --verbose\fR
 
 .SH FILES
 .TP
