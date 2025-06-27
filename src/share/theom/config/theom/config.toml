@@ -23,3 +23,6 @@ compositing_mode = "performance" # performance mode is light and recommended and
 
 [osd]
 osd = false # deprecated
+
+[SYSTEM]
+disable_tscans = true # Disable scans to save device/monitor info

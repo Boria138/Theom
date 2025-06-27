@@ -19,6 +19,7 @@ All notable changes to **Theom** will be documented in this file.
 ### Fixed
 
 - Fixed `osd snippet` wrapper which used previous theom path (~/.config/.theom/).
+- Fixed outdated osd script.
 
 ## [2.0.0] - 2025-06-26
 
