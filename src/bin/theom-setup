@@ -93,8 +93,8 @@ fi
 [ ! -s ~/.config/theom/config.toml ] && cp /usr/share/theom/config/theom/config.toml ~/.config/theom/
 [ ! -s ~/.config/theom/keybindings.conf ] && cp /usr/share/theom/config/theom/keybindings.conf ~/.config/theom/
 ## depreicated theom osd
-[ ! -s ~/.config/theom/osd-snippets/brightness.sh ] && cp /usr/share/theom/config/theom/osd-snippets/brightness.sh ~/.config/theom/osd-snippets/
-[ ! -s ~/.config/theom/osd-snippets/volume.sh ] && cp /usr/share/theom/config/theom/osd-snippets/volume.sh ~/.config/theom/osd-snippets/
+[ ! -s ~/.config/theom/.osd-snippets/brightness.sh ] && cp /usr/share/theom/config/theom/.osd-snippets/brightness.sh ~/.config/theom/.osd-snippets/
+[ ! -s ~/.config/theom/.osd-snippets/volume.sh ] && cp /usr/share/theom/config/theom/.osd-snippets/volume.sh ~/.config/theom/.osd-snippets/
 
 # Theom autostarts
 [ ! -s ~/.config/theom-autostarts/exec_once.sh ] && cp /usr/share/theom/config/theom-autostarts/exec_once.sh ~/.config/theom-autostarts/

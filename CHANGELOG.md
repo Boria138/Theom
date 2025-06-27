@@ -14,7 +14,7 @@ All notable changes to **Theom** will be documented in this file.
 
 ### Changed
 
-- Path to osd-snippets. (~/.config/theom/osd-snippets -> ~/.config/theom/.osd-snippets).
+- Path to osd snippets. (~/.config/theom/osd-snippets -> ~/.config/theom/.osd-snippets).
 
 ### Fixed
 
