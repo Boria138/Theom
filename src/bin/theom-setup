@@ -27,7 +27,8 @@ mkdir -p \
   ~/.config/theom \
   ~/.config/theom/twidgets \
   ~/.config/theom/user_scripts \
-  ~/.config/theom/osd-snippets \
+  ~/.config/theom/.win \
+  ~/.config/theom/.osd-snippets \
   ~/.config/theom-autostarts \
   ~/.config/eww \
   ~/.config/eww/scripts \
@@ -92,6 +93,7 @@ fi
 # Theom
 [ ! -s ~/.config/theom/config.toml ] && cp /usr/share/theom/config/theom/config.toml ~/.config/theom/
 [ ! -s ~/.config/theom/keybindings.conf ] && cp /usr/share/theom/config/theom/keybindings.conf ~/.config/theom/
+[ ! -s ~/.config/theom/.win/extra_config.conf ] && cp /usr/share/theom/config/theom/.win/extra_config.conf ~/.config/theom/.win/
 ## depreicated theom osd
 [ ! -s ~/.config/theom/.osd-snippets/brightness.sh ] && cp /usr/share/theom/config/theom/.osd-snippets/brightness.sh ~/.config/theom/.osd-snippets/
 [ ! -s ~/.config/theom/.osd-snippets/volume.sh ] && cp /usr/share/theom/config/theom/.osd-snippets/volume.sh ~/.config/theom/.osd-snippets/
