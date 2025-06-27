@@ -6,6 +6,20 @@ All notable changes to **Theom** will be documented in this file.
 
 ---
 
+## [2.1.0] - ADD_DATE_HERE_BEFORE_RELEASE!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+### Added
+
+- `extra_config.conf` where users can add extra WM configuration. (PATH: ~/.config/theom/.win/extra_config.conf)
+
+### Changed
+
+- Path to osd-snippets. (~/.config/theom/osd-snippets -> ~/.config/theom/.osd-snippets).
+
+### Fixed
+
+- Fixed `osd snippet` wrapper which used previous theom path (~/.config/.theom/).
+
 ## [2.0.0] - 2025-06-26
 
 ### Added
@@ -32,7 +46,7 @@ All notable changes to **Theom** will be documented in this file.
 ### Removed
 
 - `Enable on screen display effects` option from theom greeter.
-- All reference to previous config path (`~/.config/.theom/`).
+- All reference to previous config path (`~/.config/.theom/`) in all `theom-packages`.
 
 ### Credits
 

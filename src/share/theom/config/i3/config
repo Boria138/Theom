@@ -28,7 +28,7 @@ set $term /usr/share/theom/config/i3/start-alacritty.sh
 exec_always --no-startup-id /usr/share/theom/config/i3/start-picom.sh
 
 # Just making sure that all autostart exists
-exec_always --no-startup-id /usr/share/theom/config/i3/autostarts-exists.sh
+exec_always --no-startup-id /usr/share/theom/config/i3/other/security/autostarts-exists.sh
 
 # Run all exec_once autostarts
 exec --no-startup-id ~/.config/theom-autostarts/exec_once.sh
@@ -45,10 +45,19 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 #########################
+#      Extra Confs      #
+#########################
+
+# Protection from de failing due to extra confs not existing
+exec_always --no-startup-id /usr/share/theom/config/i3/other/security/wm-extra-exists.sh
+
+include ~/.config/theom/.win/extra_config.conf
+
+#########################
 #      Keybindings      #
 #########################
 
 # Protection from de failing due to keybinding not existing
-exec_always --no-startup-id /usr/share/theom/config/i3/kb-exists.sh
+exec_always --no-startup-id /usr/share/theom/config/i3/other/security/kb-exists.sh
 
 include ~/.config/theom/keybindings.conf
