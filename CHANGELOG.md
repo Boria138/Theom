@@ -12,6 +12,8 @@ All notable changes to **Theom** will be documented in this file.
 
 - `extra_config.conf` where users can add extra WM configuration. Path to `extra_config.conf` is `~/.config/theom/.win/extra_config.conf`.
 - Logging support for `theom-setup` for better error debugging. `theom-setup` logs are stored at `~/.local/state/theom/logs/setup.logs`.
+- Logging support for `start-picom.sh` for debugging the compositor. Log path: `~/.local/state/theom/logs/compositor.logs`
+- Logging support for `show-widgets.sh` for debugging conky widgets. Log path: `~/.local/state/theom/logs/show-widgets.sh`
 
 ### Changed
 
