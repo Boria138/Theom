@@ -26,6 +26,9 @@ log() {
     echo "[$(date '+%F %T')] $*" >> "$LOGFILE"
 }
 
+trap 'log "[ERROR] Command failed at line $LINENO: $BASH_COMMAND (exit $?)"' ERR
+set -o errtrace
+
 log "[START] Starting Theom setup"
 
 # ---------------------- #
