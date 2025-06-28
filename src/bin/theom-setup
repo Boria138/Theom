@@ -41,6 +41,7 @@ copy_if_missing() {
         else
             log "[ERROR] Failed to copy $SRC to $DEST"
         fi
+    fi
 }
 
 # Alacritty
