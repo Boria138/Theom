@@ -1,5 +1,10 @@
 # Theom
 
+![CI](https://github.com/AxOS-project/Theom/actions/workflows/ci.yml/badge.svg)
+![License GPL3](https://img.shields.io/badge/License-GPL3-yellow.svg)
+![Last commit](https://img.shields.io/github/last-commit/AxOS-project/Theom)
+![Release](https://img.shields.io/github/v/release/AxOS-project/Theom)
+
 **Theom** is an extremely lightweight desktop environment built on top of [i3wm](https://i3wm.org/) for [AxOS](https://www.axos-project.com/), designed for speed, simplicity, and elegance. Ideal for minimalists, power users, and systems where every megabyte matters.
 
 ## Features
