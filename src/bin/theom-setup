@@ -8,9 +8,25 @@
 ##$ This script makes sure that all necessary files exists for theom to run.
 
 # ---------------------- #
+#       Log Setup        #
+# ---------------------- #
+
+LOGDIR="${XDG_CACHE_HOME:-$HOME/.local/share}/THEOM_SYSTEM/logs"
+LOGFILE="$LOGDIR/setup.log"
+
+mkdir -p "$LOGDIR"
+
+log() {
+    echo "[$(date '+%F %T')] $*" >> "$LOGFILE"
+}
+
+log "[INFO] Starting Theom setup"
+
+# ---------------------- #
 #        Configs         #
 # ---------------------- #
 
+# Create all config paths
 mkdir -p \
   ~/.config \
   ~/.config/alacritty/dark \
@@ -34,6 +50,8 @@ mkdir -p \
   ~/.config/eww/scripts \
   ~/.mpd \
   ~/.config/mpd/playlists
+
+log "[INFO] Finished creating necessary directories"
 
 # Alacritty
 [ ! -s ~/.config/alacritty/dark/alacritty.toml ] && cp /usr/share/theom/config/alacritty/dark/alacritty.toml ~/.config/alacritty/dark
@@ -130,6 +148,8 @@ gtk-cursor-theme-name=capitaine-cursors
 gtk-cursor-theme-size=24
 gtk-font-name=Sans 10
 EOF
+
+log "[INFO] $GTK3_CONFIG not found or is empty or is empty, added default content"
 fi
 
 if [ ! -s "$GTK2_CONFIG" ]; then
@@ -138,6 +158,8 @@ gtk-theme-name="Materia-dark"
 gtk-icon-theme-name="Papirus"
 gtk-cursor-theme-name=capitaine-cursors
 EOF
+
+log "[INFO] $GTK2_CONFIG not found or is empty, added default content"
 fi
 
 if [ ! -s "$ICON_THEME_INDEX" ]; then
@@ -146,6 +168,8 @@ if [ ! -s "$ICON_THEME_INDEX" ]; then
 [Icon Theme]
 Inherits=capitaine-cursors
 EOF
+
+log "[INFO] $ICON_THEME_INDEX not found or is empty, added default content"
 fi
 
 if [ ! -s "$XRESOURCES" ]; then
@@ -154,4 +178,8 @@ if [ ! -s "$XRESOURCES" ]; then
 Xcursor.theme: capitaine-cursors
 Xcursor.size: 24
 EOF
+
+log "[INFO] $XRESOURCES not found or is empty, added default content"
 fi
+
+log "[INFO] Finished Theom setup"

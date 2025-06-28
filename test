@@ -1,0 +1,4 @@
+#!/bin/bash
+LOGDIR="${XDG_CACHE_HOME:-$HOME/.local/share}/THEOM_SYSTEM/logs/"
+
+echo "$LOGDIR"

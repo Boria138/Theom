@@ -1,5 +1,5 @@
 #!/bin/bash
-TSCL_PATH="$HOME/.config/.THEOM_SYSTEM/&info&.tscd"
+TSCL_PATH="$HOME/.local/share/THEOM_SYSTEM/&info&.tscd"
 TSC="tscdctl"
 TSCD_value=$($TSC --get current_run --out "$TSCL_PATH")
 
