@@ -10,16 +10,18 @@ All notable changes to **Theom** will be documented in this file.
 
 ### Added
 
-- `extra_config.conf` where users can add extra WM configuration. (PATH: ~/.config/theom/.win/extra_config.conf)
+- `extra_config.conf` where users can add extra WM configuration. Path to `extra_config.conf` is `~/.config/theom/.win/extra_config.conf`.
+- Logging support for `theom-setup` for better error debugging. `theom-setup` logs are stored at `~/.local/share/THEOM_SYSTEM/logs/setup.logs`.
 
 ### Changed
 
 - Path to osd snippets. (~/.config/theom/osd-snippets -> ~/.config/theom/.osd-snippets).
+- `THEOM_SYSTEM` path.(~/.config/THEOM_SYSTEM/ -> ~/.local/share/THEOM_SYSTEM/)
 
 ### Fixed
 
-- Fixed `osd snippet` wrapper which used previous theom path (~/.config/.theom/).
-- Fixed outdated osd script.
+- Fixed `osd-snippet` wrapper which used the previous theom configuration path (~/.config/.theom/).
+- Fixed outdated osd scripts.
 
 ## [2.0.0] - 2025-06-26
 
