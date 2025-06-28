@@ -23,6 +23,10 @@ All notable changes to **Theom** will be documented in this file.
 - Fixed `osd-snippet` wrapper which used the previous theom configuration path (~/.config/.theom/).
 - Fixed outdated osd scripts.
 
+### Removed
+
+- `tscdctl` support from `theom-packages`. `tscdctl` will be now found at `/usr/share/theom/scripts/tscdctl`.
+
 ## [2.0.0] - 2025-06-26
 
 ### Added
