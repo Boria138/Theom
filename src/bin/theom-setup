@@ -11,7 +11,7 @@
 #       Log Setup        #
 # ---------------------- #
 
-LOGDIR="${XDG_CACHE_HOME:-$HOME/.local/share}/THEOM_SYSTEM/logs"
+LOGDIR="$HOME/.local/state/theom/logs"
 LOGFILE="$LOGDIR/setup.log"
 MAXSIZE=51200  # 50 KB
 

@@ -11,12 +11,12 @@ All notable changes to **Theom** will be documented in this file.
 ### Added
 
 - `extra_config.conf` where users can add extra WM configuration. Path to `extra_config.conf` is `~/.config/theom/.win/extra_config.conf`.
-- Logging support for `theom-setup` for better error debugging. `theom-setup` logs are stored at `~/.local/share/THEOM_SYSTEM/logs/setup.logs`.
+- Logging support for `theom-setup` for better error debugging. `theom-setup` logs are stored at `~/.local/state/theom/logs/setup.logs`.
 
 ### Changed
 
 - Path to osd snippets. (~/.config/theom/osd-snippets -> ~/.config/theom/.osd-snippets).
-- `THEOM_SYSTEM` path.(~/.config/THEOM_SYSTEM/ -> ~/.local/share/THEOM_SYSTEM/)
+- `THEOM_SYSTEM` path. (~/.config/THEOM_SYSTEM/ -> ~/.local/state/theom/).
 
 ### Fixed
 
