@@ -26,10 +26,10 @@ enable_compositing=$(theom-config compositor.compositing | tr -d "[:space:]")
 compositing_mode=$(theom-config compositor.compositing_mode | tr -d "[:space:]")
 theom_theme=$(theom-config appearance.theme | tr -d '[:space:]')
 
-if xprop -root _NET_WM_CM_S0 >/dev/null 2>&1; then
+if xprop -root | grep -q _NET_WM_CM_S0; then
     log "[WARN] Another compositor is already running"
     log "[END] Aborting compositor launch"
-    exit 0
+    exit 1
 fi
 
 if [ "$enable_compositing" = "true" ]; then
@@ -57,7 +57,7 @@ if [ "$enable_compositing" = "true" ]; then
     fi
 
     for _ in {1..50}; do
-        if xprop -root _NET_WM_CM_S0 >/dev/null 2>&1; then
+        if xprop -root | grep -q _NET_WM_CM_S0; then
             echo "Compositor ready"
             log "[END] Compositor is up and running"
             break
