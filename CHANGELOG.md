@@ -6,7 +6,7 @@ All notable changes to **Theom** will be documented in this file.
 
 ---
 
-## [2.1.0] - ADD_DATE_HERE_BEFORE_RELEASE!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+## [2.1.0] - 2025-06-30
 
 ### Added
 
