@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # ---------------------- #
 #      Information       #
@@ -8,100 +8,109 @@
 ##$ This script makes sure that all necessary files exists for theom to run.
 
 # ---------------------- #
-#        Configs         #
+#       Log Setup        #
 # ---------------------- #
 
-mkdir -p \
-  ~/.config \
-  ~/.config/alacritty/dark \
-  ~/.config/alacritty/light \
-  ~/.config/dunst/dark \
-  ~/.config/dunst/light \
-  ~/.config/i3 \
-  ~/.config/picom \
-  ~/.config/polybar/dark \
-  ~/.config/polybar/light \
-  ~/.config/polybar/modules \
-  ~/.config/rofi/dark \
-  ~/.config/rofi/light \
-  ~/.config/theom \
-  ~/.config/theom/twidgets \
-  ~/.config/theom/user_scripts \
-  ~/.config/theom/osd-snippets \
-  ~/.config/theom-autostarts \
-  ~/.config/eww \
-  ~/.config/eww/scripts \
-  ~/.mpd \
-  ~/.config/mpd/playlists
+LOGDIR="$HOME/.local/state/theom/logs"
+LOGFILE="$LOGDIR/setup.log"
+MAXSIZE=51200  # 50 KB
+
+mkdir -p "$LOGDIR"
+
+# Emptying if too large
+if [ -f "$LOGFILE" ] && [ "$(stat -c%s "$LOGFILE")" -gt "$MAXSIZE" ]; then
+    : > "$LOGFILE"
+fi
+
+log() {
+    echo "[$(date '+%F %T')] $*" >> "$LOGFILE"
+}
+
+trap 'log "[ERROR] Command failed at line $LINENO: $BASH_COMMAND (exit $?)"' ERR
+set -o errtrace
+
+log "[START] Starting Theom setup"
+
+# ---------------------- #
+#        Configs         #
+# ---------------------- #
+copy_if_missing() {
+    SRC="$1"
+    DEST="$2"
+    if [ ! -s "$DEST" ]; then
+        mkdir -p "$(dirname "$DEST")"
+        if cp "$SRC" "$DEST"; then
+            log "[COPY] Created $DEST from $SRC"
+        else
+            log "[ERROR] Failed to copy $SRC to $DEST"
+        fi
+    fi
+}
 
 # Alacritty
-[ ! -s ~/.config/alacritty/dark/alacritty.toml ] && cp /usr/share/theom/config/alacritty/dark/alacritty.toml ~/.config/alacritty/dark
-[ ! -s ~/.config/alacritty/light/alacritty.toml ] && cp /usr/share/theom/config/alacritty/light/alacritty.toml ~/.config/alacritty/light
+copy_if_missing /usr/share/theom/config/alacritty/dark/alacritty.toml ~/.config/alacritty/dark/alacritty.toml
+copy_if_missing /usr/share/theom/config/alacritty/light/alacritty.toml ~/.config/alacritty/light/alacritty.toml
 
 # Dunst
-[ ! -s ~/.config/dunst/dark/dunstrc ] && cp /usr/share/theom/config/dunst/dark/dunstrc ~/.config/dunst/dark/
-[ ! -s ~/.config/dunst/light/dunstrc ] && cp /usr/share/theom/config/dunst/light/dunstrc ~/.config/dunst/light/
+copy_if_missing /usr/share/theom/config/dunst/dark/dunstrc ~/.config/dunst/dark/dunstrc
+copy_if_missing /usr/share/theom/config/dunst/light/dunstrc ~/.config/dunst/light/dunstrc
 
 # i3
-#[ ! -s ~/.config/i3/config ] && cp /usr/share/theom/config/i3/config ~/.config/i3/
+# copy_if_missing /usr/share/theom/config/i3/config ~/.config/i3/config
 
 # Picom
-#[ ! -s ~/.config/picom/picom.conf ] && cp /usr/share/theom/config/picom/picom.conf ~/.config/picom/
+# copy_if_missing /usr/share/theom/config/picom/picom.conf ~/.config/picom/picom.conf
 
 # Polybar
-[ ! -s ~/.config/polybar/dark/config.ini ] && cp /usr/share/theom/config/polybar/dark/config.ini ~/.config/polybar/dark/
-[ ! -s ~/.config/polybar/light/config.ini ] && cp /usr/share/theom/config/polybar/light/config.ini ~/.config/polybar/light/
-[ ! -s ~/.config/polybar/launch.sh ] && cp /usr/share/theom/config/polybar/launch.sh ~/.config/polybar/
-[ ! -s ~/.config/polybar/modules/layout.conf ] && cp /usr/share/theom/config/polybar/modules/layout.conf ~/.config/polybar/modules/
-[ ! -s ~/.config/polybar/modules/layout.float.conf ] && cp /usr/share/theom/config/polybar/modules/layout.float.conf ~/.config/polybar/modules/
-[ ! -s ~/.config/polybar/modules/layout.stuck.conf ] && cp /usr/share/theom/config/polybar/modules/layout.stuck.conf ~/.config/polybar/modules/
+copy_if_missing /usr/share/theom/config/polybar/dark/config.ini ~/.config/polybar/dark/config.ini
+copy_if_missing /usr/share/theom/config/polybar/light/config.ini ~/.config/polybar/light/config.ini
+copy_if_missing /usr/share/theom/config/polybar/launch.sh ~/.config/polybar/launch.sh
+copy_if_missing /usr/share/theom/config/polybar/modules/layout.conf ~/.config/polybar/modules/layout.conf
+copy_if_missing /usr/share/theom/config/polybar/modules/layout.float.conf ~/.config/polybar/modules/layout.float.conf
+copy_if_missing /usr/share/theom/config/polybar/modules/layout.stuck.conf ~/.config/polybar/modules/layout.stuck.conf
 
 # EWW
-[ ! -s ~/.config/eww/launch.sh ] && cp /usr/share/theom/config/eww/launch.sh ~/.config/eww/
-[ ! -s ~/.config/eww/eww.yuck ] && cp /usr/share/theom/config/eww/eww.yuck ~/.config/eww/
-[ ! -s ~/.config/eww/eww.scss ] && cp /usr/share/theom/config/eww/eww.scss ~/.config/eww/
-[ ! -s ~/.config/eww/scripts/calendar_popup ] && cp /usr/share/theom/config/eww/scripts/calendar_popup ~/.config/eww/scripts/
-[ ! -s ~/.config/eww/scripts/get_theme ] && cp /usr/share/theom/config/eww/scripts/get_theme ~/.config/eww/scripts/
-[ ! -s ~/.config/eww/scripts/getbattery ] && cp /usr/share/theom/config/eww/scripts/getbattery ~/.config/eww/scripts/
-[ ! -s ~/.config/eww/scripts/getvol ] && cp /usr/share/theom/config/eww/scripts/getvol ~/.config/eww/scripts/
-[ ! -s ~/.config/eww/scripts/music ] && cp /usr/share/theom/config/eww/scripts/music ~/.config/eww/scripts/
-[ ! -s ~/.config/eww/scripts/music_title ] && cp /usr/share/theom/config/eww/scripts/music_title ~/.config/eww/scripts/
-[ ! -s ~/.config/eww/scripts/open-systray ] && cp /usr/share/theom/config/eww/scripts/open-systray ~/.config/eww/scripts/
-[ ! -s ~/.config/eww/scripts/workspace ] && cp /usr/share/theom/config/eww/scripts/workspace ~/.config/eww/scripts/
+copy_if_missing /usr/share/theom/config/eww/launch.sh ~/.config/eww/launch.sh
+copy_if_missing /usr/share/theom/config/eww/eww.yuck ~/.config/eww/eww.yuck
+copy_if_missing /usr/share/theom/config/eww/eww.scss ~/.config/eww/eww.scss
+for script in calendar_popup get_theme getbattery getvol music music_title open-systray workspace; do
+  copy_if_missing "/usr/share/theom/config/eww/scripts/$script" "~/.config/eww/scripts/$script"
+done
 
 # Rofi
-[ ! -s ~/.config/rofi/dark/config.rasi ] && cp /usr/share/theom/config/rofi/dark/config.rasi ~/.config/rofi/dark/
-[ ! -s ~/.config/rofi/dark/colors.rasi ] && cp /usr/share/theom/config/rofi/dark/colors.rasi ~/.config/rofi/dark/
-[ ! -s ~/.config/rofi/light/config.rasi ] && cp /usr/share/theom/config/rofi/light/config.rasi ~/.config/rofi/light/
-[ ! -s ~/.config/rofi/light/colors.rasi ] && cp /usr/share/theom/config/rofi/light/colors.rasi ~/.config/rofi/light/
+copy_if_missing /usr/share/theom/config/rofi/dark/config.rasi ~/.config/rofi/dark/config.rasi
+copy_if_missing /usr/share/theom/config/rofi/dark/colors.rasi ~/.config/rofi/dark/colors.rasi
+copy_if_missing /usr/share/theom/config/rofi/light/config.rasi ~/.config/rofi/light/config.rasi
+copy_if_missing /usr/share/theom/config/rofi/light/colors.rasi ~/.config/rofi/light/colors.rasi
 
 # Starship
-[ ! -s ~/.config/starship.toml ] && cp /usr/share/theom/config/starship.toml ~/.config/starship.toml
+copy_if_missing /usr/share/theom/config/starship.toml ~/.config/starship.toml
 if ! grep -q 'eval "$(starship init bash)"' "$HOME/.bashrc"; then
     echo 'eval "$(starship init bash)"' >> "$HOME/.bashrc"
+    log "[APPEND] Added starship init to .bashrc"
 fi
 
 # MPD
-[ ! -s ~/.mpd/mpd.conf ] && cp /usr/share/theom/config/mpd/mpd.conf ~/.mpd/mpd.conf
+copy_if_missing /usr/share/theom/config/mpd/mpd.conf ~/.mpd/mpd.conf
 
 # Widgets
-[ ! -s ~/.config/theom/twidgets/README.md ] && cp /usr/share/theom/config/theom/twidgets/README.md ~/.config/theom/twidgets/
-[ ! -s ~/.config/theom/twidgets/time.lua ] && cp /usr/share/theom/config/theom/twidgets/time.lua ~/.config/theom/twidgets/
-[ ! -s ~/.config/theom/twidgets/uptime.lua ] && cp /usr/share/theom/config/theom/twidgets/uptime.lua ~/.config/theom/twidgets/
+copy_if_missing /usr/share/theom/config/theom/twidgets/README.md ~/.config/theom/twidgets/README.md
+copy_if_missing /usr/share/theom/config/theom/twidgets/time.lua ~/.config/theom/twidgets/time.lua
+copy_if_missing /usr/share/theom/config/theom/twidgets/uptime.lua ~/.config/theom/twidgets/uptime.lua
 
 # Theom
-[ ! -s ~/.config/theom/config.toml ] && cp /usr/share/theom/config/theom/config.toml ~/.config/theom/
-[ ! -s ~/.config/theom/keybindings.conf ] && cp /usr/share/theom/config/theom/keybindings.conf ~/.config/theom/
-## depreicated theom osd
-[ ! -s ~/.config/theom/osd-snippets/brightness.sh ] && cp /usr/share/theom/config/theom/osd-snippets/brightness.sh ~/.config/theom/osd-snippets/
-[ ! -s ~/.config/theom/osd-snippets/volume.sh ] && cp /usr/share/theom/config/theom/osd-snippets/volume.sh ~/.config/theom/osd-snippets/
+copy_if_missing /usr/share/theom/config/theom/config.toml ~/.config/theom/config.toml
+copy_if_missing /usr/share/theom/config/theom/keybindings.conf ~/.config/theom/keybindings.conf
+copy_if_missing /usr/share/theom/config/theom/.win/extra_config.conf ~/.config/theom/.win/extra_config.conf
+copy_if_missing /usr/share/theom/config/theom/.osd-snippets/brightness.sh ~/.config/theom/.osd-snippets/brightness.sh
+copy_if_missing /usr/share/theom/config/theom/.osd-snippets/volume.sh ~/.config/theom/.osd-snippets/volume.sh
 
-# Theom autostarts
-[ ! -s ~/.config/theom-autostarts/exec_once.sh ] && cp /usr/share/theom/config/theom-autostarts/exec_once.sh ~/.config/theom-autostarts/
-[ ! -s ~/.config/theom/autostarts/exec_always.sh ] && cp /usr/share/theom/config/theom-autostarts/exec_always.sh ~/.config/theom-autostarts/
+# Autostarts
+copy_if_missing /usr/share/theom/config/theom-autostarts/exec_once.sh ~/.config/theom-autostarts/exec_once.sh
+copy_if_missing /usr/share/theom/config/theom-autostarts/exec_always.sh ~/.config/theom/autostarts/exec_always.sh
 
-# User scripts
-[ ! -s ~/.config/theom/user_scripts/battery_notify ] && cp /usr/share/theom/config/theom/user_scripts/battery_notify ~/.config/theom/user_scripts/
+# User Scripts
+copy_if_missing /usr/share/theom/config/theom/user_scripts/battery_notify ~/.config/theom/user_scripts/battery_notify
 
 # ---------------------- #
 #       Auto Gen         #
@@ -128,6 +137,8 @@ gtk-cursor-theme-name=capitaine-cursors
 gtk-cursor-theme-size=24
 gtk-font-name=Sans 10
 EOF
+
+log "[INFO] Initialized $GTK3_CONFIG with default content"
 fi
 
 if [ ! -s "$GTK2_CONFIG" ]; then
@@ -136,6 +147,8 @@ gtk-theme-name="Materia-dark"
 gtk-icon-theme-name="Papirus"
 gtk-cursor-theme-name=capitaine-cursors
 EOF
+
+log "[INFO] Initialized $GTK2_CONFIG with default content"
 fi
 
 if [ ! -s "$ICON_THEME_INDEX" ]; then
@@ -144,6 +157,8 @@ if [ ! -s "$ICON_THEME_INDEX" ]; then
 [Icon Theme]
 Inherits=capitaine-cursors
 EOF
+
+log "[INFO] Initialized $ICON_THEME_INDEX with default content"
 fi
 
 if [ ! -s "$XRESOURCES" ]; then
@@ -152,4 +167,8 @@ if [ ! -s "$XRESOURCES" ]; then
 Xcursor.theme: capitaine-cursors
 Xcursor.size: 24
 EOF
+
+log "[INFO] Initialized $XRESOURCES with default content"
 fi
+
+log "[END] Finished Theom setup"

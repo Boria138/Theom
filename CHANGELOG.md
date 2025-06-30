@@ -6,6 +6,29 @@ All notable changes to **Theom** will be documented in this file.
 
 ---
 
+## [2.1.0] - 2025-06-30
+
+### Added
+
+- `extra_config.conf` where users can add extra WM configuration. Path to `extra_config.conf` is `~/.config/theom/.win/extra_config.conf`.
+- Logging support for `theom-setup` for better error debugging. `theom-setup` logs are stored at `~/.local/state/theom/logs/setup.logs`.
+- Logging support for `start-picom.sh` for debugging the compositor. Log path: `~/.local/state/theom/logs/compositor.logs`
+- Logging support for `show-widgets.sh` for debugging conky widgets. Log path: `~/.local/state/theom/logs/show-widgets.sh`
+
+### Changed
+
+- Path to osd snippets. (~/.config/theom/osd-snippets -> ~/.config/theom/.osd-snippets).
+- `THEOM_SYSTEM` path. (~/.config/THEOM_SYSTEM/ -> ~/.local/state/theom/).
+
+### Fixed
+
+- Fixed `osd-snippet` wrapper which used the previous theom configuration path (~/.config/.theom/).
+- Fixed outdated osd scripts.
+
+### Removed
+
+- `tscdctl` support from `theom-packages`. `tscdctl` will be now found at `/usr/share/theom/scripts/tscdctl`.
+
 ## [2.0.0] - 2025-06-26
 
 ### Added
@@ -32,7 +55,7 @@ All notable changes to **Theom** will be documented in this file.
 ### Removed
 
 - `Enable on screen display effects` option from theom greeter.
-- All reference to previous config path (`~/.config/.theom/`).
+- All reference to previous config path (`~/.config/.theom/`) in all `theom-packages`.
 
 ### Credits
 

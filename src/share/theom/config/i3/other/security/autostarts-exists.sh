@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # Exec once
-USER_EXEC_ONCE="$HOME/.config/.theom-autostarts/exec_once.sh"
-DEFAULT_EXEC_ONCE="/usr/share/theom/config/.theom-autostarts/exec_once.sh"
+USER_EXEC_ONCE="$HOME/.config/theom-autostarts/exec_once.sh"
+DEFAULT_EXEC_ONCE="/usr/share/theom/config/theom-autostarts/exec_once.sh"
 
 # Exec always
-USER_EXEC_ALWAYS="$HOME/.config/.theom-autostarts/exec_always.sh"
-DEFAULT_EXEC_ALWAYS="/usr/share/theom/config/.theom-autostarts/exec_always.sh"
+USER_EXEC_ALWAYS="$HOME/.config/theom-autostarts/exec_always.sh"
+DEFAULT_EXEC_ALWAYS="/usr/share/theom/config/theom-autostarts/exec_always.sh"
 
 # Check exec once
 if [[ ! -s "$USER_EXEC_ONCE" ]]; then

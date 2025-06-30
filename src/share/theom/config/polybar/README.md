@@ -3,7 +3,7 @@
 
 - Using eww is recommended as an alternative to polybar.
 
-To use eww, make sure that `use_eww` under the table `[bar]` is set to true.
+To use eww, make sure that `use_eww` under the table `[bar]` in the config (~/.config/theom/config.toml) is set to true.
 
 **Example:**
 

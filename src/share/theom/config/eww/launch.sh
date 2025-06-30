@@ -13,5 +13,5 @@ if ! eww active-windows | grep -q '^bar: bar$'; then
     sleep 0.1
 else
     eww reload
-    echo "Existing bar found and it has been murdered."
+    echo "Existing bar found and it has been reloaded."
 fi
