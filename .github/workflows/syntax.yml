@@ -1,4 +1,4 @@
-name: Theom CI
+name: Code Syntax Checks
 
 on:
   push:

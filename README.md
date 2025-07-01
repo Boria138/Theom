@@ -1,6 +1,6 @@
 # Theom
 
-![CI](https://github.com/AxOS-project/Theom/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/AxOS-project/Theom/actions/workflows/syntax.yml/badge.svg)
 ![License GPL3](https://img.shields.io/badge/License-GPL3-yellow.svg)
 ![Last commit](https://img.shields.io/github/last-commit/AxOS-project/Theom)
 ![Release](https://img.shields.io/github/v/release/AxOS-project/Theom)
