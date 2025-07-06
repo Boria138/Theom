@@ -6,11 +6,15 @@ All notable changes to **Theom** will be documented in this file.
 
 ---
 
-## [2.2.0] - ADD DATE HERE
+## [2.2.0] - 2025-07-06
 
 ### Added
 
 - New check in `theom --dry-run` to see if x11 detects the monitors.
+
+### Changed
+
+- Replaced `theom-systray`.
 
 ## [2.1.0] - 2025-06-30
 
