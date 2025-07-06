@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION="2.1.0"
+VERSION="2.2.0"
 CONFIG_DIR="$HOME/.config/theom"
 CORE_BINS=("/usr/bin/theom-config" "/usr/bin/theom-setup")
 
@@ -35,7 +35,7 @@ case "$1" in
         exit 0
         ;;
     --dry-run)
-        echo "Dry-run: checking Theom environment..."
+        echo -e "${BLUE}Dry-run: checking Theom environment...${NC}"
 
         CONFIG_FILE="$CONFIG_DIR/config.toml"
         KEYBIND_FILE="$CONFIG_DIR/keybindings.conf"
@@ -43,35 +43,51 @@ case "$1" in
         errors=0
 
         echo ">>> Checking configuration files:"
-        if [ ! -f "$CONFIG_FILE" ]; then
-            echo -e "  ${RED}Missing:${NC} $CONFIG_FILE"
-            errors=1
-        else
-            echo -e "  ${GREEN}Found:${NC} $CONFIG_FILE"
-        fi
-
-        if [ ! -f "$KEYBIND_FILE" ]; then
-            echo -e "  ${RED}Missing:${NC} $KEYBIND_FILE"
-            errors=1
-        else
-            echo -e "  ${GREEN}Found:${NC} $KEYBIND_FILE"
-        fi
-
-        echo ">>> Checking required binaries:"
-        for bin in "${CORE_BINS[@]}"; do
-            if [ ! -x "$bin" ]; then
-                echo -e "  ${RED}Missing or not executable:${NC} $bin"
+        for file in "$CONFIG_FILE" "$KEYBIND_FILE"; do
+            if [ ! -f "$file" ]; then
+                echo -e "  ${RED}Missing:${NC} $file"
                 errors=1
             else
-                echo -e "  ${GREEN}Found:${NC} $bin"
+                echo -e "  ${GREEN}Found:${NC} $file"
             fi
         done
 
-        if [ "$errors" -eq 1 ]; then
-            echo -e "${RED}One or more problems found. Please fix before launching.${NC}"
+        echo ">>> Checking required binaries:"
+        for bin in "${CORE_BINS[@]}"; do
+            if ! command -v "$bin" &> /dev/null; then
+                echo -e "  ${RED}Missing or not executable:${NC} $bin"
+                errors=1
+            else
+                echo -e "  ${GREEN}Found:${NC} $(command -v "$bin")"
+            fi
+        done
+
+        echo ">>> Checking if X11 detects the monitors:"
+        if ! command -v xrandr &> /dev/null; then
+            echo -e "  ${RED}xrandr not found. Cannot check monitor layout.${NC}"
+            errors=1
+        else
+            DISPLAY_CHECK=${DISPLAY:-:0}
+            xrandr_output=$(DISPLAY="$DISPLAY_CHECK" xrandr --listmonitors 2>/dev/null)
+
+            if [ -z "$xrandr_output" ]; then
+                echo -e "  ${RED}xrandr failed. X may not be running on $DISPLAY_CHECK.${NC}"
+                errors=1
+            elif echo "$xrandr_output" | grep -q "Monitors: 0"; then
+                echo -e "  ${RED}No monitors detected on $DISPLAY_CHECK.${NC}"
+                errors=1
+            else
+                echo -e "  ${GREEN}Monitors detected on $DISPLAY_CHECK:${NC}"
+                echo "$xrandr_output"
+            fi
+        fi
+
+        echo
+        if [ "$errors" -ne 0 ]; then
+            echo -e "${RED}One or more problems found. Please fix them before launching.${NC}"
             exit 1
         else
-            echo -e "${GREEN}Environment check passed. Ready to launch.${NC}"
+            echo -e "${GREEN}Environment check passed. Ready to launch Theom.${NC}"
             exit 0
         fi
         ;;
