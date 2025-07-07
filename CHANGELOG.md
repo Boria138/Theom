@@ -6,7 +6,7 @@ All notable changes to **Theom** will be documented in this file.
 
 ---
 
-## [2.3.0] - ADD DATE HERE
+## [2.2.1] - ADD DATE HERE
 
 ### Added
 
