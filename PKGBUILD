@@ -1,5 +1,5 @@
 pkgname="theom"
-pkgver=2.2.0
+pkgver=2.3.0
 pkgrel="1"
 pkgdesc="Theom desktop environement"
 arch=("x86_64")
@@ -10,6 +10,7 @@ depends=(
   'picom'
   'i3-wm'
   'i3-gaps'
+  'i3status'
   'polybar'
   'eww'
   'conky'

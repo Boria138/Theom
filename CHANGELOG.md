@@ -6,6 +6,12 @@ All notable changes to **Theom** will be documented in this file.
 
 ---
 
+## [2.3.0] - ADD DATE HERE
+
+### Added
+
+- Added `i3status` in dependencies to prevent race conditions.
+
 ## [2.2.0] - 2025-07-06
 
 ### Added
