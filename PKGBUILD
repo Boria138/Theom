@@ -10,7 +10,6 @@ depends=(
   'picom'
   'i3-wm'
   'i3-gaps'
-  'i3status'
   'polybar'
   'eww'
   'conky'
