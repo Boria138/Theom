@@ -1,17 +1,25 @@
 #!/bin/bash
+set -euo pipefail
 
+# waiting for x11
+for _ in {1..50}; do
+    if xset q &>/dev/null; then break; fi
+    sleep 0.05
+done
+
+# starting the daemon
 if ! pgrep -x eww >/dev/null; then
     eww daemon &
-    while ! eww ping &>/dev/null; do
-        sleep 0.1
-    done
+    sleep 0.1
 fi
 
+# opening/reloading the bar
 if ! eww active-windows | grep -q '^bar: bar$'; then
+    # eww open bar will automatically run the daemon if its not running
+    # but its slow because it first needs to check, and then wait for the daemon in sync
+    # but when we run it seperately, the task is dvidied across 2 ps so its way faster
     eww open bar
-    echo "EWW bar launched."
-    sleep 0.1
 else
     eww reload
-    echo "Existing bar found and it has been reloaded."
 fi
+

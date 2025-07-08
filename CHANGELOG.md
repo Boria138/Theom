@@ -6,6 +6,16 @@ All notable changes to **Theom** will be documented in this file.
 
 ---
 
+## [2.3.0] - ADD DATE HERE
+
+### Added
+
+- `i3status` to optional dependencies.
+
+### Changed
+
+- eww launch script to launch eww without creating any zombie process
+
 ## [2.2.0] - 2025-07-06
 
 ### Added

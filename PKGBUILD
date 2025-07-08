@@ -1,5 +1,5 @@
 pkgname="theom"
-pkgver=2.2.1
+pkgver=2.3.0
 pkgrel="1"
 pkgdesc="Theom desktop environement"
 arch=("x86_64")
@@ -37,6 +37,7 @@ license=('GPL')
 
 optdepends=(
   'plattenalbum: A GUI music player for mpd'
+  'i3status: Status bar for i3wm'
 )
 
 package() {
