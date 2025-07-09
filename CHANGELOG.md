@@ -6,6 +6,18 @@ All notable changes to **Theom** will be documented in this file.
 
 ---
 
+## [2.3.0] - 2025-07-09
+
+### Added
+
+- `i3status` to optional dependencies.
+- Basic lock screen.
+
+### Changed
+
+- eww launch script to launch eww without creating any zombie process.
+- eww open systray script to work with new version of `xfsrtray`.
+
 ## [2.2.0] - 2025-07-06
 
 ### Added
