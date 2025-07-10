@@ -16,10 +16,16 @@
 - Welcomes user friendly greeter during startup
 - Easy to customize
 
-## Screenshots
+## Media
 
 <details>
-  <summary>All screenshots</summary>
+  <summary>All Media</summary>
+
+### Videos
+
+https://github.com/user-attachments/assets/d375fad4-aa67-46c7-b52b-64dcab6368f1
+
+### Screenshots
 
 ![image](https://raw.githubusercontent.com/AxOS-project/Theom/main/screenshots/screenshot1.png)
 ![image](https://raw.githubusercontent.com/AxOS-project/Theom/main/screenshots/screenshot2.png)
