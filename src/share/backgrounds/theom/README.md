@@ -12,4 +12,4 @@ Contains the default wallpapers of theom.
 
 - `thunderbolt.jpg` by <a href="https://unsplash.com/@brenomachado?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Breno Machado</a> on <a href="https://unsplash.com/photos/photography-of-lightning-storm-in9-n0JwgZ0?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 
-- `girl_walking_down_a_street.jpg` by [jensenartofficial](https://pixabay.com/users/jensenartofficial-31380959/) from Pixabay.
+- `girl_walking_down_a_street.jpg` by [jensenartofficial](https://pixabay.com/users/jensenartofficial-31380959/) on [Pixabay](https://pixabay.com/).
