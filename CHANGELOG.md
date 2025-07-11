@@ -6,6 +6,17 @@ All notable changes to **Theom** will be documented in this file.
 
 ---
 
+## [2.4.0] - ADD DATE HERE
+
+### Added
+
+- `--list-logs` flag to `theom` command.
+- New wallpapers.
+
+### Changed
+
+- Default wallpaper. `aesthetic_deer` changed to `mountains.jpg`.
+
 ## [2.3.0] - 2025-07-09
 
 ### Added
