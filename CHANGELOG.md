@@ -21,6 +21,7 @@ All notable changes to **Theom** will be documented in this file.
 
 - Default wallpaper. `aesthetic_deer` changed to `mountains.jpg`.
 - `theom` binary to include `tcomp-gen` as a new core binary.
+- Logout popup to say **theom** instead of **i3**.
 
 ### Fixed
 
