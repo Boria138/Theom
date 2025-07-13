@@ -26,10 +26,56 @@ log() {
     echo "[$(date '+%F %T')] $*" >> "$LOGFILE"
 }
 
+loud_log() {
+    echo "$*"
+    echo "[$(date '+%F %T')] $*" >> "$LOGFILE"
+}
+
 trap 'log "[ERROR] Command failed at line $LINENO: $BASH_COMMAND (exit $?)"' ERR
 set -o errtrace
 
 log "[START] Starting Theom setup"
+
+# ---------------------- #
+#        Migrate         #
+# ---------------------- #
+flag=$1
+
+if [ "$flag" == "--migrate" ]; then
+    loud_log "[INFO] Migrating to latest version"
+    loud_log "[WARN] This process may overwrite your existing theom configuration"
+
+    CONFIG_PATH="$HOME/.config/theom/config.toml"
+    BACKUP_PATH="$CONFIG_PATH.bak"
+    MIGRATOR="/usr/share/theom/scripts/migrate_toml.py"
+
+    if [ ! -f "$CONFIG_PATH" ]; then
+        loud_log "[ERROR] Cannot migrate: $CONFIG_PATH does not exist."
+        loud_log "[INFO] Run theom-setup without any arguments to generate $CONFIG_PATH"
+        exit 1
+    fi
+
+    # Backup
+    if cp "$CONFIG_PATH" "$BACKUP_PATH"; then
+        loud_log "[BACKUP] Backed up to $BACKUP_PATH"
+    else
+        loud_log "[ERROR] Backup failed. Aborting migration."
+        exit 1
+    fi
+
+    # Run Python merge tool
+    if ! output=$(python3 "$MIGRATOR" 2>&1); then
+        loud_log "[ERROR] Migration script failed:"
+        loud_log "$output"
+        loud_log "[RESTORE] Reverting from backup..."
+        cp "$BACKUP_PATH" "$CONFIG_PATH"
+        exit 1
+    fi
+
+    loud_log "$output"
+    loud_log "[DONE] Migration completed successfully."
+    exit 0
+fi
 
 # ---------------------- #
 #        Configs         #
@@ -107,7 +153,7 @@ copy_if_missing /usr/share/theom/config/theom/.osd-snippets/volume.sh ~/.config/
 
 # Autostarts
 copy_if_missing /usr/share/theom/config/theom-autostarts/exec_once.sh ~/.config/theom-autostarts/exec_once.sh
-copy_if_missing /usr/share/theom/config/theom-autostarts/exec_always.sh ~/.config/theom/autostarts/exec_always.sh
+copy_if_missing /usr/share/theom/config/theom-autostarts/exec_always.sh ~/.config/theom-autostarts/exec_always.sh
 
 # User Scripts
 copy_if_missing /usr/share/theom/config/theom/user_scripts/battery_notify ~/.config/theom/user_scripts/battery_notify

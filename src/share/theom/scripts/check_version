@@ -1,0 +1,32 @@
+#!/bin/bash
+
+migrate_enabled=$(< /usr/share/theom/migrate_config)
+
+if [ "$migrate_enabled" = "false" ]; then
+    exit 0
+fi
+
+TSCL_PATH="$HOME/.local/state/theom/meta.tscd"
+TSC="/usr/share/theom/scripts/tscdctl"
+VERSION_FILE="/usr/share/theom/version"
+
+# Read current Theom version
+theom_version=$(< "$VERSION_FILE")
+theom_version="${theom_version//$'\n'/}"  # Strip newline
+
+# Read stored config version from TSCL
+stored_version=$("$TSC" --out "$TSCL_PATH" --get version 2>/dev/null | tr -d '[:space:]')
+stored_version="${stored_version//$'\n'/}"
+
+# Fallback if key doesn't exist
+if [ -z "$stored_version" ]; then
+    stored_version="none"
+fi
+
+# Compare versions
+if [ "$stored_version" != "$theom_version" ]; then
+    i3-nagbar -t warning \
+        -m "Your config version ($stored_version) is out of sync with Theom version ($theom_version).
+Please run 'theom-setup --migrate' to update your configuration." \
+        -B "Run Now" "alacritty -e bash -c 'theom-setup --migrate; echo; echo Press any key to close...; read -n 1'" >/dev/null 2>&1 &
+fi

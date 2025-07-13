@@ -1,4 +1,4 @@
-.TH theom 5 "June 2025" "2.3.0" "Theom Configuration Manual"
+.TH theom 5 "June 2025" "3.0.0" "Theom Configuration Manual"
 
 .SH NAME
 theom \- configuration guide for the Theom desktop environment
@@ -91,6 +91,17 @@ Boolean to enable/disable compositing.
 [compositor]
 compositing = true
 compositing_mode = "performance"
+.EE
+
+.TP
+\fBanimations\fR
+\fBnone\fR, \fBbasic\fR or \fBfancy\fR.
+
+.EX
+[compositor]
+compositing = true
+compositing_mode = "performance"
+animations = "basic"
 .EE
 
 .SS [osd]

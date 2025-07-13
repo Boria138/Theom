@@ -2,9 +2,9 @@
 
 set -e
 
-VERSION="2.3.0"
+VERSION="3.0.0"
 CONFIG_DIR="$HOME/.config/theom"
-CORE_BINS=("/usr/bin/theom-config" "/usr/bin/theom-setup")
+CORE_BINS=("/usr/bin/theom-config" "/usr/bin/theom-setup" "/usr/bin/tcomp-gen")
 
 # Color codes
 RED='\033[0;31m'
@@ -12,7 +12,7 @@ GREEN='\033[0;32m'
 NC='\033[0m'
 
 print_help() {
-    cat <<EOF
+  cat <<EOF
 Theom Desktop Environment - Launcher
 
 Usage:
@@ -26,84 +26,96 @@ EOF
 }
 
 case "$1" in
-    --help|-h)
-        print_help
-        exit 0
-        ;;
-    --version|-v)
-        echo "Theom version $VERSION © 2025 Byson94 and contributors"
-        exit 0
-        ;;
-    --dry-run)
-        echo -e "${BLUE}Dry-run: checking Theom environment...${NC}"
+--help | -h)
+  print_help
+  exit 0
+  ;;
+--version | -v)
+  echo "Theom version $VERSION © 2025 Byson94 and contributors"
+  exit 0
+  ;;
+--list-logs)
+  if [ -d ~/.local/state/theom/logs ]; then
+    echo "All theom logs:"
+    echo ""
+    find ~/.local/state/theom/logs/ -maxdepth 1 -type f | sort | nl -w1 -s '. '
+  else
+    echo "Warning: '~/.local/state/theom/logs' file is missing."
+    echo ""
+    echo "This could mean that all the logs are either removed or has not been saved yet."
+    echo "Tip: Try booting into theom to generate the logs."
+  fi
+  ;;
+--dry-run)
+  echo -e "${BLUE}Dry-run: checking Theom environment...${NC}"
 
-        CONFIG_FILE="$CONFIG_DIR/config.toml"
-        KEYBIND_FILE="$CONFIG_DIR/keybindings.conf"
+  CONFIG_FILE="$CONFIG_DIR/config.toml"
+  KEYBIND_FILE="$CONFIG_DIR/keybindings.conf"
 
-        errors=0
+  errors=0
 
-        echo ">>> Checking configuration files:"
-        for file in "$CONFIG_FILE" "$KEYBIND_FILE"; do
-            if [ ! -f "$file" ]; then
-                echo -e "  ${RED}Missing:${NC} $file"
-                errors=1
-            else
-                echo -e "  ${GREEN}Found:${NC} $file"
-            fi
-        done
+  echo ">>> Checking configuration files:"
+  for file in "$CONFIG_FILE" "$KEYBIND_FILE"; do
+    if [ ! -f "$file" ]; then
+      echo -e "  ${RED}Missing:${NC} $file"
+      errors=1
+    else
+      echo -e "  ${GREEN}Found:${NC} $file"
+    fi
+  done
 
-        echo ">>> Checking required binaries:"
-        for bin in "${CORE_BINS[@]}"; do
-            if ! command -v "$bin" &> /dev/null; then
-                echo -e "  ${RED}Missing or not executable:${NC} $bin"
-                errors=1
-            else
-                echo -e "  ${GREEN}Found:${NC} $(command -v "$bin")"
-            fi
-        done
+  echo ">>> Checking required binaries:"
+  for bin in "${CORE_BINS[@]}"; do
+    if ! command -v "$bin" &>/dev/null; then
+      echo -e "  ${RED}Missing or not executable:${NC} $bin"
+      errors=1
+    else
+      echo -e "  ${GREEN}Found:${NC} $(command -v "$bin")"
+    fi
+  done
 
-        echo ">>> Checking if X11 detects the monitors:"
-        if ! command -v xrandr &> /dev/null; then
-            echo -e "  ${RED}xrandr not found. Cannot check monitor layout.${NC}"
-            errors=1
-        else
-            DISPLAY_CHECK=${DISPLAY:-:0}
-            xrandr_output=$(DISPLAY="$DISPLAY_CHECK" xrandr --listmonitors 2>/dev/null)
+  echo ">>> Checking if X11 detects the monitors:"
+  if ! command -v xrandr &>/dev/null; then
+    echo -e "  ${RED}xrandr not found. Cannot check monitor layout.${NC}"
+    errors=1
+  else
+    DISPLAY_CHECK=${DISPLAY:-:0}
+    xrandr_output=$(DISPLAY="$DISPLAY_CHECK" xrandr --listmonitors 2>/dev/null)
 
-            if [ -z "$xrandr_output" ]; then
-                echo -e "  ${RED}xrandr failed. X may not be running on $DISPLAY_CHECK.${NC}"
-                errors=1
-            elif echo "$xrandr_output" | grep -q "Monitors: 0"; then
-                echo -e "  ${RED}No monitors detected on $DISPLAY_CHECK.${NC}"
-                errors=1
-            else
-                echo -e "  ${GREEN}Monitors detected on $DISPLAY_CHECK:${NC}"
-                echo "$xrandr_output"
-            fi
-        fi
+    if [ -z "$xrandr_output" ]; then
+      echo -e "  ${RED}xrandr failed. X may not be running on $DISPLAY_CHECK.${NC}"
+      errors=1
+    elif echo "$xrandr_output" | grep -q "Monitors: 0"; then
+      echo -e "  ${RED}No monitors detected on $DISPLAY_CHECK.${NC}"
+      errors=1
+    else
+      echo -e "  ${GREEN}Monitors detected on $DISPLAY_CHECK:${NC}"
+      echo "$xrandr_output"
+    fi
+  fi
 
-        echo
-        if [ "$errors" -ne 0 ]; then
-            echo -e "${RED}One or more problems found. Please fix them before launching.${NC}"
-            exit 1
-        else
-            echo -e "${GREEN}Environment check passed. Ready to launch Theom.${NC}"
-            exit 0
-        fi
-        ;;
-    "")
-        export XDG_CURRENT_DESKTOP="Theom"
-        export DESKTOP_SESSION="theom"
+  echo
+  if [ "$errors" -ne 0 ]; then
+    echo -e "${RED}One or more problems found. Please fix them before launching.${NC}"
+    exit 1
+  else
+    echo -e "${GREEN}Environment check passed. Ready to launch Theom.${NC}"
+    exit 0
+  fi
+  ;;
+"")
+  export XDG_CURRENT_DESKTOP="Theom"
+  export DESKTOP_SESSION="theom"
 
-        systemctl --user import-environment XDG_CURRENT_DESKTOP DESKTOP_SESSION
+  systemctl --user import-environment XDG_CURRENT_DESKTOP DESKTOP_SESSION
 
-        /usr/bin/theom-setup
+  /usr/bin/theom-setup
 
-        exec i3 -c /usr/share/theom/config/i3/config
-        ;;
-    *)
-        echo "Unknown option: $1"
-        echo "Use --help for usage."
-        exit 1
-        ;;
+  exec i3 -c /usr/share/theom/config/i3/config
+  ;;
+*)
+  echo "Unknown option: $1"
+  echo "Use --help for usage."
+  exit 1
+  ;;
 esac

@@ -1,5 +1,5 @@
 pkgname="theom"
-pkgver=2.3.0
+pkgver=3.0.0
 pkgrel="1"
 pkgdesc="Theom desktop environement"
 arch=("x86_64")
@@ -28,6 +28,7 @@ depends=(
   'pamixer'
   'jq'
   'gvfs'
+  'python-tomli-w'
   'theom-extras' # optional apps
   'theom-utils' # custom theom apps
 )

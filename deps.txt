@@ -17,6 +17,7 @@ pipewire
 pipewire-alsa
 pipewire-pulse
 polybar
+python-tomli-w
 rofi
 theom-extras
 theom-utils

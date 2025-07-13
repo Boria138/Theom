@@ -3,17 +3,17 @@
 # logs
 LOGDIR="$HOME/.local/state/theom/logs"
 LOGFILE="$LOGDIR/compositor.log"
-MAXSIZE=51200  # 50 KB
+MAXSIZE=51200 # 50 KB
 
 mkdir -p "$LOGDIR"
 
 # Emptying if too large
 if [ -f "$LOGFILE" ] && [ "$(stat -c%s "$LOGFILE")" -gt "$MAXSIZE" ]; then
-    : > "$LOGFILE"
+  : >"$LOGFILE"
 fi
 
 log() {
-    echo "[$(date '+%F %T')] $*" >> "$LOGFILE"
+  echo "[$(date '+%F %T')] $*" >>"$LOGFILE"
 }
 
 trap 'log "[ERROR] Command failed at line $LINENO: $BASH_COMMAND (exit $?)"' ERR
@@ -21,53 +21,45 @@ set -o errtrace
 
 log "[START] Starting Compositor (Picom)"
 
-# actual stuff
 enable_compositing=$(theom-config compositor.compositing | tr -d "[:space:]")
-compositing_mode=$(theom-config compositor.compositing_mode | tr -d "[:space:]")
-theom_theme=$(theom-config appearance.theme | tr -d '[:space:]')
+if [ "$enable_compositing" != "true" ]; then
+  log "[INFO] Compositor is disabled in config"
+  exit 0
+fi
 
 if xprop -root | grep -q _NET_WM_CM_S0; then
-    log "[WARN] Another compositor is already running"
-    log "[END] Aborting compositor launch"
-    exit 1
+  log "[WARN] Another compositor is already running"
+  exit 1
 fi
 
-if [ "$enable_compositing" = "true" ]; then
-    log "[INFO] Compositor is enabled - continuing"
-    if [ "$compositing_mode" = "compatibility" ]; then
-        if [ "$theom_theme" = "light" ]; then
-            log "[INFO] Running compositor - Light theme | Compatibility Mode"
-            picom --config /usr/share/theom/config/picom/compatibility/picom-light.conf &
-            picom_pid=$!
-        else
-        log "[INFO] Running compositor - Dark theme | Compatibility Mode"
-            picom --config /usr/share/theom/config/picom/compatibility/picom-dark.conf &
-            picom_pid=$!
-        fi
-    elif [ "$compositing_mode" = "performance" ]; then
-        if [ "$theom_theme" = "light" ]; then
-            log "[INFO] Running compositor - Light theme | Performance Mode"
-            picom --config /usr/share/theom/config/picom/performance/picom-light.conf &
-            picom_pid=$!
-        else
-            log "[INFO] Running compositor - Dark theme | Performance Mode"
-            picom --config /usr/share/theom/config/picom/performance/picom-dark.conf &
-            picom_pid=$!
-        fi
-    fi
+# Prepare paths and generate config
+GEN_OUT=~/.local/state/theom/generated/picom
+mkdir -p "$GEN_OUT"
 
-    for _ in {1..50}; do
-        if xprop -root | grep -q _NET_WM_CM_S0; then
-            echo "Compositor ready"
-            log "[END] Compositor is up and running"
-            break
-        fi
+theme=$(theom-config appearance.theme | tr -d '[:space:]')
+mode=$(theom-config compositor.compositing_mode | tr -d '[:space:]')
+animation=$(theom-config compositor.animations | tr -d '[:space:]')
 
-        if ! kill -0 "$picom_pid" 2>/dev/null; then
-            log "[ERROR] picom crashed or exited prematurely"
-            break
-        fi
+tcomp-gen -g \
+  /usr/share/theom/config/picom/base.json \
+  "/usr/share/theom/config/picom/themes/${theme}.json" \
+  "/usr/share/theom/config/picom/modes/${mode}.json" \
+  "/usr/share/theom/config/picom/animations/${animation}.json" \
+  "$GEN_OUT"
 
-        sleep 0.1
-    done
-fi
+log "[INFO] Running compositor - Theme: $theme | Mode: $mode"
+picom --config "$GEN_OUT/picom.conf" &
+picom_pid=$!
+
+# Startup wait loop
+for _ in {1..50}; do
+  if xprop -root | grep -q _NET_WM_CM_S0; then
+    log "[END] Compositor is up and running"
+    break
+  fi
+  if ! kill -0 "$picom_pid" 2>/dev/null; then
+    log "[ERROR] picom crashed or exited prematurely"
+    break
+  fi
+  sleep 0.1
+done

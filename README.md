@@ -66,5 +66,5 @@ Do you want to contribute to theom? great! You can read our [CONTRIBUTING.md](ht
 
 ## Credits
 
-- [Wallpapers](<https://en.wikipedia.org/wiki/Wallpaper_(computing)>) from [axos wallpaper collection](https://github.com/AxOS-project/wallpapers) by [@ardox](https://github.com/levraiardox)
+- [Wallpaper](<https://en.wikipedia.org/wiki/Wallpaper_(computing)>) credits at [/src/bin/backgrounds/theom/README.md](https://github.com/AxOS-project/Theom/blob/main/src/share/backgrounds/theom/README.md)
 - [User Interface](https://en.wikipedia.org/wiki/User_interface) inspired by [sleex](https://github.com/AxOS-project/Sleex)

@@ -4,7 +4,7 @@
 
 [appearance]
 theme = "dark"
-wallpaper = "/usr/share/backgrounds/theom/aesthetic_deer.jpg"
+wallpaper = "/usr/share/backgrounds/theom/mountains.jpg"
 
 [bar]
 polybar_layout = "stuck"
@@ -20,6 +20,7 @@ show = [
 [compositor]
 compositing = true
 compositing_mode = "performance" # performance mode is light and recommended and compatibility mode is heavy and prevents visual glitches. 
+animations = "basic" # options: none, basic, fancy
 
 [osd]
 osd = false # deprecated

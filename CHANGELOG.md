@@ -6,6 +6,43 @@ All notable changes to **Theom** will be documented in this file.
 
 ---
 
+## [3.0.0] - 2025-07-13
+
+### Added
+
+- `--list-logs` flag to `theom` command.
+- New wallpapers.
+- `tcomp-gen` - a tool that generates compositor configuration files.
+- Multiple animation support (none, basic, fancy).
+- **--migrate** flag to `theom-setup`
+- Outdated version popup warning which provides the user an option to migrate.
+- **migrate_config** file in `/usr/share/theom/` that would define whether user should migrate to a newer configuration.
+
+### Changed
+
+- Default wallpaper. `aesthetic_deer` changed to `mountains.jpg`.
+- `theom` binary to include `tcomp-gen` as a new core binary.
+- Logout popup to say **theom** instead of **i3**.
+
+### Fixed
+
+- `tscdScript` to create `~/.local/state/theom` correctly.
+- `tscdctl` printing unnecessary information in stdout.
+- `theom-setup` which copied exec_always autostart to the wrong directory.
+
+### Reworked
+
+- Theom compositor (picom) structure to be flexible.
+
+### Notes and Information
+
+> This is a new major release of theom.
+> This major version reconfigures the structure of theom's compositor (picom) configuration, and provides a better user experience with the compositor.
+> Theom now relys on `tcomp-gen` binary which would generate the static configuration file based on multiple smaller snippets of .json files.
+
+> Theom now also has a popup warning that users can use to easily migrate their configuration to the latest without even losing their customization!
+> Theom automatically inserts the new changes that doesn't exist on your current configuration during the migration without touching any other modifications. To migrate via the terminal, users can run `theom-config --migrate` instead of having to reboot to get the popup warning that asks to migrate.
+
 ## [2.3.0] - 2025-07-09
 
 ### Added
