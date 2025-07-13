@@ -6,20 +6,26 @@
 TSCL_PATH="$HOME/.local/state/theom/meta.tscd"
 TSC="/usr/share/theom/scripts/tscdctl"
 
-[ ! -d "$HOME/.local/share/THEOM_SYSTEM" ] && mkdir -p "$HOME/.local/share/THEOM_SYSTEM"
+[ ! -d "$HOME/.local/share/theom" ] && mkdir -p "$HOME/.local/share/theom"
+
+theom_version=$(< /usr/share/theom/version)
+theom_version="${theom_version//$'\n'/}"
+
+# Does version check
+/usr/share/theom/scripts/check_version
 
 if [ ! -f "$TSCL_PATH" ]; then
     $TSC --out "$TSCL_PATH" \
-        --set config_version=1.0 first_run=false current_run=true
+        --set version="$theom_version" first_run=false current_run=true
 else
     PREV_VAL=$($TSC --out "$TSCL_PATH" --get first_run 2>/dev/null)
 
     if [ "$PREV_VAL" = "true" ]; then
         $TSC --out "$TSCL_PATH" \
-            --set config_version=1.0 current_run=true \
+            --set version="$theom_version" current_run=true \
             --flip first_run
     else
         $TSC --out "$TSCL_PATH" \
-            --set config_version=1.0 current_run=false
+            --set version="$theom_version" current_run=false
     fi
 fi

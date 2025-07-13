@@ -34,7 +34,7 @@ def print_use_info():
     {RESET}
     """
 
-    print(warning)
+    print(warning, file=sys.stderr)
 
 print_use_info()
 

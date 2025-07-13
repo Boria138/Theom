@@ -38,11 +38,13 @@ mkdir -p "$GEN_OUT"
 
 theme=$(theom-config appearance.theme | tr -d '[:space:]')
 mode=$(theom-config compositor.compositing_mode | tr -d '[:space:]')
+animation=$(theom-config compositor.animations | tr -d '[:space:]')
 
 tcomp-gen -g \
   /usr/share/theom/config/picom/base.json \
   "/usr/share/theom/config/picom/themes/${theme}.json" \
   "/usr/share/theom/config/picom/modes/${mode}.json" \
+  "/usr/share/theom/config/picom/animations/${animations}.json" \
   "$GEN_OUT"
 
 log "[INFO] Running compositor - Theme: $theme | Mode: $mode"

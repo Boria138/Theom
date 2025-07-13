@@ -13,10 +13,24 @@ All notable changes to **Theom** will be documented in this file.
 - `--list-logs` flag to `theom` command.
 - New wallpapers.
 - `tcomp-gen` - a tool that generates compositor configuration files.
+- Multiple animation support (none, basic, fancy).
+- **--migrate** flag to `theom-setup`
+- Outdated version popup warning which provides the user an option to migrate.
 
 ### Changed
 
 - Default wallpaper. `aesthetic_deer` changed to `mountains.jpg`.
+- `theom` binary to include `tcomp-gen` as a new core binary.
+
+### Fixed
+
+- `tscdScript` to create `~/.local/state/theom` correctly.
+- `tscdctl` printing unnecessary information in stdout.
+- `theom-setup` which copied exec_always autostart to the wrong directory.
+
+### Reworked
+
+- Theom compositor (picom) structure to be flexible.
 
 ## [2.3.0] - 2025-07-09
 
