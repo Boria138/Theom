@@ -6,7 +6,7 @@ All notable changes to **Theom** will be documented in this file.
 
 ---
 
-## [2.4.0] - ADD DATE HERE
+## [3.0.0] - 2025-07-13
 
 ### Added
 
@@ -16,6 +16,7 @@ All notable changes to **Theom** will be documented in this file.
 - Multiple animation support (none, basic, fancy).
 - **--migrate** flag to `theom-setup`
 - Outdated version popup warning which provides the user an option to migrate.
+- **migrate_config** file in `/usr/share/theom/` that would define whether user should migrate to a newer configuration.
 
 ### Changed
 
@@ -32,6 +33,15 @@ All notable changes to **Theom** will be documented in this file.
 ### Reworked
 
 - Theom compositor (picom) structure to be flexible.
+
+### Notes and Information
+
+> This is a new major release of theom.
+> This major version reconfigures the structure of theom's compositor (picom) configuration, and provides a better user experience with the compositor.
+> Theom now relys on `tcomp-gen` binary which would generate the static configuration file based on multiple smaller snippets of .json files.
+
+> Theom now also has a popup warning that users can use to easily migrate their configuration to the latest without even losing their customization!
+> Theom automatically inserts the new changes that doesn't exist on your current configuration during the migration without touching any other modifications. To migrate via the terminal, users can run `theom-config --migrate` instead of having to reboot to get the popup warning that asks to migrate.
 
 ## [2.3.0] - 2025-07-09
 

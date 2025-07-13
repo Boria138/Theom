@@ -1,5 +1,11 @@
 #!/bin/bash
 
+migrate_enabled=$(< /usr/share/theom/migrate_config)
+
+if [ "$migrate_enabled" = "false" ]; then
+    exit 0
+fi
+
 TSCL_PATH="$HOME/.local/state/theom/meta.tscd"
 TSC="/usr/share/theom/scripts/tscdctl"
 VERSION_FILE="/usr/share/theom/version"

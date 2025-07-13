@@ -83,5 +83,7 @@ Before you do make a PR (Pull request) on a code contribution, make sure that it
 ./extra_scripts/update_deps_txt.sh # Run this in the root of the project
 
 # When upgrading theom version. (eg: 1.0.0 -> 1.0.1)
-./update_version.sh 1.0.1 # Run this in the root of the project
+# You should also pass true or false to indicate that theom should migrate.
+# Migration should only be true if config.toml is changed.
+./update_version.sh 1.0.1 <migrate?> # Run this in the root of the project
 ```
