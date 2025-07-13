@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-#import sys
+# import sys
 import tomllib
 import tomli_w
 from pathlib import Path
