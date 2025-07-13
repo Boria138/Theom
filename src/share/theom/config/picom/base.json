@@ -1,0 +1,23 @@
+{
+  "general": {
+    "backend": "xrender",
+    "vsync": true,
+    "unredir_if_possible": false
+  },
+  "animations": [
+    {
+      "triggers": ["geometry"],
+      "preset": "appear",
+      "scale": 0.98
+    },
+    {
+      "triggers": ["open", "show"],
+      "preset": "appear"
+    },
+    {
+      "triggers": ["close", "hide"],
+      "preset": "disappear"
+    }
+  ]
+}
+

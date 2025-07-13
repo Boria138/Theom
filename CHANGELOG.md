@@ -12,6 +12,7 @@ All notable changes to **Theom** will be documented in this file.
 
 - `--list-logs` flag to `theom` command.
 - New wallpapers.
+- `tcomp-gen` - a tool that generates compositor configuration files.
 
 ### Changed
 

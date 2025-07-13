@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION="2.3.0"
+VERSION="2.4.0"
 CONFIG_DIR="$HOME/.config/theom"
 CORE_BINS=("/usr/bin/theom-config" "/usr/bin/theom-setup")
 

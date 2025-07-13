@@ -1,0 +1,30 @@
+{
+  "general": {
+    "backend": "xrender",
+    "vsync": true,
+    "paint_on_overlay": false,
+    "use_damage": false,
+    "unredir_if_possible": false
+  },
+  "appearance": {
+    "corner_radius": 10,
+    "inactive_dim": 0.15,
+    "inactive_dim_fixed": true
+  },
+  "animations": [
+    {
+      "triggers": ["geometry"],
+      "preset": "appear",
+      "scale": 0.98
+    },
+    {
+      "triggers": ["open", "show"],
+      "preset": "appear"
+    },
+    {
+      "triggers": ["close", "hide"],
+      "preset": "disappear"
+    }
+  ]
+}
+

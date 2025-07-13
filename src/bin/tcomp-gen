@@ -1,0 +1,140 @@
+#!/usr/bin/env python3
+
+import sys
+import json
+import os
+
+# NOTE to my future self: Update the version if the code is changed
+VERSION = "1.0.0"
+
+def print_help():
+  print("""
+Theom Compositor Configuration Generator - Picom
+
+Usage:
+  tcomp-gen [OPTION]
+
+Options:
+  --help        Show this help message and exit
+  --version     Print version information
+  --generate [JSONs...] OUTDIR
+                Generate picom config by merging JSON files into OUTDIR
+""", file=sys.stderr)
+
+def load_json(path):
+    with open(path) as f:
+        try:
+            return json.load(f)
+        except json.JSONDecodeError as e:
+            print(f"Invalid JSON in '{path}': {e}", file=sys.stderr)
+            sys.exit(1)
+
+def deep_merge(a, b):
+    result = a.copy()
+    for key, value in b.items():
+        if key in result and isinstance(result[key], dict) and isinstance(value, dict):
+            result[key] = deep_merge(result[key], value)
+        else:
+            result[key] = value
+    return result
+
+def merge_all_json(paths):
+    if not paths:
+        return {}
+
+    merged = load_json(paths[0])
+    for path in paths[1:]:
+        override = load_json(path)
+        merged = deep_merge(merged, override)
+    return merged
+
+def build_picom_config(s):
+    lines = []
+
+    # General settings
+    g = s.get("general", {})
+    lines.append(f'backend = "{g.get("backend", "xrender")}";')
+    lines.append(f'vsync = {str(g.get("vsync", True)).lower()};')
+    lines.append(f'paint-on-overlay = {str(g.get("paint_on_overlay", False)).lower()};')
+    lines.append(f'use-damage = {str(g.get("use_damage", False)).lower()};')
+    lines.append(f'unredir-if-possible = {str(g.get("unredir_if_possible", False)).lower()};')
+
+    # Appearance
+    a = s.get("appearance", {})
+    lines.append(f'corner-radius = {a.get("corner_radius", 10)};')
+    lines.append(f'inactive-dim = {a.get("inactive_dim", 0.15)};')
+    lines.append(f'inactive-dim-fixed = {str(a.get("inactive_dim_fixed", True)).lower()};')
+
+    # Animations
+    anim = s.get("animations", [])
+    if anim:
+        lines.append("animations = (")
+        for rule in anim:
+            triggers = ", ".join(f'"{t}"' for t in rule.get("triggers", []))
+            lines.append("  {")
+            lines.append(f'    triggers = [ {triggers} ];')
+            lines.append(f'    preset = "{rule.get("preset", "appear")}";')
+            if "scale" in rule:
+                lines.append(f'    scale = {rule["scale"]};')
+            lines.append("  },")
+        lines.append(");")
+
+    return "\n".join(lines)
+
+def save_config(config_str, out_dir):
+    path = os.path.join(out_dir, "picom.conf")
+    with open(path, "w") as f:
+        f.write(config_str)
+    print(f"Written to {path}")
+
+def generate_config(json_paths, out_dir):
+    settings = merge_all_json(json_paths)
+    config_string = build_picom_config(settings)
+    save_config(config_string, out_dir)
+
+def main():
+    args = sys.argv[1:]
+
+    if not args:
+        print("No options provided.")
+        print("Pass the '--help' flag to see what all options are available.")
+        sys.exit(1)
+
+    cmd = args[0]
+
+    if cmd == "--help" or cmd == "-h":
+        print_help()
+        sys.exit(0)
+    elif cmd == "--version" or cmd == "-v":
+        print(f"Theom Compositor Configuration Generator {VERSION} © 2025 Byson94")
+        sys.exit(0)
+    elif cmd == "--generate" or cmd == "-g":
+        if len(args) < 3:
+            print("Invalid use of '--generate'! Provide at least one JSON path and the output directory.")
+            sys.exit(1)
+
+        *json_paths, out_dir = args[1:]
+
+        for path in json_paths:
+            if not os.path.exists(path):
+                print(f"'{path}' file not found.")
+                sys.exit(1)
+
+        if not os.path.isdir(out_dir):
+            try:
+                os.makedirs(out_dir, exist_ok=True)
+                print(f"Created directory: {out_dir}")
+            except Exception as e:
+                print(f"Failed to create output directory '{out_dir}': {e}", file=sys.stderr)
+                sys.exit(1)
+
+        generate_config(json_paths, out_dir)
+
+    else:
+        print("Option not found.")
+        print("Pass the '--help' flag to see what all options are available.")
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()
+
