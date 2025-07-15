@@ -60,5 +60,6 @@ def main():
             sys.exit(0)  # config is fine
         print("Config is already complete. No merge needed.")
 
+
 if __name__ == "__main__":
     main()
