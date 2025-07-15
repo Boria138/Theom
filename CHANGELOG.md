@@ -6,6 +6,16 @@ All notable changes to **Theom** will be documented in this file.
 
 ---
 
+## [3.0.1] - 2025-07-13
+
+### Fixed
+
+- Invisible eww bar bug.
+
+### Removed
+
+- migrate_file which checked if we had to migrate or not.
+
 ## [3.0.0] - 2025-07-13
 
 ### Added

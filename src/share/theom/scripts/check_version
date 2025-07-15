@@ -1,8 +1,6 @@
 #!/bin/bash
 
-migrate_enabled=$(< /usr/share/theom/migrate_config)
-
-if [ "$migrate_enabled" = "false" ]; then
+if /usr/share/theom/scripts/migrate_toml.py --check; then
     exit 0
 fi
 
