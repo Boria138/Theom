@@ -19,7 +19,7 @@
 ## Media
 
 <details>
-  <summary>All Media</summary>
+  <summary>All Media (click me)</summary>
 
 ### Videos
 
