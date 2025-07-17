@@ -8,6 +8,10 @@ All notable changes to **Theom** will be documented in this file.
 
 ## [3.1.0] - ADD DATE HERE
 
+### Fixed
+
+- eww launch script to prevent eww glitches that has been bothering us since `v0.5.6`
+
 ### Changed
 
 - `tcomp-gen` to consider perfromance mode as the default mode.
