@@ -7,7 +7,6 @@ if [ -z "$1" ]; then
 fi
 
 NEW_VERSION="$1"
-NEW_MIGRATE="$2"
 
 # Update pkgver in PKGBUILD
 if [ -f "PKGBUILD" ]; then
@@ -35,16 +34,6 @@ if [ -f "$VERSION_FILE_PATH" ]; then
     echo "Updated VERSION in $VERSION_FILE_PATH to $NEW_VERSION"
 else
     echo "$VERSION_FILE_PATH not found!"
-    exit 1
-fi
-
-# Update migrate in ./src/share/theom/migrate_config
-MIGRATE_FILE_PATH="./src/share/theom/migrate_config"
-if [ -f "$MIGRATE_FILE_PATH" ]; then
-    echo "$2" > "$MIGRATE_FILE_PATH"
-    echo "Updated MIGRATE in $MIGRATE_FILE_PATH to $NEW_MIGRATE"
-else
-    echo "$MIGRATE_FILE_PATH not found!"
     exit 1
 fi
 

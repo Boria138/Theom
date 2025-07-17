@@ -23,4 +23,4 @@ compositing_mode = "performance" # performance mode is light and recommended and
 animations = "basic" # options: none, basic, fancy
 
 [osd]
-osd = false # deprecated
+osd = false
