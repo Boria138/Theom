@@ -6,11 +6,16 @@ All notable changes to **Theom** will be documented in this file.
 
 ---
 
-## [3.0.2] - ADD DATE HERE
+## [3.1.0] - ADD DATE HERE
 
 ### Changed
 
 - `tcomp-gen` to consider perfromance mode as the default mode.
+- `tosd` launch scripts to have better UI (User Interface).
+
+### Notes and Information
+
+- With this update, `tosd` is not deprecated anymore.
 
 ## [3.0.1] - 2025-07-13
 

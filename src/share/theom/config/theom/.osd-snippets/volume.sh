@@ -27,4 +27,28 @@ if [[ -z "$volume_percent" ]]; then
 fi
 
 # osd
-tosd-client "" slider "$volume_percent" -d 2 -s 0.5 -p T --margin-x 0 --margin-y 65
+theme=$(theom-config appearance.theme | tr -d "[:space:]")
+
+if [ "$theme" = "light" ]; then
+  tosd-client "//audio-volume-high-symbolic//" \
+      slider "$volume_percent" \
+      -d 2 \
+      -s 0.5 \
+      -p T \
+      --margin-x 0 \
+      --margin-y 65 \
+      --background-color "#efe1ca" \
+      --slider-fill-color "#beb2a0" \
+      --slider-knob-color "#b4a494"
+else
+  tosd-client "//audio-volume-high-symbolic//" \
+      slider "$volume_percent" \
+      -d 2 \
+      -s 0.5 \
+      -p T \
+      --margin-x 0 \
+      --margin-y 65 \
+      --background-color "#222221" \
+      --slider-fill-color "#b0b4bc" \
+      --slider-knob-color "#c9c9cb"
+fi
