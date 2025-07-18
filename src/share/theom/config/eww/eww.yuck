@@ -84,7 +84,7 @@
 
     (metric :label ""
             :value volume
-            :onchange "amixer -D pulse sset Master {}%")
+            :onchange "pamixer --set-volume {}")
 
     (box :class "tray-items"
     (button

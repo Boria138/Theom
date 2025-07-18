@@ -10,7 +10,8 @@ All notable changes to **Theom** will be documented in this file.
 
 ### Fixed
 
-- eww launch script to prevent eww glitches that has been bothering us since `v0.5.6`
+- eww launch script to prevent eww glitches that has been bothering us since `v0.5.6`.
+- eww bar volume control glitches.
 
 ### Changed
 
