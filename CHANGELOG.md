@@ -12,6 +12,7 @@ All notable changes to **Theom** will be documented in this file.
 
 - Default configuration for **rofi**, **alacritty**, and **dunst**.
 - `update-theom-appconfs` binary which would set the default configuration of **rofi**, **alacritty**, and **dunst**.
+- Fancier animation to fancy animation mode.
 
 ### Fixed
 
