@@ -22,11 +22,13 @@ All notable changes to **Theom** will be documented in this file.
 
 - `tcomp-gen` to consider perfromance mode as the default mode.
 - `tosd` launch scripts to have better UI (User Interface).
+- `tcomp-gen` to merge picom configs to create one full config instead of merging .jsons to create one full picom config.
 
 ### Notes and Information
 
 - With this update, `tosd` is not deprecated anymore.
 - The default configuration added to **rofi**, **alacritty**, and **dunst** will help them find a configuration file. Previously, theom used directories named **light** and **dark**. Due to this, only theom could assign the applications to those configuration instead of the applications finding it themselves. The new `update-theom-appconfs` binary will people set their default configuration which the applications can find by themselves.
+- The new picom configuration architecture introduced in `v3.0.0` has been changed to decrease the number of errors, complexity and also to improve flexibility.
 
 ## [3.0.1] - 2025-07-13
 

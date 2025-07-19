@@ -1,7 +1,0 @@
-{
-  "general": {
-    "backend": "xrender",
-    "vsync": true,
-    "unredir_if_possible": false
-  }
-}

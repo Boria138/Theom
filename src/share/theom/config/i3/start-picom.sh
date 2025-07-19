@@ -41,10 +41,10 @@ mode=$(theom-config compositor.compositing_mode | tr -d '[:space:]')
 animation=$(theom-config compositor.animations | tr -d '[:space:]')
 
 tcomp-gen -g \
-  /usr/share/theom/config/picom/base.json \
-  "/usr/share/theom/config/picom/themes/${theme}.json" \
-  "/usr/share/theom/config/picom/modes/${mode}.json" \
-  "/usr/share/theom/config/picom/animations/${animation}.json" \
+  /usr/share/theom/config/picom/base.conf \
+  "/usr/share/theom/config/picom/themes/${theme}.conf" \
+  "/usr/share/theom/config/picom/modes/${mode}.conf" \
+  "/usr/share/theom/config/picom/animations/${animation}.conf" \
   "$GEN_OUT"
 
 log "[INFO] Running compositor - Theme: $theme | Mode: $mode"
