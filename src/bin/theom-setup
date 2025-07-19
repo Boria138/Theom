@@ -133,6 +133,10 @@ copy_if_missing /usr/share/theom/config/rofi/dark/colors.rasi ~/.config/rofi/dar
 copy_if_missing /usr/share/theom/config/rofi/light/config.rasi ~/.config/rofi/light/config.rasi
 copy_if_missing /usr/share/theom/config/rofi/light/colors.rasi ~/.config/rofi/light/colors.rasi
 
+# Flameshot
+
+copy_if_missing /usr/share/theom/config/flameshot/flameshot.ini ~/.config/flameshot/flameshot.ini
+
 # Starship
 copy_if_missing /usr/share/theom/config/starship.toml ~/.config/starship.toml
 if ! grep -q 'eval "$(starship init bash)"' "$HOME/.bashrc"; then

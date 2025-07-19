@@ -24,6 +24,7 @@ All notable changes to **Theom** will be documented in this file.
 - `tcomp-gen` to consider perfromance mode as the default mode.
 - `tosd` launch scripts to have better UI (User Interface).
 - `tcomp-gen` to merge picom configs to create one full config instead of merging .jsons to create one full picom config.
+- `flameshot` configuration to be hidden tray application by default.
 
 ### Notes and Information
 
