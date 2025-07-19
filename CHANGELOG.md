@@ -8,6 +8,11 @@ All notable changes to **Theom** will be documented in this file.
 
 ## [3.1.0] - ADD DATE HERE
 
+### Added
+
+- Default configuration for **rofi**, **alacritty**, and **dunst**.
+- `update-theom-appconfs` binary which would set the default configuration of **rofi**, **alacritty**, and **dunst**.
+
 ### Fixed
 
 - eww launch script to prevent eww glitches that has been bothering us since `v0.5.6`.
@@ -21,6 +26,7 @@ All notable changes to **Theom** will be documented in this file.
 ### Notes and Information
 
 - With this update, `tosd` is not deprecated anymore.
+- The default configuration added to **rofi**, **alacritty**, and **dunst** will help them find a configuration file. Previously, theom used directories named **light** and **dark**. Due to this, only theom could assign the applications to those configuration instead of the applications finding it themselves. The new `update-theom-appconfs` binary will people set their default configuration which the applications can find by themselves.
 
 ## [3.0.1] - 2025-07-13
 

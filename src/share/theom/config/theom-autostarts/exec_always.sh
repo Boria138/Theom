@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# ScreenShot 
+# ScreenShot
 flameshot &
 
 # Systray applets
@@ -9,7 +9,7 @@ nm-applet &
 
 # Wallpaper
 if wp=$(theom-config appearance.wallpaper 2>/dev/null); then
-    feh --bg-scale "$wp"
+  feh --bg-scale "$wp"
 fi
 
 # Start bar (polybar/eww)
@@ -29,3 +29,9 @@ mpd &
 
 # Theom on screen display server (depricated)
 /usr/share/theom/config/i3/osd/start-tosds.sh &
+
+# functions
+if [ $(theom-config functions.autoset_appconfs) = "true" ]; then
+  update-theom-appconfs 2>/dev/null
+fi
+

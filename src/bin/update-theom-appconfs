@@ -1,0 +1,38 @@
+#!/bin/bash
+
+theme=$(theom-config appearance.theme)
+echo ">> Current theme: [ $theme ]"
+echo "Setting the default configuration based on the theme."
+echo ""
+
+# set alacritty default configuration
+echo "Setting default alacritty configuration"
+alacritty_path="$HOME/.config/alacritty/$theme"
+if [ -d "$alacritty_path" ]; then
+  cp -r "$alacritty_path/." "$HOME/.config/alacritty/"
+  echo "Successfully set the default alacritty configuraton"
+  counter=1
+fi
+echo ""
+
+# set dunst default configuration
+echo "Setting default dunst configuration"
+dunst_path="$HOME/.config/dunst/$theme"
+if [ -d "$dunst_path" ]; then
+  cp -r "$dunst_path/." "$HOME/.config/dunst/"
+  echo "Successfully set the default dunst configuraton"
+  counter=2
+fi
+echo ""
+
+# set rofi default configuration
+echo "Setting default rofi configuration"
+rofi_path="$HOME/.config/rofi/$theme"
+if [ -d "$rofi_path" ]; then
+  cp -r "$rofi_path/." "$HOME/.config/dunst"
+  echo "Successfully set the default rofi configuraton"
+  counter=3
+fi
+echo ""
+
+echo ">> Tasks [$counter/3] completed"

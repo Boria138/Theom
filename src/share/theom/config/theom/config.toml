@@ -24,3 +24,6 @@ animations = "basic" # options: none, basic, fancy
 
 [osd]
 osd = false
+
+[functions]
+autoset_appconfs = true
