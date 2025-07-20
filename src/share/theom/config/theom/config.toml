@@ -27,3 +27,4 @@ osd = false
 
 [functions]
 autoset_appconfs = true # Autoset the default configuration of apps in their config root
+enable_nightlight = true # Enables nightlight filter to protect your eyes.

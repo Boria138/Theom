@@ -30,8 +30,14 @@ mpd &
 # Theom on screen display server (depricated)
 /usr/share/theom/config/i3/osd/start-tosds.sh &
 
-# functions
+# Theom Functions
+## App configs
 if [ $(theom-config functions.autoset_appconfs) = "true" ]; then
   update-theom-appconfs 2>/dev/null
 fi
 
+## Gammastep nightlight filter wrapper
+if [ $(theom-config functions.enable_nightlight) = "true" ]; then
+  # Note: gammastep-tapplet launches gammastep automatically
+  gammastep-tapplet & 2>/dev/null
+fi

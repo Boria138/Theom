@@ -13,6 +13,9 @@ All notable changes to **Theom** will be documented in this file.
 - Default configuration for **rofi**, **alacritty**, and **dunst**.
 - `update-theom-appconfs` binary which would set the default configuration of **rofi**, **alacritty**, and **dunst**.
 - Fancier animation to fancy animation mode.
+- `gammastep` to theom to provide night light filter support.
+- `gammastep-tapplet` binary to autolaunch gammastep and also provide an easy UI to manage gammastep.
+- `enable_nightlight` key in theom config (~/.config/theom/config.toml) to enable/disable nightlight filter.
 
 ### Fixed
 
@@ -30,7 +33,7 @@ All notable changes to **Theom** will be documented in this file.
 
 ### Removed
 
-- `i3-wm` from dependencies because `i3-gaps` is the wm with gap support.
+- `i3-wm` from dependencies.
 
 ### Notes and Information
 

@@ -27,6 +27,7 @@ depends=(
   'pamixer'
   'jq'
   'gvfs'
+  'gammastep'
   'python-tomli-w'
   'theom-extras' # optional apps
   'theom-utils' # custom theom apps
