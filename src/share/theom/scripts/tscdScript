@@ -6,7 +6,7 @@
 TSCL_PATH="$HOME/.local/state/theom/meta.tscd"
 TSC="/usr/share/theom/scripts/tscdctl"
 
-[ ! -d "$HOME/.local/share/theom" ] && mkdir -p "$HOME/.local/share/theom"
+[ ! -d "$HOME/.local/state/theom" ] && mkdir -p "$HOME/.local/state/theom"
 
 theom_version=$(< /usr/share/theom/version)
 theom_version="${theom_version//$'\n'/}"
