@@ -94,12 +94,10 @@ copy_if_missing() {
 }
 
 # Alacritty
-copy_if_missing /usr/share/theom/config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
 copy_if_missing /usr/share/theom/config/alacritty/dark/alacritty.toml ~/.config/alacritty/dark/alacritty.toml
 copy_if_missing /usr/share/theom/config/alacritty/light/alacritty.toml ~/.config/alacritty/light/alacritty.toml
 
 # Dunst
-copy_if_missing /usr/share/theom/config/dunst/dunstrc ~/.config/dunst/dunstrc
 copy_if_missing /usr/share/theom/config/dunst/dark/dunstrc ~/.config/dunst/dark/dunstrc
 copy_if_missing /usr/share/theom/config/dunst/light/dunstrc ~/.config/dunst/light/dunstrc
 
@@ -126,8 +124,6 @@ for script in calendar_popup get_theme getbattery getvol music music_title open-
 done
 
 # Rofi
-copy_if_missing /usr/share/theom/config/rofi/config.rasi ~/.config/rofi/config.rasi
-copy_if_missing /usr/share/theom/config/rofi/colors.rasi ~/.config/rofi/config.rasi
 copy_if_missing /usr/share/theom/config/rofi/dark/config.rasi ~/.config/rofi/dark/config.rasi
 copy_if_missing /usr/share/theom/config/rofi/dark/colors.rasi ~/.config/rofi/dark/colors.rasi
 copy_if_missing /usr/share/theom/config/rofi/light/config.rasi ~/.config/rofi/light/config.rasi
