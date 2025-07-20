@@ -16,6 +16,7 @@ All notable changes to **Theom** will be documented in this file.
 - `gammastep` to theom to provide night light filter support.
 - `gammastep-tapplet` binary to autolaunch gammastep and also provide an easy UI to manage gammastep.
 - `enable_nightlight` key in theom config (~/.config/theom/config.toml) to enable/disable nightlight filter (disabled by default).
+- Theom configuration templates. They can be found in `/usr/share/theom/templates/config.toml.d/` directory.
 
 ### Fixed
 
@@ -30,6 +31,7 @@ All notable changes to **Theom** will be documented in this file.
 - `flameshot` configuration to be hidden tray application by default.
 - Wallpapers compression to decrease size.
 - Default wallpaper to `mountains-4k.jpg`.
+- Default polybar layout. New layout is "float".
 
 ### Removed
 

@@ -4,14 +4,14 @@
 
 [appearance]
 theme = "dark"
-wallpaper = "/usr/share/backgrounds/theom/mountains-4k.jpg"
+wallpaper = "/usr/share/backgrounds/theom/thunderbolt.jpg"
 
 [bar]
 polybar_layout = "float"
-use_eww = true
+use_eww = false
 
 [widgets]
-enable_widgets = true
+enable_widgets = false
 show = [
     "~/.config/theom/twidgets/time.lua",
     "~/.config/theom/twidgets/uptime.lua"
@@ -20,7 +20,7 @@ show = [
 [compositor]
 compositing = true
 compositing_mode = "performance" # performance mode is light and recommended and compatibility mode is heavy and prevents visual glitches. 
-animations = "basic" # options: none, basic, fancy
+animations = "none" # options: none, basic, fancy
 
 [osd]
 osd = false

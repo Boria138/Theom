@@ -4,17 +4,16 @@
 
 [appearance]
 theme = "dark"
-wallpaper = "/usr/share/backgrounds/theom/mountains-4k.jpg"
+wallpaper = "/usr/share/backgrounds/theom/girl_walking_down_a_street.jpg"
 
 [bar]
-polybar_layout = "float"
+polybar_layout = "stuck"
 use_eww = true
 
 [widgets]
 enable_widgets = true
 show = [
-    "~/.config/theom/twidgets/time.lua",
-    "~/.config/theom/twidgets/uptime.lua"
+    "~/.config/theom/twidgets/time.lua"
 ]
 
 [compositor]
@@ -27,4 +26,4 @@ osd = false
 
 [functions]
 autoset_appconfs = true # Autoset the default configuration of apps in their config root
-enable_nightlight = false # Enables nightlight filter to protect your eyes.
+enable_nightlight = true # Enables nightlight filter to protect your eyes.

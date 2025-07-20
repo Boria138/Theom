@@ -4,10 +4,10 @@
 
 [appearance]
 theme = "dark"
-wallpaper = "/usr/share/backgrounds/theom/mountains-4k.jpg"
+wallpaper = "/usr/share/backgrounds/theom/forest.jpg"
 
 [bar]
-polybar_layout = "float"
+polybar_layout = "stuck"
 use_eww = true
 
 [widgets]
@@ -20,10 +20,10 @@ show = [
 [compositor]
 compositing = true
 compositing_mode = "performance" # performance mode is light and recommended and compatibility mode is heavy and prevents visual glitches. 
-animations = "basic" # options: none, basic, fancy
+animations = "fancy" # options: none, basic, fancy
 
 [osd]
-osd = false
+osd = true
 
 [functions]
 autoset_appconfs = true # Autoset the default configuration of apps in their config root
