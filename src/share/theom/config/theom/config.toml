@@ -26,4 +26,4 @@ animations = "basic" # options: none, basic, fancy
 osd = false
 
 [functions]
-autoset_appconfs = true
+autoset_appconfs = true # Autoset the default configuration of apps in their config root
