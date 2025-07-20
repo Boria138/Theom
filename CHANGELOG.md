@@ -25,6 +25,11 @@ All notable changes to **Theom** will be documented in this file.
 - `tosd` launch scripts to have better UI (User Interface).
 - `tcomp-gen` to merge picom configs to create one full config instead of merging .jsons to create one full picom config.
 - `flameshot` configuration to be hidden tray application by default.
+- Wallpapers compression to decrease size.
+
+### Removed
+
+- `i3-wm` from dependencies because `i3-gaps` is the wm with gap support.
 
 ### Notes and Information
 

@@ -8,7 +8,6 @@ depends=(
   'pipewire-pulse'
   'brightnessctl'
   'picom'
-  'i3-wm'
   'i3-gaps'
   'polybar'
   'eww'
