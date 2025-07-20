@@ -15,7 +15,7 @@ All notable changes to **Theom** will be documented in this file.
 - Fancier animation to fancy animation mode.
 - `gammastep` to theom to provide night light filter support.
 - `gammastep-tapplet` binary to autolaunch gammastep and also provide an easy UI to manage gammastep.
-- `enable_nightlight` key in theom config (~/.config/theom/config.toml) to enable/disable nightlight filter.
+- `enable_nightlight` key in theom config (~/.config/theom/config.toml) to enable/disable nightlight filter (disabled by default).
 
 ### Fixed
 
