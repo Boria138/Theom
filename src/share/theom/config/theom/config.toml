@@ -4,7 +4,7 @@
 
 [appearance]
 theme = "dark"
-wallpaper = "/usr/share/backgrounds/theom/mountains.jpg"
+wallpaper = "/usr/share/backgrounds/theom/mountains-4k.jpg"
 
 [bar]
 polybar_layout = "stuck"
