@@ -9,7 +9,7 @@ nm-applet &
 
 # Wallpaper
 if wp=$(theom-config appearance.wallpaper 2>/dev/null); then
-  feh --bg-scale "$wp"
+  feh --bg-scale "$wp" &
 fi
 
 # Start bar (polybar/eww)
@@ -32,12 +32,12 @@ mpd &
 
 # Theom Functions
 ## App configs
-if [ $(theom-config functions.autoset_appconfs) = "true" ]; then
-  update-theom-appconfs 2>/dev/null
+if [ "$(theom-config functions.autoset_appconfs)" = "true" ]; then
+  update-theom-appconfs 2>/dev/null &
 fi
 
 ## Gammastep nightlight filter wrapper
-if [ $(theom-config functions.enable_nightlight) = "true" ]; then
+if [ "$(theom-config functions.enable_nightlight)" = "true" ]; then
   # Note: gammastep-tapplet launches gammastep automatically
-  gammastep-tapplet & 2>/dev/null
+  gammastep-tapplet 2>/dev/null &
 fi

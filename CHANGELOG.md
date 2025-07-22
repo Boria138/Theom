@@ -33,6 +33,7 @@ All notable changes to **Theom** will be documented in this file.
 - Wallpapers compression to decrease size.
 - Default wallpaper to `mountains-4k.jpg`.
 - Default polybar layout. New layout is "float".
+- `exec_always` theom autostart to offload the process of setting wallpaper.
 
 ### Removed
 
