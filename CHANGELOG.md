@@ -31,7 +31,7 @@ All notable changes to **Theom** will be documented in this file.
 - `tcomp-gen` to merge picom configs to create one full config instead of merging .jsons to create one full picom config.
 - `flameshot` configuration to be hidden tray application by default.
 - Wallpapers compression to decrease size.
-- Default wallpaper to `mountains-4k.jpg`.
+- Default wallpaper to `mountains.jpg` (resolution decreased).
 - Default polybar layout. New layout is "float".
 - `exec_always` theom autostart to offload the process of setting wallpaper.
 
