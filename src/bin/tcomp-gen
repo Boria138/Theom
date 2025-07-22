@@ -2,6 +2,7 @@
 
 import sys
 import os
+import re
 
 # NOTE to my future self: Update the version if the code is changed
 VERSION = "1.0.1"
@@ -27,6 +28,70 @@ def load_config(path):
 def merge_configs(a, b):
     return a + b
 
+def extract_rules_blocks(config):
+    pattern = re.compile(r'rules\s*[:=]\s*\(', re.IGNORECASE)
+    blocks = []
+    positions = []
+
+    for match in pattern.finditer(config):
+        start_idx = match.start()
+        paren_start = match.end()
+        depth = 1
+        i = paren_start
+
+        while i < len(config) and depth > 0:
+            if config[i] == '(':
+                depth += 1
+            elif config[i] == ')':
+                depth -= 1
+            i += 1
+
+        blocks.append(config[paren_start:i-1].strip())
+        positions.append((start_idx, i))  # full slice to remove
+
+    return blocks, positions
+
+def extract_dicts_from_block(block):
+    dicts = []
+    i = 0
+    while i < len(block):
+        if block[i] == '{':
+            start = i
+            depth = 1
+            i += 1
+            while i < len(block) and depth > 0:
+                if block[i] == '{':
+                    depth += 1
+                elif block[i] == '}':
+                    depth -= 1
+                i += 1
+            dicts.append(block[start:i])
+        else:
+            i += 1
+    return dicts
+
+def merge_rules(config):
+    #  Extract all rules blocks and their positions
+    rules_blocks, positions = extract_rules_blocks(config)
+
+    # Extract all rule dicts
+    all_rules = []
+    for block in rules_blocks:
+        all_rules.extend(extract_dicts_from_block(block))
+
+    # Remove all rules blocks from config (backwards so indices stay valid)
+    for start, end in reversed(positions):
+        config = config[:start] + config[end:]
+
+    # Clean up any hanging quotes/semicolons
+    config = re.sub(r'\);\s*["\']?;', ');', config)
+
+    # Compose the merged rules
+    merged_rules = "rules = (\n" + ",\n".join(all_rules) + "\n);"
+
+    return config.strip() + "\n\n" + merged_rules
+
+
 def merge_all_configs(paths):
     if not paths:
         return {}
@@ -35,7 +100,7 @@ def merge_all_configs(paths):
     for path in paths[1:]:
         override = load_config(path)
         merged = merge_configs(merged, override)
-    return merged
+    return merge_rules(merged)
 
 def save_config(config_str, out_dir):
     path = os.path.join(out_dir, "picom.conf")

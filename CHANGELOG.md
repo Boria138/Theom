@@ -6,6 +6,16 @@ All notable changes to **Theom** will be documented in this file.
 
 ---
 
+## [4.0.1] - ADD DATE HERE
+
+### Added
+
+- `rule:` merging in `tcomp-gen` to have easy support for modern picom config.
+
+### Fixed
+
+- The bug where inactive dim didn't trigger on fancy animation mode.
+
 ## [4.0.0] - 2025-07-22
 
 ### Added
