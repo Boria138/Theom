@@ -6,7 +6,7 @@ All notable changes to **Theom** will be documented in this file.
 
 ---
 
-## [4.0.1] - ADD DATE HERE
+## [4.0.1] - 2025-08-20
 
 ### Added
 
