@@ -9,11 +9,12 @@
 
 ## Features
 
-- Minimal resource usage: 400-450MB ram use on idle (information from VM)
+- Minimal resource usage: 400-450MB ram use on idle (information from VM | minimal arch install)
 - Comes with two different themes: a dark theme and a light theme
 - Has a built in dashboard
-- Has a settings application to tweak the settings of theom
-- Welcomes user friendly greeter during startup
+- Has a settings application to tweak the settings of Theom
+- Welcomes user with a friendly greeter during startup
+- Has multiple animation modes: None, Minimal, Fancy
 - Easy to customize
 
 ## Media
