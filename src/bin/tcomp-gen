@@ -18,7 +18,7 @@ Options:
   --help        Show this help message and exit
   --version     Print version information
   --generate [CONFIGs...] OUTDIR
-                Generate picom config by merging JSON files into OUTDIR
+                Generate picom config by merging CONF files into OUTDIR
 """, file=sys.stderr)
 
 def load_config(path):
