@@ -19,7 +19,7 @@ show = [
 
 [compositor]
 compositing = true
-compositing_mode = "performance" # performance mode is light and recommended and compatibility mode is heavy and prevents visual glitches. 
+compositing_mode = "performance" # performance mode is light and recommended and compatibility mode is heavy but prevents visual glitches. 
 animations = "none" # options: none, basic, fancy
 
 [osd]
