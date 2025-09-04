@@ -7,6 +7,10 @@ flameshot &
 parcellite &
 nm-applet &
 
+if [ -d /sys/module/bluetooth ]; then
+	blueman-applet &
+fi
+
 # Wallpaper
 if wp=$(theom-config appearance.wallpaper 2>/dev/null); then
   feh --bg-scale "$wp" &

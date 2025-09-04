@@ -7,6 +7,7 @@ dunst
 eww
 feh
 gammastep
+gnome-polkit
 gvfs
 i3-gaps
 jq
