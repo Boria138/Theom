@@ -29,6 +29,7 @@ depends=(
   'gvfs'
   'gammastep'
   'python-tomli-w'
+  'autotiling'
   'theom-extras' # optional apps
   'theom-utils' # custom theom apps
 )
