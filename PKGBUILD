@@ -33,6 +33,7 @@ depends=(
   'theom-extras' # optional apps
   'theom-utils' # custom theom apps
   'polkit-gnome'
+  'xdg-desktop-portal-gtk'
 )
 
 url="https://github.com/AxOS-project/theom"

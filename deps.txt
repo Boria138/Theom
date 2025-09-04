@@ -24,4 +24,5 @@ theom-extras
 theom-utils
 ttf-firacode-nerd
 upower
+xdg-desktop-portal-gtk
 xorg-server
