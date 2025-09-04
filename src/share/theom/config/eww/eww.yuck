@@ -9,6 +9,9 @@
 (deflisten is_playing :initial "false"
   "scripts/music")
 
+(deflisten keyboard_layout :initial "us"
+  "xkb-switch -W")
+
 (defwidget metric [label value onchange]
   (box :orientation "h"
        :class "metric"
@@ -97,6 +100,12 @@
       :onclick "scripts/open-systray ${theme}"
       :class "systray-open"
       ""))
+
+    (separator)
+    (button
+      :onclick "xkb-switch -n"
+      :class "kb-layout"
+      "${keyboard_layout}")
 
     ;(button
     ;  :onclick "echo nothing"

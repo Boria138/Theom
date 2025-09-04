@@ -27,4 +27,6 @@ theom-utils
 ttf-firacode-nerd
 upower
 xdg-desktop-portal-gtk
+xkb-switch
 xorg-server
+xorg-setxkbmap
