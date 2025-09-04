@@ -32,7 +32,7 @@ depends=(
   'autotiling'
   'theom-extras' # optional apps
   'theom-utils' # custom theom apps
-  'gnome-polkit'
+  'polkit-gnome'
 )
 
 url="https://github.com/AxOS-project/theom"
