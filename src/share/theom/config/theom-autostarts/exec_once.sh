@@ -3,6 +3,9 @@
 # First time welcome:
 /usr/share/theom/config/i3/other/first-time-welcome.sh &
 
+# Polkit
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & || /usr/libexec/polkit-gnome-authentication-agent-1 &
+
 # Start gfsd
 /usr/lib/gvfsd &
 /usr/lib/gvfsd-trash &
