@@ -191,7 +191,7 @@
     (cal))
 
 (defwindow power_popup
-  :geometry (geometry :x "-20px" :y "7%" :anchor "top right" :width "200px" :height "150px")
+  :geometry (geometry :x "-15%" :y "7%" :anchor "top right" :width "200px" :height "150px")
   :windowtype "dialog"
   (box :class "${theme == 'light' ? 'power_profiles_popup light-theme' : (theme == 'dark' ? 'power_profiles_popup dark-theme' : 'bar')}"
        :orientation "v"
@@ -199,11 +199,11 @@
        (box :class "popup-header"
             (label :text "Power Profiles" :class "popup-title"))
        (button :class "profile-button ${power_profile == 'power-saver' ? 'active' : ''}"
-               :onclick "~/.config/eww/scripts/power_profiles_popup set power-saver && eww close power_popup && eww update power_profile='power-saver'"
+               :onclick "~/.config/eww/scripts/power_profiles_popup set power-saver && ~/.config/eww/scripts/power_profiles_popup popup && eww update power_profile='power-saver'"
                "Power Save")
        (button :class "profile-button ${power_profile == 'balanced' ? 'active' : ''}"
-               :onclick "~/.config/eww/scripts/power_profiles_popup set balanced && eww close power_popup && eww update power_profile='balanced'"
+               :onclick "~/.config/eww/scripts/power_profiles_popup set balanced && ~/.config/eww/scripts/power_profiles_popup popup  && eww update power_profile='balanced'"
                "Balanced")
        (button :class "profile-button ${power_profile == 'performance' ? 'active' : ''}"
-               :onclick "~/.config/eww/scripts/power_profiles_popup set performance && eww close power_popup && eww update power_profile='performance'"
+               :onclick "~/.config/eww/scripts/power_profiles_popup set performance && ~/.config/eww/scripts/power_profiles_popup popup  && eww update power_profile='performance'"
                "Performance")))
