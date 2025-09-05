@@ -2,6 +2,7 @@
 (defpoll theme :interval "5m" "scripts/get_theme")
 (defpoll day :interval "20h" "date '+%d'")
 (defpoll year :interval "20h" "date '+%Y'")
+(defpoll power_profile :interval "5s" "scripts/power_profiles_popup get")
 (deflisten player_state :initial "paused"
   "mpc status | grep -o 'playing\|paused\|stopped'")
 
@@ -75,8 +76,8 @@
   (box :class "right" :orientation "h" :space-evenly false :halign "end"
     (box :visible "${battery_state != 'unknown'}"
     (button
-      :onclick ""
-      :class "${battery_state == 'charging' ? 'battery-charging' : (battery_state == 'fully-charged' ? 'battery-full' : 'battery-discharging')}" ; sorryo i had to nest it
+      :onclick "~/.config/eww/scripts/power_profiles_popup"
+      :class "${battery_state == 'charging' ? 'battery-charging' : (battery_state == 'fully-charged' ? 'battery-full' : 'battery-discharging')}"
       "󰁹 ${battery_percent}% "))
 
     (box :visible "${battery_state != 'unknown'}"
@@ -188,3 +189,21 @@
     :geometry (geometry :x "-20px" :y "7%" :anchor "top right" :width "270px" :height "60px")
     :windowtype "dialog"
     (cal))
+
+(defwindow power_popup
+  :geometry (geometry :x "-20px" :y "7%" :anchor "top right" :width "200px" :height "150px")
+  :windowtype "dialog"
+  (box :class "power_profiles_popup"
+       :orientation "v"
+       :spacing 8
+       (box :class "popup-header"
+            (label :text "Power Profiles" :class "popup-title"))
+       (button :class "profile-button ${power_profile == 'power-saver' ? 'active' : ''}"
+               :onclick "~/.config/eww/scripts/power_profiles_popup set power-saver && eww close power_popup && eww update power_profile='power-saver'"
+               "Power Save")
+       (button :class "profile-button ${power_profile == 'balanced' ? 'active' : ''}"
+               :onclick "~/.config/eww/scripts/power_profiles_popup set balanced && eww close power_popup && eww update power_profile='balanced'"
+               "Balanced")
+       (button :class "profile-button ${power_profile == 'performance' ? 'active' : ''}"
+               :onclick "~/.config/eww/scripts/power_profiles_popup set performance && eww close power_popup && eww update power_profile='performance'"
+               "Performance")))
