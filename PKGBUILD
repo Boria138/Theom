@@ -30,10 +30,11 @@ depends=(
   'gammastep'
   'python-tomli-w'
   'autotiling'
-  'theom-extras' # optional apps
-  'theom-utils' # custom theom apps
   'polkit-gnome'
   'xdg-desktop-portal-gtk'
+  'glib2'
+  'theom-extras' # optional apps
+  'theom-utils' # custom theom apps
 )
 
 url="https://github.com/AxOS-project/theom"
@@ -42,6 +43,7 @@ license=('GPL')
 optdepends=(
   'plattenalbum: A GUI music player for mpd'
   'i3status: Status bar for i3wm'
+  'power-profiles-daemon: Power profiles support'
 )
 
 package() {
