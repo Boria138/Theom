@@ -119,7 +119,7 @@ copy_if_missing /usr/share/theom/config/polybar/modules/layout.stuck.conf ~/.con
 copy_if_missing /usr/share/theom/config/eww/launch.sh ~/.config/eww/launch.sh
 copy_if_missing /usr/share/theom/config/eww/eww.yuck ~/.config/eww/eww.yuck
 copy_if_missing /usr/share/theom/config/eww/eww.scss ~/.config/eww/eww.scss
-for script in calendar_popup get_theme getbattery getvol music music_title open-systray workspace; do
+for script in calendar_popup power_profiles_popup get_theme getbattery getvol music music_title open-systray workspace; do
   copy_if_missing "/usr/share/theom/config/eww/scripts/$script" "$HOME/.config/eww/scripts/$script"
 done
 
