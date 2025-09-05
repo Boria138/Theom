@@ -193,7 +193,7 @@
 (defwindow power_popup
   :geometry (geometry :x "-20px" :y "7%" :anchor "top right" :width "200px" :height "150px")
   :windowtype "dialog"
-  (box :class "power_profiles_popup"
+  (box :class "${theme == 'light' ? 'power_profiles_popup light-theme' : (theme == 'dark' ? 'power_profiles_popup dark-theme' : 'bar')}"
        :orientation "v"
        :spacing 8
        (box :class "popup-header"
