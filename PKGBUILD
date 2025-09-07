@@ -33,6 +33,8 @@ depends=(
   'polkit-gnome'
   'xdg-desktop-portal-gtk'
   'glib2'
+  'xorg-setxkbmap'
+  'xkb-switch' # need build from aur
   'theom-extras' # optional apps
   'theom-utils' # custom theom apps
 )
