@@ -18,6 +18,10 @@ if [ "$(theom-config functions.autotile)" = "true" ]; then
   autotiling 2>/dev/null &
 fi
 
+if [ "$(theom-config functions.kblayout_switch)" = "true" ]; then
+  theom-kblayout-switch &
+fi
+
 # User scripts
 ## Battery notify
 [ ! -s ~/.config/theom/user_scripts/battery_notify ] && ~/.config/theom/user_scripts/battery_notify & # Only executed if the script exists and is non-empty
