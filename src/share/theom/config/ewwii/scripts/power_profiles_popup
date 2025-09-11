@@ -9,7 +9,7 @@ has_powerprofiles() {
 }
 
 popup() {
-	STATEFILE="$XDG_RUNTIME_DIR/eww_power_popup_state"
+	STATEFILE="$XDG_RUNTIME_DIR/ewwii_power_popup_state"
 
 	if [[ -f $STATEFILE ]]; then
 	  last_state=$(cat $STATEFILE)
@@ -18,11 +18,11 @@ popup() {
 	fi
 
 	if [[ $last_state == "open" ]]; then
-	  eww close power_popup
+	  ewwii close power_popup
 	  echo "closed" > $STATEFILE
 	else
 	  if has_powerprofiles; then
-	    eww open power_popup
+	    ewwii open power_popup
 	    echo "open" > $STATEFILE
 	  fi
 	fi
