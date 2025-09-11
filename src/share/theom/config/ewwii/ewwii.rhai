@@ -195,19 +195,12 @@ fn center(music, is_playing) {
     ])
 }
 
-// just a small hack.
-// 
-// ik that i shouldnt have done that BUT
-// i have to migrate fast!
-import "std::command" as command;
-let power_profile = command::run_and_read("scripts/power_profiles_popup get");
-
 enter([
     poll("theme", #{ interval: "5min", cmd: "scripts/get_theme" }),
     poll("day", #{ interval: "20h", cmd: "date '+%d'" }),
     poll("year", #{ interval: "20h", cmd: "date '+%Y'" }),
 
-    // poll("power_profile", #{ interval: "5s", cmd: "scripts/power_profiles_popup get" }),
+    poll("power_profile", #{ interval: "1s", cmd: "scripts/power_profiles_popup get" }),
     listen("is_playing", #{ initial: "false", cmd: "scripts/music" }),
 
     listen("music", #{ initial: "", cmd: "scripts/music_title" }),
