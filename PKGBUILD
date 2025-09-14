@@ -34,7 +34,9 @@ depends=(
   'xdg-desktop-portal-gtk'
   'glib2'
   'xorg-setxkbmap'
-  'xkb-switch' # need build from aur
+  'xorg-xprop'
+  'xdotool'
+  'xkb-switch'
   'theom-extras' # optional apps
   'theom-utils' # custom theom apps
 )
